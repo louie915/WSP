@@ -1,0 +1,1146 @@
+﻿<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cedula Taxpayer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.css">
+</head>
+<style>
+  .load-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .wrapper {
+    position: absolute;
+    top: -35px;
+    transform: scale(1.5);
+  }
+
+  .loader {
+    height: 25px;
+    width: 1px;
+    position: absolute;
+    animation: rotate 3.5s linear infinite;
+  }
+
+  .loader .dot {
+    top: 30px;
+    height: 7px;
+    width: 7px;
+    background: black;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  /*.loader-text{
+      position: absolute;
+      bottom: -85px;
+      font-size: 25px;
+      font-weight: 400;
+      font-family: sans-serif;
+      color: black;
+    }*/
+  @keyframes rotate {
+    30% {
+      transform: rotate(220deg);
+    }
+
+    40% {
+      transform: rotate(450deg);
+      opacity: 1;
+    }
+
+    75% {
+      transform: rotate(720deg);
+      opacity: 1;
+    }
+
+    76% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 0;
+      transform: rotate(0deg);
+    }
+  }
+
+  .loader:nth-child(1) {
+    animation-delay: 0.15s;
+  }
+
+  .loader:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  .loader:nth-child(3) {
+    animation-delay: 0.45s;
+  }
+
+  .loader:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  .loader:nth-child(5) {
+    animation-delay: 0.75s;
+  }
+
+  .loader:nth-child(6) {
+    animation-delay: 0.9s;
+  }
+</style>
+
+<body class="d-flex flex-column h-100">
+
+  <header class="p-3 mb-3 border-bottom bg-light">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 link-secondary backToWebPortal fw-bold">Back To Web Portal</a></li>
+          <li><a href="index.html" class="nav-link px-2 link-secondary">Home</a></li>
+        </ul>
+
+
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle link-secondary"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="mdo" width="32" height="32"
+              class="rounded-circle">
+            <span class="user">User</span>
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item logout" href="#">Sign out</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <main class="container">
+
+    <div class="row align-items-md-stretch g-3 m-auto">
+      <div class="col individual-cedula">
+        <div class="h-100 p-5 bg-light border rounded-3 text-center">
+          <div class="spic-icon">
+            <img src="../icons/individual.gif" alt="Icon 2" class="img-fluid" width="200" height="200">
+          </div>
+          <h4 class="registration-type">Individual Cedula</h4>
+          <div class="spic-button mt-3">
+            <button type="button" class="btn btn-outline-dark new-registration">New Registration</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col corporation-cedula">
+        <div class="h-100 p-5 bg-light border rounded-3 text-center">
+          <div class="spic-icon">
+            <img src="../icons/corporation.gif" alt="Icon 2" class="img-fluid" width="200" height="200">
+          </div>
+          <h4 class="registration-type">Corporation Cedula</h4>
+          <div class="spic-button mt-3">
+            <button type="button" class="btn btn-outline-dark new-registration">New Registration</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col professional-tax-receipt">
+        <div class="h-100 p-5 bg-light border rounded-3 text-center">
+          <div class="spic-icon">
+            <img src="../icons/profesitional.gif" alt="Icon 2" class="img-fluid" width="200" height="200">
+          </div>
+          <h4 class="registration-type">Professional Tax Receipt</h4>
+          <div class="spic-button  mt-3">
+            <button type="button" class="btn btn-outline-dark new-registration">New Registration</button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col form-type">
+        <div class="h-100 bg-light border rounded-3">
+          <div class="container-fluid">
+            <!-- <h4 class="form-title mt-3 mb-4">Form</h4> -->
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <img src="#" alt="Icon 2" class="img-fluid cedula-icons" width="200" height="200">
+              </div>
+              <div class="col">
+                <h1 class="fw-bold form-title"></h1>
+              </div>
+            </div>
+
+            <!--Individual Cedula Form-->
+            <div class="container individual-cedula-form">
+
+            </div>
+            <!--End Individual Cedula Form-->
+
+            <!--Corporation Cedula Form-->
+            <div class="container corporation-cedula-form">
+
+            </div>
+            <!--End Corporation Cedula Form-->
+
+
+            <!--Professional Tax Receipt Form-->
+            <div class="container professional-tax-receipt-form">
+
+            </div>
+            <!--End Professional Tax Receipt Form-->
+
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+      <!--Success-->
+      <div class="col success-page">
+      </div>
+      <!--End Success-->
+
+      <!-- Notification-->
+      <div class="modal fade" id="appNotification" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container d-flex justify-content-center align-items-center">
+                <div class="row">
+                  <video width="100" height="100" preload="none"
+                    style="background: transparent  url('https://cdn-icons-png.flaticon.com/512/10468/10468726.png') 50% 50% / fit no-repeat;"
+                    autoplay="autoplay" loop="true" muted="muted" playsinline="">
+                    <source src="https://cdn-icons-mp4.flaticon.com/512/10468/10468726.mp4" type="video/mp4">
+                  </video>
+                  <span class="fw-bold fs-5 app-notification-messages text-center"></span>
+                </div>
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark new-registration" data-bs-dismiss="modal">Ok</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--End Notification-->
+
+
+
+      <!--Loader-->
+      <div class="modal" id="apploader" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-body">
+            <div class="load-container">
+              <div class="wrapper">
+                <div class="loader">
+                  <div class="dot"></div>
+                </div>
+                <div class="loader">
+                  <div class="dot"></div>
+                </div>
+                <div class="loader">
+                  <div class="dot"></div>
+                </div>
+                <div class="loader">
+                  <div class="dot"></div>
+                </div>
+                <div class="loader">
+                  <div class="dot"></div>
+                </div>
+                <div class="loader">
+                  <div class="dot"></div>
+                </div>
+              </div>
+              <!-- <div class="loader-text">
+                            Please wait
+                          </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--End Loader-->
+
+    </div>
+  </main>
+
+
+
+
+  <!-- Footer-->
+  <footer class="footer mt-auto py-2 bg-light">
+    <div class="container text-center py-2">
+      <p>&copy; 2023 SPIDC</p>
+    </div>
+  </footer>
+  <!--End Footer-->
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.js"></script>
+    <script type="text/javascript">
+
+        /*---------------------- LOADER And Also Can Be Used As Document Ready-----------------------------*/
+        var loader = new bootstrap.Modal(document.getElementById('apploader'));
+        var notification = new bootstrap.Modal(document.getElementById('appNotification'));
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                loader.show();
+            } else {
+                loader.hide();
+                appCheckToken();
+                accountProfile();
+                backToWebPortal();
+                logout();
+            }
+        };
+        /*----------------------End  LOADER -----------------------------*/
+
+
+        //Payment Calculation Individual And Corporation
+        var SalariesTax = "";
+        var IncomeRealPropertyTax = "";
+        var RealPropertyTax = "";
+        var GrossRecieptTax = "";
+        //This Data Must Be Dynamic
+        var Multiplier;
+        var BasicTax;
+        var MaxInput = 5000;
+        var MultiplierCorporation;
+        var BasicTaxCorporation;
+        var MaxInputCorporation = 10000;
+        //Interest
+        var currentMonth;
+        var CtcMonth;
+        var CtcDay;
+        var CtcInterest;
+        var CtcSucceed;
+        //varriable
+        var total = "";
+        var totalRounded = "";
+        var interest = "";
+        var interestRounded = "";
+        var amountToPay = "";
+
+
+        document.getElementsByClassName("form-type")[0].style.display = "none";
+        document.getElementsByClassName("success-page")[0].style.display = "none";
+        var registrationTypeElements = document.getElementsByClassName("registration-type");
+        var newRegistrationElements = document.getElementsByClassName("new-registration");
+        for (var i = 0; i < registrationTypeElements.length && i < newRegistrationElements.length; i++) {
+            // Store the index 'i' as a data attribute on the newRegistration element
+            newRegistrationElements[i].setAttribute("data-index", i);
+            newRegistrationElements[i].addEventListener("click", function () {
+                // Get the index from the data attribute
+                var index = this.getAttribute("data-index");
+                // Use the index to access the corresponding registrationTypeElement
+                var registrationTypeElement = registrationTypeElements[index];
+                // Get the text content of the registrationTypeElement
+                var registration = registrationTypeElement.textContent;
+
+                if (registration == "Individual Cedula") {
+
+                    //Basic Community Tax Individual
+                    //Make Ajax Call
+                    $.ajax({
+                        url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetIndividualBasicTaxToims',
+                        type: 'GET',//METHOD
+                        data: '{}',
+                        cache: false,
+                        dataType: 'json', // DATA TYPE
+                        beforeSend: function (xhr) {
+                            // Set the Authorization header with the Bearer token
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+                        },
+                        success: function (response) {
+                            // HANDLES SUCCESS REPONSE
+                            if (response.status) {
+                                data = JSON.parse(JSON.stringify(response.data));
+                                //Fill or append the data
+                                for (var i = 0; i < data.length; i++) {
+                                    BasicTax = Number(data[i].Amount);
+                                    document.getElementById('_BasicTax').value = BasicTax.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                                }
+                                //Multiplier Individual
+                                $.ajax({
+                                    url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetIndividualMultiplierToims',
+                                    type: 'GET',//METHOD
+                                    data: '{}',
+                                    async: true,
+                                    cache: false,
+                                    dataType: 'json', // DATA TYPE
+                                    beforeSend: function (xhr) {
+                                        // Set the Authorization header with the Bearer token
+                                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+                                    },
+                                    success: function (response) {
+                                        // HANDLES SUCCESS REPONSE
+                                        if (response.status) {
+                                            // Parse the JSON response
+                                            parsedResponse = JSON.parse(JSON.stringify(response));
+                                            // Access the INDIVIDUALMULTIPLIER value
+                                            individualMultiplier = parsedResponse.data[0].INDIVIDUALMULTIPLIER;
+                                            Multiplier = Number(individualMultiplier);
+                                            //Interest
+                                            $.ajax({
+                                                url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetInterestToims',
+                                                type: 'GET',//METHOD
+                                                data: '{}',
+                                                cache: false,
+                                                dataType: 'json', // DATA TYPE
+                                                beforeSend: function (xhr) {
+                                                    // Set the Authorization header with the Bearer token
+                                                    xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+                                                },
+                                                success: function (response) {
+                                                    // HANDLES SUCCESS REPONSE
+                                                    if (response.status) {
+                                                        // Parse the JSON response
+                                                        parsedInterestResponse = JSON.parse(JSON.stringify(response));
+                                                        // Access the interest value
+                                                        cMonth = parsedInterestResponse.data[0].CurrentDate;
+                                                        Month = parsedInterestResponse.data[0].CtcMonth;
+                                                        Day = parsedInterestResponse.data[0].CtcDay;
+                                                        Interest = parsedInterestResponse.data[0].CtcInterest;
+                                                        Succeed = parsedInterestResponse.data[0].CtcSucceed;
+                                                        currentMonth = Number(cMonth);
+                                                        CtcMonth = Number(Month);
+                                                        CtcDay = Number(Day);
+                                                        CtcInterest = Number(Interest);
+                                                        CtcSucceed = Number(Succeed);
+                                                    }
+                                                },
+                                                error: function (xhr, status, error) {
+                                                    // HANDLES ERROR REPONSE
+                                                    console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                                                    console.log(xhr.responseText); // Log the response text received from the server
+                                                    console.log(errorThrown);
+                                                }
+                                            });
+                                            //End Interest
+                                        } 
+                                    },
+                                    error: function (xhr, status, error) {
+                                        // HANDLES ERROR REPONSE
+                                        console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                                        console.log(xhr.responseText); // Log the response text received from the server
+                                        console.log(errorThrown);
+                                    }
+                                });
+                                //EndMultiplier Individual
+
+
+                            } 
+                        },
+                        error: function (xhr, status, error) {
+                            // HANDLES ERROR REPONSE
+                            console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                            console.log(xhr.responseText); // Log the response text received from the server
+                            console.log(errorThrown);
+                        }
+                    });
+                    //alert(registration);
+                    //registration Type
+                    document.getElementsByClassName("individual-cedula")[0].style.display = "none";
+                    document.getElementsByClassName("corporation-cedula")[0].style.display = "none";
+                    document.getElementsByClassName("professional-tax-receipt")[0].style.display = "none";
+                    //Form Type
+                    document.getElementsByClassName("form-type")[0].style.display = "block";
+                    //Form Title
+                    document.getElementsByClassName("form-title")[0].textContent = registration;
+                    //Form
+                    document.getElementsByClassName("cedula-icons")[0].src = "../icons/individual.gif";
+                    document.getElementsByClassName("individual-cedula-form")[0].style.display = "block";
+                    document.getElementsByClassName("corporation-cedula-form")[0].style.display = "none";
+                    document.getElementsByClassName("professional-tax-receipt-form")[0].style.display = "none";
+                    //Form HTML
+                    document.getElementsByClassName("individual-cedula-form")[0].innerHTML = '<div class="row"> <div class="col mb-5"> <h4>Personal Information</h4> <div class="row mb-1"> <label for="_FirstName" class="col-sm-3 col-form-label col-form-label-sm">First Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_FirstName" id="_FirstName"> </div> </div> <div class="row mb-1"> <label for="_MiddleName" class="col-sm-3 col-form-label col-form-label-sm">Middle Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_MiddleName" id="_MiddleName"> </div> </div> <div class="row mb-1"> <label for="_LastName" class="col-sm-3 col-form-label col-form-label-sm">Last Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_LastName" id="_LastName"> </div> </div> <div class="row mb-1"> <label for="_BirthPlace" class="col-sm-3 col-form-label col-form-label-sm">Birth Place</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_BirthPlace" id="_BirthPlace"> </div> </div> <div class="row mb-1"> <label for="_BirthDate" class="col-sm-3 col-form-label col-form-label-sm">Birth Date</label> <div class="col-sm-9"> <input type="date" class="form-control form-control-sm" name="_BirthDate" id="_BirthDate"> </div> </div> <div class="row mb-1"> <label for="_Address" class="col-sm-3 col-form-label col-form-label-sm">Address</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_Address" id="_Address"> </div> </div> <div class="row mb-1"> <label for="_Gender" class="col-sm-3 col-form-label col-form-label-sm">Gender</label> <div class="col-sm-9"> <div class="form-check form-check-inline"> <input class="form-check-input form-check-input-sm" type="radio" name="_Gender" id="_Male" value="Male" required> <label class="form-check-label" for="_Male">Male</label> </div> <div class="form-check form-check-inline"> <input class="form-check-input form-check-input-sm" type="radio" name="_Gender" id="_Female" value="Female" required> <label class="form-check-label" for="_Female">Female</label> </div> </div> </div> <div class="row mb-1"> <label for="_CivilStatus" class="col-sm-3 col-form-label col-form-label-sm">Civil Status</label> <div class="col-sm-9"> <select class="form-select form-select-sm" id="_CivilStatus"> <option value="">Select Civil Status</option> <option value="Single">Single</option> <option value="option2">Married</option> <option value="option3">Separated</option> </select> </div> </div> <!-- <div class="row mb-1"> <label for="_notAfilipino" class="col-sm-3 col-form-label col-form-label-sm"></label> <div class="col-sm-9"> <div class="form-check form-check-inline"> <input class="form-check-input form-check-input-sm" type="checkbox" name="_notAfilipino" id="_notAfilipino" value="Not a Filipino"> <label class="form-check-label" for="_notAfilipino">Not a Filipino</label> </div> </div> </div>--> <div class="row mb-1"> <label for="_Citizenship" class="col-sm-3 col-form-label col-form-label-sm">Citizenship</label> <div class="col-sm-9"> <select class="form-select form-select-sm" name="_Citizenship" id="_Citizenship"> <option value="">Select Civil Status</option> <option value="Filipino" selected>Filipino</option> <option value="afghan">Afghan</option> <option value="albanian">Albanian</option> <option value="algerian">Algerian</option> <option value="american">American</option> <option value="andorran">Andorran</option> <option value="angolan">Angolan</option> <option value="antiguans">Antiguans</option> <option value="argentinean">Argentinean</option> <option value="armenian">Armenian</option> <option value="australian">Australian</option> <option value="austrian">Austrian</option> <option value="azerbaijani">Azerbaijani</option> <option value="bahamian">Bahamian</option> <option value="bahraini">Bahraini</option> <option value="bangladeshi">Bangladeshi</option> <option value="barbadian">Barbadian</option> <option value="barbudans">Barbudans</option> <option value="batswana">Batswana</option> <option value="belarusian">Belarusian</option> <option value="belgian">Belgian</option> <option value="belizean">Belizean</option> <option value="beninese">Beninese</option> <option value="bhutanese">Bhutanese</option> <option value="bolivian">Bolivian</option> <option value="bosnian">Bosnian</option> <option value="brazilian">Brazilian</option> <option value="british">British</option> <option value="bruneian">Bruneian</option> <option value="bulgarian">Bulgarian</option> <option value="burkinabe">Burkinabe</option> <option value="burmese">Burmese</option> <option value="burundian">Burundian</option> <option value="cambodian">Cambodian</option> <option value="cameroonian">Cameroonian</option> <option value="canadian">Canadian</option> <option value="cape verdean">Cape Verdean</option> <option value="central african">Central African</option> <option value="chadian">Chadian</option> <option value="chilean">Chilean</option> <option value="chinese">Chinese</option> <option value="colombian">Colombian</option> <option value="comoran">Comoran</option> <option value="congolese">Congolese</option> <option value="costa rican">Costa Rican</option> <option value="croatian">Croatian</option> <option value="cuban">Cuban</option> <option value="cypriot">Cypriot</option> <option value="czech">Czech</option> <option value="danish">Danish</option> <option value="djibouti">Djibouti</option> <option value="dominican">Dominican</option> <option value="dutch">Dutch</option> <option value="east timorese">East Timorese</option> <option value="ecuadorean">Ecuadorean</option> <option value="egyptian">Egyptian</option> <option value="emirian">Emirian</option> <option value="equatorial guinean">Equatorial Guinean</option> <option value="eritrean">Eritrean</option> <option value="estonian">Estonian</option> <option value="ethiopian">Ethiopian</option> <option value="fijian">Fijian</option> <option value="finnish">Finnish</option> <option value="french">French</option> <option value="gabonese">Gabonese</option> <option value="gambian">Gambian</option> <option value="georgian">Georgian</option> <option value="german">German</option> <option value="ghanaian">Ghanaian</option> <option value="greek">Greek</option> <option value="grenadian">Grenadian</option> <option value="guatemalan">Guatemalan</option> <option value="guinea-bissauan">Guinea-Bissauan</option> <option value="guinean">Guinean</option> <option value="guyanese">Guyanese</option> <option value="haitian">Haitian</option> <option value="herzegovinian">Herzegovinian</option> <option value="honduran">Honduran</option> <option value="hungarian">Hungarian</option> <option value="icelander">Icelander</option> <option value="indian">Indian</option> <option value="indonesian">Indonesian</option> <option value="iranian">Iranian</option> <option value="iraqi">Iraqi</option> <option value="irish">Irish</option> <option value="israeli">Israeli</option> <option value="italian">Italian</option> <option value="ivorian">Ivorian</option> <option value="jamaican">Jamaican</option> <option value="japanese">Japanese</option> <option value="jordanian">Jordanian</option> <option value="kazakhstani">Kazakhstani</option> <option value="kenyan">Kenyan</option> <option value="kittian and nevisian">Kittian and Nevisian</option> <option value="kuwaiti">Kuwaiti</option> <option value="kyrgyz">Kyrgyz</option> <option value="laotian">Laotian</option> <option value="latvian">Latvian</option> <option value="lebanese">Lebanese</option> <option value="liberian">Liberian</option> <option value="libyan">Libyan</option> <option value="liechtensteiner">Liechtensteiner</option> <option value="lithuanian">Lithuanian</option> <option value="luxembourger">Luxembourger</option> <option value="macedonian">Macedonian</option> <option value="malagasy">Malagasy</option> <option value="malawian">Malawian</option> <option value="malaysian">Malaysian</option> <option value="maldivan">Maldivan</option> <option value="malian">Malian</option> <option value="maltese">Maltese</option> <option value="marshallese">Marshallese</option> <option value="mauritanian">Mauritanian</option> <option value="mauritian">Mauritian</option> <option value="mexican">Mexican</option> <option value="micronesian">Micronesian</option> <option value="moldovan">Moldovan</option> <option value="monacan">Monacan</option> <option value="mongolian">Mongolian</option> <option value="moroccan">Moroccan</option> <option value="mosotho">Mosotho</option> <option value="motswana">Motswana</option> <option value="mozambican">Mozambican</option> <option value="namibian">Namibian</option> <option value="nauruan">Nauruan</option> <option value="nepalese">Nepalese</option> <option value="new zealander">New Zealander</option> <option value="ni-vanuatu">Ni-Vanuatu</option> <option value="nicaraguan">Nicaraguan</option> <option value="nigerien">Nigerien</option> <option value="north korean">North Korean</option> <option value="northern irish">Northern Irish</option> <option value="norwegian">Norwegian</option> <option value="omani">Omani</option> <option value="pakistani">Pakistani</option> <option value="palauan">Palauan</option> <option value="panamanian">Panamanian</option> <option value="papua new guinean">Papua New Guinean</option> <option value="paraguayan">Paraguayan</option> <option value="peruvian">Peruvian</option> <option value="polish">Polish</option> <option value="portuguese">Portuguese</option> <option value="qatari">Qatari</option> <option value="romanian">Romanian</option> <option value="russian">Russian</option> <option value="rwandan">Rwandan</option> <option value="saint lucian">Saint Lucian</option> <option value="salvadoran">Salvadoran</option> <option value="samoan">Samoan</option> <option value="san marinese">San Marinese</option> <option value="sao tomean">Sao Tomean</option> <option value="saudi">Saudi</option> <option value="scottish">Scottish</option> <option value="senegalese">Senegalese</option> <option value="serbian">Serbian</option> <option value="seychellois">Seychellois</option> <option value="sierra leonean">Sierra Leonean</option> <option value="singaporean">Singaporean</option> <option value="slovakian">Slovakian</option> <option value="slovenian">Slovenian</option> <option value="solomon islander">Solomon Islander</option> <option value="somali">Somali</option> <option value="south african">South African</option> <option value="south korean">South Korean</option> <option value="spanish">Spanish</option> <option value="sri lankan">Sri Lankan</option> <option value="sudanese">Sudanese</option> <option value="surinamer">Surinamer</option> <option value="swazi">Swazi</option> <option value="swedish">Swedish</option> <option value="swiss">Swiss</option> <option value="syrian">Syrian</option> <option value="taiwanese">Taiwanese</option> <option value="tajik">Tajik</option> <option value="tanzanian">Tanzanian</option> <option value="thai">Thai</option> <option value="togolese">Togolese</option> <option value="tongan">Tongan</option> <option value="trinidadian or tobagonian">Trinidadian or Tobagonian</option> <option value="tunisian">Tunisian</option> <option value="turkish">Turkish</option> <option value="tuvaluan">Tuvaluan</option> <option value="ugandan">Ugandan</option> <option value="ukrainian">Ukrainian</option> <option value="uruguayan">Uruguayan</option> <option value="uzbekistani">Uzbekistani</option> <option value="venezuelan">Venezuelan</option> <option value="vietnamese">Vietnamese</option> <option value="welsh">Welsh</option> <option value="yemenite">Yemenite</option> <option value="zambian">Zambian</option> <option value="zimbabwean">Zimbabwean</option> </select> </div> </div> <div class="row mb-1"> <label for="_Weight" class="col-sm-3 col-form-label col-form-label-sm">Weight</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_Weight" id="_Weight"> </div> </div> <div class="row mb-1"> <label for="_Height" class="col-sm-3 col-form-label col-form-label-sm">Height</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_Height" id="_Height"> </div> </div> <div class="row mb-1"> <label for="_TIN" class="col-sm-3 col-form-label col-form-label-sm">TIN</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" id="_TIN"> </div> </div> <div class="row mb-1"> <label for="_Profession" class="col-sm-3 col-form-label col-form-label-sm">Profession</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_Profession" id="_Profession"> </div> </div> <div class="row mb-1"> <label for="_AttachementFile1" class="col-sm-3 col-form-label col-form-label-sm">Attachement File</label> <div class="col-sm-9"> <input type="file" class="form-control form-control-sm" name="_AttachementFile1" id="_AttachementFile1"> </div> </div> <!-- <div class="row mb-1"> <label for="_Req2" class="col-sm-3 col-form-label col-form-label-sm">Requirements 2</label> <div class="col-sm-9"> <input type="file" class="form-control form-control-sm" name="_Req2" id="_Req2"> </div> </div> --> </div> <div class="col"> <h4>Payment Information</h4> <div class="border"> <table class="table table-bordered"> <tbody><tr> <td>Basic Community Tax:</td> <td width="40%"><input type="text" class="form-control input-sm" name="_BasicTax" id="_BasicTax" readonly="readonly"></td> </tr> <tr> <td colspan="2">Additional Community Tax:</td> </tr> <tr> <td>Gross Receipts or Earnings Derived from Business During the Preceding Year (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="GrossReciept(this.value)" onkeypress="return /[0-9]/.test(event.key)" name="_GrossReciept" id="_GrossReciept" placeholder="Enter Gross Receipt"></td> </tr> <tr> <td>Salaries or Gross Receipt or Earnings Derived from Exercise of Profession or pursuit of any occupation (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="Salaries(this.value)" onkeypress="return /[0-9]/.test(event.key)"name="_Salaries" id="_Salaries" placeholder="Enter Salaries"></td> </tr> <tr> <td>Income from Real Property (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="IncomeRealProperty(this.value)" onkeypress="return /[0-9]/.test(event.key)" name="_IncomeRealProperty" id="_IncomeRealProperty" placeholder="Enter Income Real Property"></td> </tr> <tr class="text-end"> <td>Total</td> <td><input type="text" class="form-control input-sm" name="_Total" id="_Total" placeholder="0.00"></td> </tr> <tr class="text-end"> <td>Interest</td> <td><input type="text" class="form-control input-sm" name="_Interest" id="_Interest" placeholder="0.00"></td> </tr> <tr class="text-end"> <td>Amount To Pay</td> <td><input type="text" class="form-control input-sm" name="_AmountToPay" id="_AmountToPay" placeholder="0.00"></td> </tr> <tr> <td colspan="2"> <div class="d-grid gap-2"> <button class="btn btn-primary _BtnSubmitIndividualCedula" type="button">Submit</button> </div> </td> </tr> </tbody> </table> </div> </div> </div>';
+
+                    //Submit Individual Cedula
+                    SubmitIndividualCedula();
+
+                } else if (registration == "Corporation Cedula") {
+                    //Basic Community Tax Corporation
+                    //Make Ajax Call
+                    $.ajax({
+                        url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetCorporationBasicTaxToims',
+                        data: '{}',
+                        async: true,
+                        cache: false,
+                        dataType: 'json', // DATA TYPE
+                        beforeSend: function (xhr) {
+                            // Set the Authorization header with the Bearer token
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+                        },
+                        success: function (response) {
+                            // HANDLES SUCCESS REPONSE
+                            if (response.status) {
+                                data = JSON.parse(JSON.stringify(response.data));
+                                //Fill or append the data
+                                for (var i = 0; i < data.length; i++) {
+                                    BasicTaxCorporation = Number(data[i].Amount);
+                                    document.getElementById('_CBasicTax').value = BasicTaxCorporation.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                                }
+
+                                //Multiplier Corporation
+                                $.ajax({
+                                    url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetCorporationMultiplierToims',
+                                    type: 'GET',//METHOD
+                                    data: '{}',
+                                    async: true,
+                                    cache: false,
+                                    dataType: 'json', // DATA TYPE
+                                    beforeSend: function (xhr) {
+                                        // Set the Authorization header with the Bearer token
+                                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+                                    },
+                                    success: function (response) {
+                                        // HANDLES SUCCESS REPONSE
+                                        if (response.status) {
+                                            // Parse the JSON response
+                                            parsedResponse = JSON.parse(JSON.stringify(response));
+                                            // Access the INDIVIDUALMULTIPLIER value
+                                            corporationMultiplier = parsedResponse.data[0].CORPORATIONMULTIPLIER;
+                                            MultiplierCorporation = Number(corporationMultiplier);
+                                            //Interest
+                                            $.ajax({
+                                                url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetInterestToims',
+                                                type: 'GET',//METHOD
+                                                data: '{}',
+                                                cache: false,
+                                                dataType: 'json', // DATA TYPE
+                                                beforeSend: function (xhr) {
+                                                    // Set the Authorization header with the Bearer token
+                                                    xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+                                                },
+                                                success: function (response) {
+                                                    // HANDLES SUCCESS REPONSE
+                                                    if (response.status) {
+                                                        // Parse the JSON response
+                                                        parsedInterestResponse = JSON.parse(JSON.stringify(response));
+                                                        // Access the interest value
+                                                        cMonth = parsedInterestResponse.data[0].CurrentDate;
+                                                        Month = parsedInterestResponse.data[0].CtcMonth;
+                                                        Day = parsedInterestResponse.data[0].CtcDay;
+                                                        Interest = parsedInterestResponse.data[0].CtcInterest;
+                                                        Succeed = parsedInterestResponse.data[0].CtcSucceed;
+                                                        currentMonth = Number(cMonth);
+                                                        CtcMonth = Number(Month);
+                                                        CtcDay = Number(Day);
+                                                        CtcInterest = Number(Interest);
+                                                        CtcSucceed = Number(Succeed);
+                                                    }
+                                                },
+                                                error: function (xhr, status, error) {
+                                                    // HANDLES ERROR REPONSE
+                                                    console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                                                    console.log(xhr.responseText); // Log the response text received from the server
+                                                    console.log(errorThrown);
+                                                }
+                                            });
+                                            //End Interest
+                                        }
+                                    },
+                                    error: function (xhr, status, error) {
+                                        // HANDLES ERROR REPONSE
+                                        console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                                        console.log(xhr.responseText); // Log the response text received from the server
+                                        console.log(errorThrown);
+                                    }
+                                });
+                                //End Multiplier Corporation
+
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            // HANDLES ERROR REPONSE
+                            console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                            console.log(xhr.responseText); // Log the response text received from the server
+                            console.log(errorThrown);
+                        }
+                    });
+                    // alert(registration);
+                    document.getElementsByClassName("individual-cedula")[0].style.display = "none";
+                    document.getElementsByClassName("corporation-cedula")[0].style.display = "none";
+                    document.getElementsByClassName("professional-tax-receipt")[0].style.display = "none";
+                    //Form Type
+                    document.getElementsByClassName("form-type")[0].style.display = "block";
+                    //Form Title
+                    document.getElementsByClassName("form-title")[0].textContent = registration;
+                    //Form
+                    document.getElementsByClassName("cedula-icons")[0].src = "../icons/corporation.gif";
+                    document.getElementsByClassName("individual-cedula-form")[0].style.display = "none";
+                    document.getElementsByClassName("corporation-cedula-form")[0].style.display = "block";
+                    document.getElementsByClassName("professional-tax-receipt-form")[0].style.display = "none";
+                    //Form HTML
+                    document.getElementsByClassName("corporation-cedula-form")[0].innerHTML = '<div class="row"> <div class="col mb-5"> <h4>Company Information</h4> <div class="row mb-1"> <label for="_CCompanyName" class="col-sm-3 col-form-label col-form-label-sm">Company Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_CCompanyName" id="_CCompanyName"> </div> </div> <div class="row mb-1"> <label for="_CAddress" class="col-sm-3 col-form-label col-form-label-sm">Address</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_CAddress" id="_CAddress"> </div> </div> <div class="row mb-1"> <label for="_CKindofOrganization" class="col-sm-3 col-form-label col-form-label-sm">Kind of Organization</label> <div class="col-sm-9"> <select class="form-select form-select-sm" id="_CKindofOrganization"> <option value="">Select Organization</option> <option value="Corporation">Corporation</option> <option value="Association">Association</option> <option value="Partnership">Partnership</option> </select> </div> </div> <div class="row mb-1"> <label for="_CBusinessNature" class="col-sm-3 col-form-label col-form-label-sm">Business Nature</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_CBusinessNature" id="_CBusinessNature"> </div> </div> <div class="row mb-1"> <label for="_CPlaceofOrganization" class="col-sm-3 col-form-label col-form-label-sm">Place of Organization</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_CPlaceofOrganization" id="_CPlaceofOrganization"> </div> </div> <div class="row mb-1"> <label for="_CDateofOrganization" class="col-sm-3 col-form-label col-form-label-sm">Date of Organization</label> <div class="col-sm-9"> <input type="date" class="form-control form-control-sm" name="_CDateofOrganization" id="_CDateofOrganization"> </div> </div> <div class="row mb-1"> <label for="_AttachementFile2" class="col-sm-3 col-form-label col-form-label-sm">Attachement File</label> <div class="col-sm-9"> <input type="file" class="form-control form-control-sm" name="_AttachementFile2" id="_AttachementFile2"> </div> </div> </div> <div class="col"> <h4>Payment Information</h4> <div class="border"> <table class="table table-bordered"> <tbody><tr> <td>Basic Community Tax:</td> <td width="40%"><input type="text" class="form-control input-sm" name="_CBasicTax" id="_CBasicTax" readonly="readonly"></td> </tr> <tr> <td colspan="2">Additional Community Tax:</td> </tr> <tr> <td>Assessed value of real property own in the philippines (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="RealPropertyCorporation(this.value)" onkeypress="return /[0-9]/.test(event.key)" name="_CRealProperty" id="_CRealProperty" placeholder="Real Property"></td> </tr> <tr> <td>Gross receipts, including dividends/earnings derived from business in the philippines during the preceding year (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="GrossRecieptCorporation(this.value)" onkeypress="return /[0-9]/.test(event.key)" name="_CGrossReciept" id="_CGrossReciept" placeholder="Gross Reciept"></td> </tr> <tr class="text-end"> <td>Total</td> <td><input type="text" class="form-control input-sm" name="_CTotal" id="_CTotal" placeholder="0.00"></td> </tr> <tr class="text-end"> <td>Interest</td> <td><input type="text" class="form-control input-sm" name="_CInterest" id="_CInterest" placeholder="0.00"></td> </tr> <tr class="text-end"> <td>Amount To Pay</td> <td><input type="text" class="form-control input-sm" name="_CAmountToPay" id="_CAmountToPay" placeholder="0.00"></td> </tr> <tr> <td colspan="2"> <div class="d-grid gap-2"> <button class="btn btn-primary _BtnSubmitCorporationCedula" type="button">Submit</button> </div> </td> </tr> </tbody> </table> </div> </div> </div';
+
+                    //Submit Corporation Cedula
+                    SubmitCorporationCedula();
+
+
+                } else if (registration == "Professional Tax Receipt") {
+                    //alert(registration);
+                    document.getElementsByClassName("individual-cedula")[0].style.display = "none";
+                    document.getElementsByClassName("corporation-cedula")[0].style.display = "none";
+                    document.getElementsByClassName("professional-tax-receipt")[0].style.display = "none";
+                    //Form Type
+                    document.getElementsByClassName("form-type")[0].style.display = "block";
+                    //Form Title
+                    document.getElementsByClassName("form-title")[0].textContent = registration;
+                    //Form
+                    document.getElementsByClassName("cedula-icons")[0].src = "../icons/profesitional.gif";
+                    document.getElementsByClassName("individual-cedula-form")[0].style.display = "none";
+                    document.getElementsByClassName("corporation-cedula-form")[0].style.display = "none";
+                    document.getElementsByClassName("professional-tax-receipt-form")[0].style.display = "block";
+
+                    //Form HTML
+                    document.getElementsByClassName("professional-tax-receipt-form")[0].innerHTML = ' <div class="row"> <div class="col mb-5"> <h4>Personal Information</h4> <div class="row mb-1"> <label for="_PTRFirsTName" class="col-sm-3 col-form-label col-form-label-sm">First Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_PTRFirsTName" id="_PTRFirsTName"> </div> </div> <div class="row mb-1"> <label for="_PTRMiddleName" class="col-sm-3 col-form-label col-form-label-sm">Middle Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_PTRMiddleName" id="_PTRMiddleName"> </div> </div> <div class="row mb-1"> <label for="_PTRLastName" class="col-sm-3 col-form-label col-form-label-sm">Last Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_PTRLastName" id="_PTRLastName"> </div> </div> <div class="row mb-1"> <label for="_PTRGender" class="col-sm-3 col-form-label col-form-label-sm">Gender</label> <div class="col-sm-9"> <div class="form-check form-check-inline"> <input class="form-check-input form-check-input-sm" type="radio" name="_PTRGender" id="Male" value="Male"> <label class="form-check-label" for="Male">Male</label> </div> <div class="form-check form-check-inline"> <input class="form-check-input form-check-input-sm" type="radio" name="_PTRGender" id="Female" value="Female"> <label class="form-check-label" for="Female">Female</label> </div> </div> </div> <div class="row mb-1"> <label for="_PTRTIN" class="col-sm-3 col-form-label col-form-label-sm">TIN</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" id="_PTRTIN"> </div> </div> <div class="row mb-1"> <label for="_PTRProfession" class="col-sm-3 col-form-label col-form-label-sm">Profession</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_PTRProfession" id="_PTRProfession"> </div> </div> <div class="row mb-1"> <label for="_PTRPRCNo" class="col-sm-3 col-form-label col-form-label-sm">PRC No</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_PTRPRCNo" id="_PTRPRCNo"> </div> </div> </div> <div class="col"> <h4>Payment Information</h4> <div class="row mb-1"> <label for="_PTRFee" class="col-sm-3 col-form-label col-form-label-sm">Fee</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" onkeypress="return /[0-9]/.test(event.key)" name="_PTRFee" id="_PTRFee" placeholder="0.00"> </div> </div> <div class="row mb-1"> <label for="_PTRPenalty" class="col-sm-3 col-form-label col-form-label-sm">Penalty</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" onkeypress="return /[0-9]/.test(event.key)" name="_PTRPenalty" id="_PTRPenalty" placeholder="0.00"> </div> </div> <div class="row mb-1"> <label for="_PTRSurcharge" class="col-sm-3 col-form-label col-form-label-sm">Surcharge</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" onkeypress="return /[0-9]/.test(event.key)" name="_PTRSurcharge" id="_PTRSurcharge" placeholder="0.00"> </div> </div> <div class="row mb-1"> <label for="_PTRAmountToPay" class="col-sm-3 col-form-label col-form-label-sm">Amount To Pay</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" onkeypress="return /[0-9]/.test(event.key)" name="_PTRAmountToPay" id="_PTRAmountToPay" placeholder="0.00"> </div> </div> <div class="row mb-1 mt-4"> <div class="d-grid gap-2"> <button class="btn btn-primary _BtnSubmitProfessionalTaxReceipt" type="button">Submit</button> </div> </div> </div> </div>';
+
+                    //Submit Corporation Cedula
+                    SubmitProfessionalTaxReceipt();
+                }
+            });
+        }
+
+
+        //GrossReciept Payment Calculation
+        function GrossReciept(GrossRecieptAmount) {
+            if (document.getElementById('_GrossReciept').value) {
+                GrossRecieptTax = removeHundreds(GrossRecieptAmount) / 1000 * Multiplier;
+                if (MaxInput < GrossRecieptTax) {
+                    GrossRecieptTax = MaxInput;
+                } else {
+                    //Do Nothing
+                }
+                //Total
+                totalRounded = BasicTax + GrossRecieptTax;
+                document.getElementById('_Total').value = totalRounded.toFixed(2);
+                //Interest
+                total = BasicTax + GrossRecieptTax;
+                interestRounded = total * currentMonth * CtcSucceed / 100;
+                document.getElementById('_Interest').value = interestRounded.toFixed(2);
+                //Amount To Pay
+                interest = total * currentMonth * CtcSucceed / 100;
+                amountToPay = total + interest
+                document.getElementById('_AmountToPay').value = amountToPay.toFixed(2);
+            } else {
+                document.getElementById('_Total').value = "";
+                document.getElementById('_Interest').value = "";
+                document.getElementById('_AmountToPay').value = "";
+            }
+        }
+        //Salaries Payment Calculation
+        function Salaries(SalariesAmount) {
+            if (document.getElementById('_Salaries').value) {
+                SalariesTax = removeHundreds(SalariesAmount) / 1000 * Multiplier;
+                if (MaxInput < SalariesTax) {
+                    SalariesTax = MaxInput;
+                } else {
+                    //Do Nothing
+                }
+                //Total
+                totalRounded = BasicTax + SalariesTax;
+                document.getElementById('_Total').value = totalRounded.toFixed(2);
+                //Interest
+                total = BasicTax + SalariesTax;
+                interestRounded = total * currentMonth * CtcSucceed / 100;
+                document.getElementById('_Interest').value = interestRounded.toFixed(2);
+                //Amount To Pay
+                interest = total * currentMonth * CtcSucceed / 100;
+                amountToPay = total + interest
+                document.getElementById('_AmountToPay').value = amountToPay.toFixed(2);
+            } else {
+                document.getElementById('_Total').value = "";
+                document.getElementById('_Interest').value = "";
+                document.getElementById('_AmountToPay').value = "";
+            }
+        }
+        //IncomeRealProperty payment Calculation
+        function IncomeRealProperty(IncomeRealPropertyAmount) {
+            if (document.getElementById('_IncomeRealProperty').value) {
+                IncomeRealPropertyTax = removeHundreds(IncomeRealPropertyAmount) / 1000 * Multiplier;
+                if (MaxInput < IncomeRealPropertyTax) {
+                    IncomeRealPropertyTax = MaxInput;
+                } else {
+                    //Do Nothing
+                }
+                //Total
+                totalRounded = BasicTax + IncomeRealPropertyTax;
+                document.getElementById('_Total').value = totalRounded.toFixed(2);
+                //Interest
+                total = BasicTax + IncomeRealPropertyTax;
+                interestRounded = total * currentMonth * CtcSucceed / 100;
+                document.getElementById('_Interest').value = interestRounded.toFixed(2);
+                //Amount To Pay
+                interest = total * currentMonth * CtcSucceed / 100;
+                amountToPay = total + interest
+                document.getElementById('_AmountToPay').value = amountToPay.toFixed(2);
+            } else {
+                document.getElementById('_Total').value = "";
+                document.getElementById('_Interest').value = "";
+                document.getElementById('_AmountToPay').value = "";
+            }
+
+        }
+        //Real Property Corporation payment Calculation
+        function RealPropertyCorporation(RealPropertyAmount) {
+            if (document.getElementById('_CRealProperty').value) {
+                RealPropertyTax = removeHundredsCorporation(RealPropertyAmount) / 5000 * MultiplierCorporation;
+                if (MaxInputCorporation < RealPropertyTax) {
+                    RealPropertyTax = MaxInputCorporation;
+                } else {
+                    //Do Nothing
+                }
+                //Total
+                totalRounded = BasicTaxCorporation + RealPropertyTax;
+                document.getElementById('_CTotal').value = totalRounded.toFixed(2);
+                //Interest
+                total = BasicTaxCorporation + RealPropertyTax;
+                interestRounded = total * currentMonth * CtcSucceed / 100;
+                document.getElementById('_CInterest').value = interestRounded.toFixed(2);
+                //Amount To Pay
+                interest = total * currentMonth * CtcSucceed / 100;
+                amountToPay = total + interest
+                document.getElementById('_CAmountToPay').value = amountToPay.toFixed(2);
+            } else {
+                document.getElementById('_CTotal').value = "";
+                document.getElementById('_CInterest').value = "";
+                document.getElementById('_CAmountToPay').value = "";
+            }
+
+        }
+        //Gross Reciept Corporation payment Calculation
+        function GrossRecieptCorporation(GrossRecieptCorporationAmount) {
+            if (document.getElementById('_CGrossReciept').value) {
+                GrossRecieptTax = removeHundredsCorporation(GrossRecieptCorporationAmount) / 5000 * MultiplierCorporation;
+                if (MaxInputCorporation < GrossRecieptTax) {
+                    GrossRecieptTax = MaxInputCorporation;
+                } else {
+                    //Do Nothing
+                }
+                //Total
+                totalRounded = BasicTaxCorporation + GrossRecieptTax;
+                document.getElementById('_CTotal').value = totalRounded.toFixed(2);
+                //Interest
+                total = BasicTaxCorporation + GrossRecieptTax;
+                interestRounded = total * currentMonth * CtcSucceed / 100;
+                document.getElementById('_CInterest').value = interestRounded.toFixed(2);
+                //Amount To Pay
+                interest = total * currentMonth * CtcSucceed / 100;
+                amountToPay = total + interest
+                document.getElementById('_CAmountToPay').value = amountToPay.toFixed(2);
+            } else {
+                document.getElementById('_CTotal').value = "";
+                document.getElementById('_CInterest').value = "";
+                document.getElementById('_CAmountToPay').value = "";
+            }
+
+        }
+
+        // Function to remove the hundreds digit from a number
+        function removeHundreds(number) {
+            return Math.floor(number / 1000) * 1000;
+        }
+        function removeHundredsCorporation(number) {
+            return Math.floor(number / 5000) * 5000;
+        }
+        //End Payment Calculation
+
+        //Submit Individual Cedula
+        function SubmitIndividualCedula() {
+            document.getElementsByClassName("_BtnSubmitIndividualCedula")[0].addEventListener('click', function () {
+                //Personal Information
+                var _FirstName = document.getElementById('_FirstName').value;
+                var _MiddleName = document.getElementById('_MiddleName').value;
+                var _LastName = document.getElementById('_LastName').value;
+                var _BirthPlace = document.getElementById('_BirthPlace').value;
+                var _BirthDate = document.getElementById('_BirthDate').value;
+                var _Address = document.getElementById('_Address').value;
+                var _Gender = $('input[name=_Gender]:checked').val();
+                var _CivilStatus = document.getElementById('_CivilStatus').value;
+                var _Citizenship = document.getElementById('_Citizenship').value;
+                var _Weight = document.getElementById('_Weight').value;
+                var _Height = document.getElementById('_Height').value;
+                var _TIN = document.getElementById('_TIN').value;
+                var _Profession = document.getElementById('_Profession').value
+                var _AttachementFile1 = document.getElementById('_AttachementFile1');
+                //var _Req2 = document.getElementById('_Req2');
+                //Payment Information
+                var _BasicTax = document.getElementById('_BasicTax').value;
+                var _GrossReciept = document.getElementById('_GrossReciept').value;
+                var _Salaries = document.getElementById('_Salaries').value
+                var _IncomeRealProperty = document.getElementById('_IncomeRealProperty').value;
+                var _Total = document.getElementById('_Total').value;
+                var _Interest = document.getElementById('_Interest').value;
+                var _AmountToPay = document.getElementById('_AmountToPay').value;
+                // Declare a global JSON object
+                var individualCedula = {};
+                var filebase64;
+                var required = true;
+                var notificationMSG;
+
+                if (_FirstName) { individualCedula.Email = localStorage.getItem('UserID'); individualCedula.FirstName = _FirstName; document.getElementById('_FirstName').classList.remove('is-invalid'); } else { document.getElementById('_FirstName').classList.add('is-invalid'); notificationMSG = "Please enter first name!"; required = false; }
+                //if(_MiddleName){ individualCedula.MiddleName = _MiddleName; document.getElementById('_MiddleName').classList.remove('is-invalid');  }else{ document.getElementById('_MiddleName').classList.add('is-invalid');  notificationMSG="Please enter middle name!";  required = false    }
+                if (_LastName) { individualCedula.LastName = _LastName; individualCedula.MiddleName = _MiddleName; document.getElementById('_LastName').classList.remove('is-invalid'); } else { document.getElementById('_LastName').classList.add('is-invalid'); notificationMSG = "Please enter last name!"; required = false; }
+                if (_BirthPlace) { individualCedula.BirthPlace = _BirthPlace; document.getElementById('_BirthPlace').classList.remove('is-invalid'); } else { document.getElementById('_BirthPlace').classList.add('is-invalid'); notificationMSG = "Please enter birth place!"; required = false; }
+                if (_BirthDate) { individualCedula.BirthDate = _BirthDate; document.getElementById('_BirthDate').classList.remove('is-invalid'); } else { document.getElementById('_BirthDate').classList.add('is-invalid'); notificationMSG = "Please enter birth date!"; required = false; }
+                if (_Address) { individualCedula.Address = _Address; document.getElementById('_Address').classList.remove('is-invalid'); } else { document.getElementById('_Address').classList.add('is-invalid'); notificationMSG = "Please enter address!"; required = false; }
+                if (_Gender) { individualCedula.Gender = _Gender; document.getElementById('_Male').classList.remove('is-invalid'); document.getElementById('_Female').classList.remove('is-invalid'); } else { document.getElementById('_Male').classList.add('is-invalid'); document.getElementById('_Female').classList.add('is-invalid'); notificationMSG = "Please select gender!"; required = false; }
+                if (_CivilStatus) { individualCedula.CivilStatus = _CivilStatus; document.getElementById('_CivilStatus').classList.remove('is-invalid'); } else { document.getElementById('_CivilStatus').classList.add('is-invalid'); notificationMSG = "Please select civil status!"; required = false; }
+                if (_Citizenship) { individualCedula.Citizenship = _Citizenship; document.getElementById('_Citizenship').classList.remove('is-invalid'); } else { document.getElementById('_Citizenship').classList.add('is-invalid'); notificationMSG = "Please select civil citizenship!"; required = false; }
+                if (_Weight) { individualCedula.Weight = _Weight; document.getElementById('_Weight').classList.remove('is-invalid'); } else { document.getElementById('_Weight').classList.add('is-invalid'); notificationMSG = "Please enter weight!"; required = false; }
+                if (_Height) { individualCedula.Height = _Height; document.getElementById('_Height').classList.remove('is-invalid'); } else { document.getElementById('_Height').classList.add('is-invalid'); notificationMSG = "Please enter height!"; required = false; }
+                if (_TIN) { individualCedula.TIN = _TIN; document.getElementById('_TIN').classList.remove('is-invalid'); } else { document.getElementById('_TIN').classList.add('is-invalid'); notificationMSG = "Please enter tin no!"; required = false; }
+                if (_Profession) { individualCedula.Profession = _Profession; document.getElementById('_Profession').classList.remove('is-invalid'); } else { document.getElementById('_Profession').classList.add('is-invalid'); notificationMSG = "Please enter profesion!"; required = false; }
+                if (_AttachementFile1.files.length > 0) {
+                    var selectedFile = _AttachementFile1.files[0];
+                    if (selectedFile) {
+                        // Get file information
+                        // Display file information
+                        individualCedula.FileName = selectedFile.name;
+                        individualCedula.FileSize = selectedFile.size;
+                        individualCedula.FileType = selectedFile.type;
+                        // Convert the file to a varbinary representation (Base64)
+                        var reader = new FileReader();
+                        reader.onload = function () {
+                            var base64String = reader.result.split(',')[1]; // Get the base64 data
+                            // Send the base64String to your server or use it as needed
+                            individualCedula.FileBase64 = base64String;
+                            if (_GrossReciept || _Salaries || _IncomeRealProperty) {
+                                individualCedula.BasicTax = _BasicTax,
+                                  individualCedula.GrossReciept = _GrossReciept,
+                                  individualCedula.Salaries = _Salaries,
+                                  individualCedula.IncomeRealProperty = _IncomeRealProperty,
+                                  individualCedula.Total = _Total,
+                                  individualCedula.Interest = _Interest,
+                                  individualCedula.AmountToPay = _AmountToPay;
+                            } else {
+                                notificationMSG = "Please enter gross or salaries or income real property!";
+                                notification.show();
+                                document.getElementsByClassName('app-notification-messages')[0].textContent = notificationMSG;
+                                required = false;
+                            }
+                            if (required) {
+                                document.getElementsByClassName('_BtnSubmitIndividualCedula')[0].setAttribute('disabled', 'true');
+                                // AJAX CALL I PUT AJAX CALL HERE BECAUSE BASE64 CANT ACCESS OUTSIDE The FileReader operates asynchronously, and the reader.onload
+                                $.ajax({
+                                    type: 'POST',
+                                    async: true,
+                                    cache: false,
+                                    url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaPostIndividualTims',
+                                    data: JSON.stringify(individualCedula),
+                                    contentType: 'application/json',
+                                    beforeSend: function (xhr) {
+                                        // Set the Authorization header with the Bearer token
+                                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+                                        // This code is executed before the request is sent
+                                        // You can show a loading spinner or make other preparations
+                                        //Set The Loader
+                                        loader.show();
+                                    },
+                                    success: function (response) {
+                                        // HANDLES SUCCESS REPONSE
+                                        // You can hide or remove the loadining now
+                                        if (response.status) {
+                                            notification.hide();
+                                            loader.hide();
+                                            document.getElementsByClassName("form-type")[0].style.display = "none";
+                                            document.getElementsByClassName("individual-cedula-form")[0].style.display = "none";
+                                            document.getElementsByClassName("corporation-cedula-form")[0].style.display = "none";
+                                            document.getElementsByClassName("professional-tax-receipt-form")[0].style.display = "none";
+                                            document.getElementsByClassName("success-page")[0].style.display = "block";
+                                            document.getElementsByClassName("success-page")[0].innerHTML = '<div class="col success-page"> <div class="h-100 bg-light border rounded-3"> <div class="container"> <div class="row"> <div class="col-md-12 d-flex justify-content-center align-items-center" style="min-height: 75vh;"> <div class="text-center">  <img src="../icons/success.gif" alt="Icon 2" class="img-fluid" width="200" height="200"> <h1>Thank you! </h1> <p>Your application has been sent.</p> </div> </div> </div> </div> </div> </div>';
+                                        } else {
+                                            console.log(response.status, response.message);
+                                        }
+                                    },
+                                    error: function (error) {
+                                        // Handle any errors
+                                        //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                                        console.log(xhr.responseText); // Log the response text received from the server
+                                        //console.log(errorThrown);
+                                    }
+                                });
+                            }
+
+                        };
+                        reader.readAsDataURL(selectedFile);
+                        document.getElementById('_AttachementFile1').classList.remove('is-invalid');
+                    } else {
+                        notificationMSG = "Please upload attachement!";
+                        document.getElementById('_AttachementFile1').classList.add('is-invalid');
+                        required = false;
+
+                    }
+                } else {
+                    notificationMSG = "Please upload attachement!";
+                    document.getElementById('_AttachementFile1').classList.add('is-invalid');
+                    required = false;
+                    notification.show();
+                    document.getElementsByClassName('app-notification-messages')[0].textContent = "Please fill up all required information.";
+                    return false;
+                }
+
+            });
+
+        }
+        //End Submit Individual Cedula
+
+        //Submit Corporation Cedula
+        function SubmitCorporationCedula() {
+            document.getElementsByClassName("_BtnSubmitCorporationCedula")[0].addEventListener('click', function () {
+                //Company Information
+                var _CCompanyName = document.getElementById('_CCompanyName').value;
+                var _CAddress = document.getElementById('_CAddress').value;
+                var _CKindofOrganization = document.getElementById('_CKindofOrganization').value;
+                var _CBusinessNature = document.getElementById('_CBusinessNature').value;
+                var _CPlaceofOrganization = document.getElementById('_CPlaceofOrganization').value;
+                var _CDateofOrganization = document.getElementById('_CDateofOrganization').value;
+                var _AttachementFile2 = document.getElementById('_AttachementFile2');
+                //Payment Information
+                var _CBasicTax = document.getElementById('_CBasicTax').value;
+                var _CRealProperty = document.getElementById('_CRealProperty').value;
+                var _CGrossReciept = document.getElementById('_CGrossReciept').value;
+                var _CTotal = document.getElementById('_CTotal').value;
+                var _CInterest = document.getElementById('_CInterest').value;
+                var _CAmountToPay = document.getElementById('_CAmountToPay').value;
+
+
+                // Declare a global JSON object
+                var CorporationCedula = {};
+                var required = true;
+                var notificationMSG;
+                if (_CCompanyName) { CorporationCedula.Email = localStorage.getItem('UserID'); CorporationCedula.CompanyName = _CCompanyName; document.getElementById('_CCompanyName').classList.remove('is-invalid'); } else { document.getElementById('_CCompanyName').classList.add('is-invalid'); notificationMSG = "Please enter company name!"; required = false; }
+                if (_CAddress) { CorporationCedula.Address = _CAddress; document.getElementById('_CAddress').classList.remove('is-invalid'); } else { document.getElementById('_CAddress').classList.add('is-invalid'); notificationMSG = "Please enter address!"; required = false; }
+                if (_CKindofOrganization) { CorporationCedula.KindofOrganization = _CKindofOrganization; document.getElementById('_CKindofOrganization').classList.remove('is-invalid'); } else { document.getElementById('_CKindofOrganization').classList.add('is-invalid'); notificationMSG = "Please select kind of organization!"; required = false; }
+                if (_CBusinessNature) { CorporationCedula.BusinessNature = _CBusinessNature; document.getElementById('_CBusinessNature').classList.remove('is-invalid'); } else { document.getElementById('_CBusinessNature').classList.add('is-invalid'); notificationMSG = "Please enter bussiness nature!"; required = false; }
+                if (_CPlaceofOrganization) { CorporationCedula.PlaceofOrganization = _CPlaceofOrganization; document.getElementById('_CPlaceofOrganization').classList.remove('is-invalid'); } else { document.getElementById('_CPlaceofOrganization').classList.add('is-invalid'); notificationMSG = "Please enter organization!"; required = false; }
+                if (_CDateofOrganization) { CorporationCedula.DateofOrganization = _CDateofOrganization; document.getElementById('_CDateofOrganization').classList.remove('is-invalid'); } else { document.getElementById('_CDateofOrganization').classList.add('is-invalid'); notificationMSG = "Please enter date of organization!"; required = false; }
+                if (_AttachementFile2.files.length > 0) {
+                    var selectedFile = _AttachementFile2.files[0];
+                    if (selectedFile) {
+                        // Get file information
+                        // Display file information
+                        CorporationCedula.FileName = selectedFile.name;
+                        CorporationCedula.FileSize = selectedFile.size;
+                        CorporationCedula.FileType = selectedFile.type;
+                        // Convert the file to a varbinary representation (Base64)
+                        var reader = new FileReader();
+                        reader.onload = function () {
+                            var base64String = reader.result.split(',')[1]; // Get the base64 data
+                            // Send the base64String to your server or use it as needed
+                            CorporationCedula.FileBase64 = base64String;
+                            if (_CRealProperty || _CGrossReciept) {
+                                CorporationCedula.BasicTax = _CBasicTax;
+                                CorporationCedula.RealProperty = _CRealProperty;
+                                CorporationCedula.GrossReciept = _CGrossReciept;
+                                CorporationCedula.Total = _CTotal;
+                                CorporationCedula.Interest = _CInterest;
+                                CorporationCedula.AmountToPay = _CAmountToPay;
+                            } else {
+                                notificationMSG = "Please enter gross or salaries or income real property!";
+                                notification.show();
+                                document.getElementsByClassName('app-notification-messages')[0].textContent = notificationMSG;
+                                required = false;
+                            }
+                            if (required) {
+                                //Set The Loader
+                                loader.show();
+                                document.getElementsByClassName('_BtnSubmitCorporationCedula')[0].setAttribute('disabled', 'true');
+                                // AJAX CALL I PUT AJAX CALL HERE BECAUSE BASE64 CANT ACCESS OUTSIDE The FileReader operates asynchronously, and the reader.onload
+                                $.ajax({
+                                    type: 'POST',
+                                    url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaPostCorporationTims',
+                                    async: true,
+                                    cache: false,
+                                    data: JSON.stringify(CorporationCedula),
+                                    contentType: 'application/json',
+                                    beforeSend: function (xhr) {
+                                        // Set the Authorization header with the Bearer token
+                                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+                                        // This code is executed before the request is sent
+                                        // You can show a loading spinner or make other preparations
+                                        //Set The Loader
+                                        loader.show();
+                                    },
+                                    success: function (response) {
+                                        // HANDLES SUCCESS REPONSE
+                                        // You can hide or remove the loadining now
+                                        if (response.status) {
+                                            loader.hide();
+                                            document.getElementsByClassName("form-type")[0].style.display = "none";
+                                            document.getElementsByClassName("individual-cedula-form")[0].style.display = "none";
+                                            document.getElementsByClassName("corporation-cedula-form")[0].style.display = "none";
+                                            document.getElementsByClassName("professional-tax-receipt-form")[0].style.display = "none";
+                                            document.getElementsByClassName("success-page")[0].style.display = "block";
+                                            document.getElementsByClassName("success-page")[0].innerHTML = '<div class="col success-page"> <div class="h-100 bg-light border rounded-3"> <div class="container"> <div class="row"> <div class="col-md-12 d-flex justify-content-center align-items-center" style="min-height: 75vh;"> <div class="text-center">  <img src="../icons/success.gif" alt="Icon 2" class="img-fluid" width="200" height="200"> <h1>Thank you! </h1> <p>Your application has been sent.</p> </div> </div> </div> </div> </div> </div>';
+                                        }
+                                    },
+                                    error: function (xhr, status, error) {
+                                        // Handle any errors
+                                        //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                                        console.log(xhr.responseText); // Log the response text received from the server
+                                        //console.log(errorThrown);
+                                    }
+                                });
+                            }
+                        };
+                        reader.readAsDataURL(selectedFile);
+                    } else {
+                        notificationMSG = "Please upload attachement!";
+                        document.getElementById('_AttachementFile2').classList.add('is-invalid');
+                        required = false;
+                    }
+                } else {
+                    notificationMSG = "Please upload attachement!";
+                    document.getElementById('_AttachementFile2').classList.add('is-invalid');
+                    required = false;
+                    notification.show();
+                    document.getElementsByClassName('app-notification-messages')[0].textContent = "Please fill up all required information.";
+                    return false;
+                }
+
+
+            });
+        }
+
+
+        //Submit Professional Tax Receipt Cedula
+        function SubmitProfessionalTaxReceipt() {
+            document.getElementsByClassName("_BtnSubmitProfessionalTaxReceipt")[0].addEventListener('click', function () {
+                //Personal Information
+                var _PTRFirsTName = document.getElementById('_PTRFirsTName').value;
+                var _PTRMiddleName = document.getElementById('_PTRMiddleName').value;
+                var _PTRLastName = document.getElementById('_PTRLastName').value;
+                var _PTRGender = $('input[name=_PTRGender]:checked').val();
+                var _PTRTIN = document.getElementById('_PTRTIN').value;
+                var _PTRProfession = document.getElementById('_PTRProfession').value;
+                var _PTRPRCNo = document.getElementById('_PTRPRCNo').value;
+                var ProfessionalTaxReceipt = [];
+
+                if (_PTRFirsTName) { ProfessionalTaxReceipt.Email = "UserEmail3"; ProfessionalTaxReceipt.push(_PTRFirsTName); } else { alert("Please enter first name!"); return false; }
+                if (_PTRMiddleName) { ProfessionalTaxReceipt.push(_PTRMiddleName); } else { alert("Please enter middle name!"); return false; }
+                if (_PTRLastName) { ProfessionalTaxReceipt.push(_PTRLastName); } else { alert("Please enter last name!"); return false; }
+                if (_PTRGender) { ProfessionalTaxReceipt.push(_PTRGender); } else { alert("Please select gender!"); return false; }
+                if (_PTRTIN) { ProfessionalTaxReceipt.push(_PTRTIN); } else { alert("Please enter tin!"); return false; }
+                if (_PTRProfession) { ProfessionalTaxReceipt.push(_PTRProfession); } else { alert("Please enter profession!"); return false; }
+                if (_PTRPRCNo) { ProfessionalTaxReceipt.push(_PTRPRCNo); } else { alert("Please enter prc no!"); return false; }
+                if (CorporationCedula) {
+                    //Validation Success
+                    document.getElementsByClassName("form-type")[0].style.display = "none";
+                    document.getElementsByClassName("individual-cedula-form")[0].style.display = "none";
+                    document.getElementsByClassName("corporation-cedula-form")[0].style.display = "none";
+                    document.getElementsByClassName("professional-tax-receipt-form")[0].style.display = "none";
+                    document.getElementsByClassName("success-page")[0].style.display = "block";
+                    document.getElementsByClassName("success-page")[0].innerHTML = '<div class="col success-page"> <div class="h-100 bg-light border rounded-3"> <div class="container"> <div class="row"> <div class="col-md-12 d-flex justify-content-center align-items-center" style="min-height: 75vh;"> <div class="text-center">  <img src="../icons/success.gif" alt="Icon 2" class="img-fluid" width="200" height="200"> <h1>Thank you! </h1> <p>Your application has been sent.</p> </div> </div> </div> </div> </div> </div>';
+                    alert('Professional Tax Receipt');
+                }
+
+            });
+        }
+
+        //Check token is set 
+        function appCheckToken() {
+            if (localStorage.getItem('KeyToken')) {
+            } else {
+                //Current URL
+                var currentURL = window.location.href;
+                // Define the new path
+                var newPath = "Register.aspx";
+                // Replace the old path with the new one
+                var newURL = currentURL.replace(/CedulaApp\/Taxpayer\/index\.html/, newPath);
+                // Redirect to the new URL
+                window.location.href = newURL;
+            }
+        }
+        //Account Profile
+        function accountProfile() {
+            document.getElementsByClassName("user")[0].textContent = localStorage.getItem('FirstName') + " " + localStorage.getItem('MiddleName') + " " + localStorage.getItem('LastName');
+        }
+        //Back To WebPortal
+        function backToWebPortal() {
+            document.getElementsByClassName("backToWebPortal")[0].addEventListener("click", function (event) {
+                event.preventDefault();
+                // Current URL
+                var currentURL = window.location.href;
+                // Define the new path
+                var newPath = "Account.aspx";
+                // Replace the old path with the new one
+                var newURL = currentURL.replace(/CedulaApp\/Taxpayer\/index\.html/, newPath);
+                //Remove LocalStorage Item
+                localStorage.removeItem('UserID');
+                localStorage.removeItem('KeyToken');
+                localStorage.removeItem('FirstName');
+                localStorage.removeItem('MiddleName');
+                localStorage.removeItem('LastName');
+                localStorage.removeItem('Gender');
+                localStorage.removeItem('Office');
+                localStorage.removeItem('UserLevel');
+                localStorage.removeItem('UserType');
+                // Redirect to the new URL
+                window.location.href = newURL;
+            });
+        }
+        //Logout 
+        function logout() {
+            document.getElementsByClassName("logout")[0].addEventListener("click", function (event) {
+                event.preventDefault();
+                //Current URL
+                var currentURL = window.location.href;
+                // Define the new path
+                var newPath = "Register.aspx";
+                // Replace the old path with the new one
+                var newURL = currentURL.replace(/CedulaApp\/Taxpayer\/index\.html/, newPath);
+                //Remove LocalStorage Item
+                localStorage.removeItem('UserID');
+                localStorage.removeItem('KeyToken');
+                localStorage.removeItem('FirstName');
+                localStorage.removeItem('MiddleName');
+                localStorage.removeItem('LastName');
+                localStorage.removeItem('Gender');
+                localStorage.removeItem('Office');
+                localStorage.removeItem('UserLevel');
+                localStorage.removeItem('UserType');
+                localStorage.removeItem('LoginEmail');
+                localStorage.removeItem('LoginPassword');
+                // Redirect to the new URL
+                window.location.href = newURL;
+
+            });
+        }
+
+
+
+    </script>
+</body>
+
+</html>

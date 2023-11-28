@@ -1,0 +1,227 @@
+﻿
+.CH-btn {
+        color:#ffffff;        
+        Background-color:cornflowerblue;
+    }
+    .CH-NavBar {
+        color:#ffffff;
+        Background-color:#4975c3;
+    }
+    .sticky.is-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.Color-White {
+
+color:white;
+
+}
+
+@media (max-width: @screen-xs) {
+    body{font-size: 10px;}
+}
+
+@media (max-width: @screen-sm) {
+    body{font-size: 14px;}
+}
+
+
+h4{
+    font-size: 1.4em;
+}     
+
+
+ *, *:before, *:after {
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-y: scroll;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1ab188;
+            -webkit-transition: .5s ease;
+            transition: .5s ease;
+        }
+
+            a:hover {
+                color: #179b77;
+            }
+
+        label.input-txt {
+            opacity:0;
+            position: absolute;
+            transform: translateY(5px)translateX(-3px);
+            left: 13px;
+            color: #808080;
+            -webkit-transition: all 0.25s ease;
+            transition: all 0.25s ease;
+            -webkit-backface-visibility: hidden;
+            pointer-events: none;
+            font-size: 20px;
+            margin:0 auto;
+        }
+
+            label.input-txt .req {
+                margin: 2px;
+                color: #1ab188;
+
+            }
+
+            label.input-txt-active {
+                transform: translateY(-20px)translateX(6px);
+                left: 2px;
+                font-size: 14px;
+                color:#808080;
+                
+                margin:0 auto;
+                opacity:100;
+            }
+
+                label.input-txt-active .req {
+                    opacity: 0;
+                }
+
+            label.input-txt-highlight {
+                color: #4975c3;               
+                
+            }
+      
+            input.CH-Size, select.CH-Size, textarea.CH-Size, option.CH-size{
+                font-size:14px;
+                width: 100%;
+                height: 30px;
+                margin:1px;
+            }
+
+select.CH-Size {
+
+    font-size:14px;
+                width: 100%;
+                height: 30px;
+                margin:1px;
+
+
+}
+            
+
+
+            textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+                border:solid;
+  border-color: #6495ed;
+  
+
+  outline: 0 none;
+}
+
+
+
+        textarea {
+            border: 2px solid #a0b3b0;
+            resize: vertical;
+        }
+
+        .field-wrap {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .top-row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .top-row > div {
+            float: left;
+            width: 48%;
+            margin-right: 4%;
+        }
+
+            .top-row > div:last-child {
+                margin: 0;
+            }
+
+        .button {
+            border: 0;
+            outline: none;
+            border-radius: 0;
+            padding: 15px 0;
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            background: #1ab188;
+            color: #000000;
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            -webkit-appearance: none;
+        }
+
+            .button:hover, .button:focus {
+                background: #179b77;
+            }
+
+        .button-block {
+            display: block;
+            width: 100%;
+        }
+
+        .forgot {
+            margin-top: -20px;
+            text-align: right;
+        }
+
+
+
+        label.input-txt-active2 {
+    transform: translateY(-11px)translateX(6px);
+    left: 10px;
+    font-size: 12px;
+    color: #303030;
+    margin: 0 auto;
+    opacity: 100;
+    background-color: #ffffff;
+    margin-left: 3px;
+    height: 19px;
+    border: thin;
+    border-color: black;
+    background-color: #fff;
+    border-radius: 5px;
+    font-family: "Poppins", Arial, sans-serif !Important;
+
+
+}
+
+
+        input.CH-Size-New, select.CH-Size-New, option.CH-size-New {
+    font-size: 14px !Important;
+    width: 100% !Important;
+    height: 35px !Important;
+    margin: 1px !Important;    
+}
+
+
+

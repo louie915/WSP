@@ -1,0 +1,2005 @@
+﻿<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treasury Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.2.0/css/dataTables.dateTime.min.css">
+  <style>
+    /*----------------------------------Loader--------------------------------*/
+    .load-container {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrapper {
+      position: absolute;
+      top: -35px;
+      transform: scale(1.5);
+    }
+
+    .loader {
+      height: 25px;
+      width: 1px;
+      position: absolute;
+      animation: rotate 3.5s linear infinite;
+    }
+
+    .loader .dot {
+      top: 30px;
+      height: 7px;
+      width: 7px;
+      background: black;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    /*.loader-text{
+            position: absolute;
+            bottom: -85px;
+            font-size: 25px;
+            font-weight: 400;
+            font-family: sans-serif;
+            color: black;
+          }*/
+    @keyframes rotate {
+      30% {
+        transform: rotate(220deg);
+      }
+
+      40% {
+        transform: rotate(450deg);
+        opacity: 1;
+      }
+
+      75% {
+        transform: rotate(720deg);
+        opacity: 1;
+      }
+
+      76% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 0;
+        transform: rotate(0deg);
+      }
+    }
+
+    .loader:nth-child(1) {
+      animation-delay: 0.15s;
+    }
+
+    .loader:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    .loader:nth-child(3) {
+      animation-delay: 0.45s;
+    }
+
+    .loader:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+
+    .loader:nth-child(5) {
+      animation-delay: 0.75s;
+    }
+
+    .loader:nth-child(6) {
+      animation-delay: 0.9s;
+    }
+
+    /*----------------------------------End Loader--------------------------------*/
+
+    /*----------------------------------Radial Menu --------------------------------*/
+    * {
+      box-sizing: border-box;
+    }
+
+    /* body {
+    background-color: #462882;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+ }*/
+    .radial-menu-container {
+      position: fixed;
+      bottom: 1em;
+      right: 1em;
+    }
+
+    .menu-toggle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #f8f9fa;
+      box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+      position: absolute;
+      z-index: 5;
+      bottom: 0;
+      right: 0;
+      display: table;
+      text-align: center;
+    }
+
+    .menu-toggle .fa {
+      color: #fff;
+      font-size: 2em;
+      display: table-cell;
+      vertical-align: middle;
+      transition: 0.4s;
+    }
+
+    .menu-toggle.open .fa {
+      transform: rotate(135deg);
+    }
+
+    .btn-app {
+      width: 3.5em;
+      height: 3.5em;
+      border-radius: 50%;
+      position: absolute;
+      background-color: #f8f9fa;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn-app .fa {
+      line-height: 2.5em;
+    }
+
+    .open .btn-app {
+      box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .menu-round {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 3;
+    }
+
+    .menu-round .btn-app {
+      bottom: 0.25em;
+      right: 0.25em;
+      transition: 0.4s;
+    }
+
+    .menu-round.open .btn-app:nth-of-type(1) {
+      right: 0.5em;
+      bottom: 4.25em;
+      transition-delay: 0.2s;
+    }
+
+    .menu-round.open .btn-app:nth-of-type(2) {
+      right: 3.5em;
+      bottom: 3.5em;
+      transition-delay: 0.1s;
+    }
+
+    .menu-round.open .btn-app:nth-of-type(3) {
+      right: 4.25em;
+      bottom: 0.5em;
+    }
+
+    .menu-line {
+      position: absolute;
+      z-index: 2;
+    }
+
+    .menu-line .btn-app {
+      bottom: 0;
+      right: 0.5em;
+      transition: 0.3s;
+      transition-delay: 0.5s;
+    }
+
+    .menu-line.open .btn-app:nth-of-type(1) {
+      bottom: 4.25em;
+    }
+
+    .menu-line.open .btn-app:nth-of-type(1) {
+      bottom: 5.25em;
+    }
+
+    .menu-line.open .btn-app:nth-of-type(2) {
+      bottom: 9.25em;
+    }
+
+    .menu-line.open .btn-app:nth-of-type(3) {
+      bottom: 13.25em;
+    }
+
+    .menu-line.open .btn-app:nth-of-type(4) {
+      bottom: 17.25em;
+    }
+
+    .menu-line.open .btn-app:nth-of-type(5) {
+      bottom: 19.25em;
+    }
+
+    .menu-line.open .btn-app:nth-of-type(6) {
+      bottom: 22.25em;
+    }
+
+    .menu-line.open .btn-app:nth-of-type(7) {
+      bottom: 25.25em;
+    }
+
+    /*----------------------------------End Radial Menu--------------------------------*/
+
+    /*---------------------------------Radial Menu Tool Tip----------------------------------------*/
+    .tooltip {
+      position: absolute;
+      top: 50%;
+      right: 110%;
+      /* Adjust the distance from the icon */
+      transform: translateY(-50%);
+      /* Center vertically */
+      background-color: #333;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      width: 290px;
+    }
+
+    .btn-app:hover .tooltip {
+      opacity: 1;
+    }
+
+    /*---------------------------------End Radial Menu Tool Tip----------------------------------------*/
+
+    /*---------------------------------Dashboard Card----------------------------------------*/
+    .individual-cedula-pending,
+    .corporation-cedula-pending,
+    .rejected-cedula {
+      cursor: pointer;
+    }
+
+    /*---------------------------------End Dashboard Card----------------------------------------*/
+
+    /*---------------------------------Table----------------------------------------*/
+
+    table.dataTable thead {
+      background-color: #f0f0f0;
+    }
+
+    /*---------------------------------End Icons----------------------------------------*/
+    /*---------------------------------End Approval Button----------------------------------------*/
+    .approval-menu {
+      width: 100px;
+      height: 100px;
+      border: none;
+      border-radius: 100px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /*---------------------------------End Approval Button----------------------------------------*/
+    /*---------------------------------CTC DATA TABLE ----------------------------------------*/
+    .ctc-datatable {
+      overflow-x: auto;
+    }
+
+    /*---------------------------------End CTC DATA TABLE----------------------------------------*/
+  </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <header class="p-3 mb-3 border-bottom bg-light">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="index.html" class="nav-link px-2 link-secondary fw-bold fs-6">Treasury Information Management
+              System</a></li>
+          <li><a href="#" class="nav-link px-2 link-secondary backToWebPortal">Back To Web Portal</a></li>
+        </ul>
+
+
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle link-secondary"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://cdn-icons-png.flaticon.com/512/1144/1144760.png" alt="mdo" width="32" height="32"
+              class="rounded-circle">
+            <span class="user">User</span>
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item logout" href="#">Sign out</a></li>
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+
+  <main class="container">
+
+    <div class="dashboard mt-3">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-auto dashboard-header-icons">
+            <img src="https://cdn-icons-png.flaticon.com/512/12222/12222727.png" width="256" height="256"
+              alt="Dashboard" class="img-fluid dashboard-icon" title="Dashboard">
+          </div>
+          <div class="col-auto dashboard-header-moving-icons">
+          </div>
+          <div class="col">
+            <h1 class="fw-bold dashboard-title">DASHBOARD</h1>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row align-items-md-stretch g-3 m-auto">
+
+
+          <div class="col individual-cedula-pending">
+            <div class="card" area-toggle="my-order">
+              <div class="card-body">
+                <div class="text-center">
+                  <video class="moving-icons" width="200" height="200" preload="none"
+                    style="background: transparent  url('https://cdn-icons-png.flaticon.com/512/11677/11677478.png') 50% 50% / fit no-repeat;"
+                    autoplay="autoplay" loop="true" muted="muted" playsinline="">
+                    <source src="https://cdn-icons-mp4.flaticon.com/512/11677/11677478.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="text-center mt-2">
+                  <h5> Pending Application</h5>
+                  <span class="h1 fw-bold d-ctc-pending">0</span>
+                </div>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col corporation-cedula-pending">
+            <div class="card" area-toggle="my-order">
+              <div class="card-body">
+                <div class="text-center">
+                  <video class="moving-icons" width="200" height="200" preload="none"
+                    style="background: transparent  url('https://cdn-icons-png.flaticon.com/512/10051/10051239.png') 50% 50% / fit no-repeat;"
+                    autoplay="autoplay" loop="true" muted="muted" playsinline="">
+                    <source src="https://cdn-icons-mp4.flaticon.com/512/10051/10051239.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="text-center mt-2">
+                  <h5> Approved Application</h5>
+                  <span class="h1 fw-bold d-ctc-approved">0</span>
+                </div>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col rejected-cedula">
+            <div class="card" area-toggle="my-order">
+              <div class="card-body">
+                <div class="text-center">
+                  <video class="moving-icons" width="200" height="200" preload="none"
+                    style="background: transparent  url('https://cdn-icons-png.flaticon.com/512/6416/6416372.png') 50% 50% / fit no-repeat;"
+                    autoplay="autoplay" loop="true" muted="muted" playsinline="">
+                    <source src="https://cdn-icons-mp4.flaticon.com/512/6416/6416372.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="text-center mt-2">
+                  <h5> Rejected Application</h5>
+                  <span class="h1 fw-bold d-ctc-rejected">0</span>
+                </div>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col data-controller">
+            <div class="card" area-toggle="my-order">
+              <div class="card-body">
+
+                <div class="container data-controller-individual-body">
+                </div>
+                <div class="container data-controller-corporation-body">
+                </div>
+                <div class="container data-controller-professional-body">
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </main>
+
+
+
+
+
+  <!-- Raadial menu-->
+
+  <div class="radial-menu-container">
+    <div class="menu-toggle">
+      <img class="menu-toggle-icon" src="https://cdn-icons-png.flaticon.com/512/3388/3388823.png" width="60" height="60"
+        alt="menu" title="menu" class="img-small">
+    </div>
+
+    <!-- <div class="menu-round">
+              <div class="btn-app">
+                <div class="fa fa-facebook"><img src="   https://cdn-icons-png.flaticon.com/512/3388/3388823.png " width="42" height="42" alt="menu" title="menu" class="img-small"></div>
+              </div>
+                <div class="btn-app">
+                <div class="fa fa-facebook"></div>
+              </div>
+              <div class="btn-app">
+                <div class="fa fa- fa-wikipedia-w"></div>
+              </div>
+            </div> -->
+
+    <div class="menu-line">
+      <div class="btn-app">
+        <img src="https://cdn-icons-png.flaticon.com/128/8121/8121334.png" alt="Home Dashboard"
+          class="img-fluid home-dashboard-icon-menu" width="100" height="100">
+        <div class="tooltip fw-bold">Home Dashboard</div>
+      </div>
+
+      <div class="btn-app">
+        <img src="https://cdn-icons-png.flaticon.com/128/6172/6172524.png" alt="Individual Cedula Application List"
+          class="img-fluid individual-icon-menu" width="100" height="100">
+        <div class="tooltip fw-bold">Individual Cedula Application List</div>
+      </div>
+
+      <div class="btn-app">
+        <img src="https://cdn-icons-png.flaticon.com/128/6172/6172506.png" alt="Individual Cedula Application List"
+          class="img-fluid corportation-icon-menu" width="100" height="100">
+        <div class="tooltip fw-bold">Corporation Cedula Application List</div>
+      </div>
+
+      <div class="btn-app">
+        <img src="https://cdn-icons-png.flaticon.com/128/6569/6569161.png" alt="Profesional Tax Receipt"
+          class="img-fluid professional-tax-receipt-icon-menu" width="100" height="100">
+        <div class="tooltip fw-bold">Professional Tax Receipt Application List</div>
+      </div>
+
+      <!--<div class="btn-app">
+                <div class="fa fa-graduation-cap"></div>
+              </div>
+              <div class="btn-app">
+                <div class="fa fa-image"></div>
+              </div>
+              <div class="btn-app">
+                <div class="fa fa-vine"></div>
+              </div> -->
+    </div>
+
+  </div>
+  <!--End radial menu-->
+
+
+
+
+
+  <!-- View CTC Online Application Information-->
+  <div class="modal" id="appViewCTCOnlineApplication" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="appViewCTCOnlineApplicationLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-light border rounded-3">
+
+          <div class="col form-type">
+            <div class="h-100">
+              <div class="container-fluid">
+
+                <div class="row align-items-center">
+                  <div class="col-auto">
+                    <img src="#" alt="Icon 2" class="img-fluid cedula-icons" width="200" height="200">
+                  </div>
+                  <div class="col">
+                    <h1 class="fw-bold form-title"></h1>
+                  </div>
+                </div>
+
+
+                <!--Individual Cedula Form-->
+                <div class="container individual-cedula-form">
+
+                </div>
+                <!--End Individual Cedula Form-->
+
+                <!--Corporation Cedula Form-->
+                <div class="container corporation-cedula-form">
+
+                </div>
+                <!--End Corporation Cedula Form-->
+
+
+                <!--Professional Tax Receipt Form-->
+                <div class="container professional-tax-receipt-form">
+
+                </div>
+                <!--End Professional Tax Receipt Form-->
+
+
+              </div>
+
+
+            </div>
+          </div>
+
+
+
+          <!--Menu Accept Or Reject-->
+          <div class="container d-flex justify-content-center align-items-center mt-5 mb-5">
+            <div class="row">
+
+              <div class="col-md-6 text-center  approval-menu ctc-approve  fw-bold">
+                <img src="../icons/success.gif" alt="Icon 2" class="img-fluid cedula-icons" width="1000" height="1000">
+                APPROVE
+              </div>
+
+              <div class="col-md-6 text-center approval-menu ctc-reject fw-bold">
+                <img src="../icons/reject.gif" alt="Icon 2" class="img-fluid cedula-icons" width="300" height="300">
+                REJECT
+              </div>
+
+            </div>
+          </div>
+          <!--End Menu Accept Or Reject-->
+        </div>
+        <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark new-registration" data-bs-dismiss="modal"></button>
+                <button type="button" class="btn btn-outline-dark new-registration" data-bs-dismiss="modal"></button>
+              </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!--End View CTC Online Application Information-->
+
+
+
+  <!-- View CTC Online Application Attachement-->
+  <div class="modal" id="appViewCTCAttachement" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="appViewCTCAttachementLabel"></h5>
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+        </div>
+        <div class="modal-body bg-light border rounded-3 d-flex justify-content-center align-items-center">
+          <!-- Image to display in the modal -->
+          <img src="#" alt="#" class="img-fluid ctc-attachement-file" style="max-width: 100%;">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark ctc-back-to-application" data-bs-dismiss="modal">Back To
+            Application</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End View CTC Online Application Attachement-->
+
+
+
+  <!--Confirm  Notification-->
+  <div class="modal" id="appConfirmation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container d-flex justify-content-center align-items-center">
+            <div class="row">
+              <video width="100" height="100" preload="none"
+                style="background: transparent  url('https://cdn-icons-png.flaticon.com/512/10468/10468726.png') 50% 50% / fit no-repeat;"
+                autoplay="autoplay" loop="true" muted="muted" playsinline="">
+                <source src="https://cdn-icons-mp4.flaticon.com/512/10826/10826759.mp4" type="video/mp4">
+              </video>
+              <span class="fw-bold fs-5 app-notification-messages text-center"></span>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark ctc-cancel" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-outline-dark ctc-confirm">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Confirm Notification-->
+
+
+  <!--Success  Notification-->
+  <div class="modal" id="appSuccess" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container d-flex justify-content-center align-items-center">
+            <div class="row">
+              <video width="100" height="100" preload="none"
+                style="background: transparent  url('https://cdn-icons-png.flaticon.com/512/10468/10468726.png') 50% 50% / fit no-repeat;"
+                autoplay="autoplay" loop="true" muted="muted" playsinline="">
+                <source src="https://cdn-icons-mp4.flaticon.com/512/7920/7920939.mp4" type="video/mp4">
+              </video>
+              <!-- <img src="../icons/success.gif" alt="Icon 2" class="img-fluid" width="200" height="200"> -->
+              <span class="fw-bold fs-5 app-notification-success-messages text-center"></span>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Ok</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Success Notification-->
+
+
+
+
+
+
+
+  <!--Loader-->
+  <div class="modal" id="apploader" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-body">
+        <div class="load-container">
+          <div class="wrapper">
+            <div class="loader">
+              <div class="dot"></div>
+            </div>
+            <div class="loader">
+              <div class="dot"></div>
+            </div>
+            <div class="loader">
+              <div class="dot"></div>
+            </div>
+            <div class="loader">
+              <div class="dot"></div>
+            </div>
+            <div class="loader">
+              <div class="dot"></div>
+            </div>
+            <div class="loader">
+              <div class="dot"></div>
+            </div>
+          </div>
+          <!-- <div class="loader-text">
+                          Please wait
+                        </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Loader-->
+
+
+  <footer class="footer mt-auto py-2 bg-light">
+    <div class="container text-center py-2">
+      <p>&copy; 2023 SPIDC</p>
+    </div>
+  </footer>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+<script src="https://cdn.datatables.net/datetime/1.2.0/js/dataTables.dateTime.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+<script>
+
+
+  /*---------------------- LOADER And Also Can Be Used As Document Ready-----------------------------*/
+  var loader = new bootstrap.Modal(document.getElementById('apploader'));
+  var ctcOnlineApplicationInformation = new bootstrap.Modal(document.getElementById('appViewCTCOnlineApplication'));
+  var notification = new bootstrap.Modal(document.getElementById('appConfirmation'));
+  var successNotification = new bootstrap.Modal(document.getElementById('appSuccess'));
+  var interval;
+  document.onreadystatechange = function () {
+    if (document.readyState !== "complete") {
+      //Loader    
+      loader.show();
+    } else {
+      //Loader
+      loader.hide();
+      //app CheckToken
+      appCheckToken();
+      //account Profile
+      accountProfile();
+      //back To WebPortal
+      backToWebPortal();
+      //logout
+      logout();
+      //Radial NavBar  
+      radialNavBar();
+      //Radial NavBar Menu
+      radialNavBarMenu();
+      //Dashboard Online Application Status
+      dashboardCount();
+      //Dashboard Navbar Menu Icon
+      dasboardNavBarMenu();
+      //Data Controller
+      document.getElementsByClassName("data-controller")[0].style.display = "none";
+      //Open CTC Online Application After View Attachement
+      openCTCApplication();
+      //CTC Approve Or Reject 
+      ctAction();
+      //CTC Confirm 
+      ctActionConfirm();
+
+    }
+  };
+  /*----------------------End  LOADER -----------------------------*/
+
+  //Data Table  CTC Pending Application
+  function loadDataTableCTCOnlineApplication() {
+    // DataTables initialisation
+    const table = $('#ctcOnlineApplication').DataTable();
+
+    // Create date inputs
+    const minDate = new DateTime($('#min'), {
+      format: 'DD - MM - YYYY'
+    });
+    const maxDate = new DateTime($('#max'), {
+      format: 'DD - MM - YYYY'
+    });
+    // Add your custom filter function only once (not at every click)
+    $.fn.dataTable.ext.search.push(
+      function (settings, data, dataIndex) {
+        const min = minDate.val();
+        const max = maxDate.val();
+        const date = new Date(data[0]);// Adjust the column you want to filter
+        // console.log(min, max)
+        if (
+          (min === null && max === null) ||
+          (min === null && date <= max) ||
+          (min <= date && max === null) ||
+          (min <= date && date <= max)
+        ) {
+          return true;
+        }
+        return false;
+      }
+    );
+
+    //Filter Date
+    $("#filter_date").click(function () {
+      if ($("#min").val() !== "" || $("#max").val() !== "") {
+        // search and draw
+        table.search()
+        table.draw();
+      }
+    });
+    //Reset Filter
+    $("#reset_filter_date").click(function () {
+      // Clear the input values
+      $("#min, #max").val("");
+      // set those null aswell
+      minDate.val(null)
+      maxDate.val(null)
+      // search and draw
+      table.search()
+      table.draw();
+    });
+
+  }
+  //Data Table  CTC Individual
+  function loadDataTableCTCIndividual() {
+    // DataTables initialisation
+    const table = $('#ctcindividual').DataTable();
+
+    // Create date inputs
+    const minDate = new DateTime($('#min'), {
+      format: 'DD - MM - YYYY'
+    });
+    const maxDate = new DateTime($('#max'), {
+      format: 'DD - MM - YYYY'
+    });
+    // Add your custom filter function only once (not at every click)
+    $.fn.dataTable.ext.search.push(
+      function (settings, data, dataIndex) {
+        const min = minDate.val();
+        const max = maxDate.val();
+        const date = new Date(data[0]);// Adjust the column you want to filter
+        // console.log(min, max)
+        if (
+          (min === null && max === null) ||
+          (min === null && date <= max) ||
+          (min <= date && max === null) ||
+          (min <= date && date <= max)
+        ) {
+          return true;
+        }
+        return false;
+      }
+    );
+
+    //Filter Date
+    $("#filter_date").click(function () {
+      if ($("#min").val() !== "" || $("#max").val() !== "") {
+        // search and draw
+        table.search()
+        table.draw();
+      }
+    });
+    //Reset Filter
+    $("#reset_filter_date").click(function () {
+      // Clear the input values
+      $("#min, #max").val("");
+      // set those null aswell
+      minDate.val(null)
+      maxDate.val(null)
+      // search and draw
+      table.search()
+      table.draw();
+    });
+
+  }
+  //Data Table  CTC Corporation
+  function loadDataTableCTCCorporation() {
+    // DataTables initialisation
+    const table = $('#ctccorporation').DataTable();
+    // Create date inputs
+    const minDate = new DateTime($('#cmin'), {
+      format: 'DD - MM - YYYY'
+    });
+    const maxDate = new DateTime($('#cmax'), {
+      format: 'DD - MM - YYYY'
+    });
+    // Add your custom filter function only once (not at every click)
+    $.fn.dataTable.ext.search.push(
+      function (settings, data, dataIndex) {
+        const min = minDate.val();
+        const max = maxDate.val();
+        const date = new Date(data[0]);// Adjust the column you want to filter
+        // console.log(min, max)
+        if (
+          (min === null && max === null) ||
+          (min === null && date <= max) ||
+          (min <= date && max === null) ||
+          (min <= date && date <= max)
+        ) {
+          return true;
+        }
+        return false;
+      }
+    );
+
+    //Filter Date
+    $("#cfilter_date").click(function () {
+      if ($("#cmin").val() !== "" || $("#cmax").val() !== "") {
+        // search and draw
+        table.search()
+        table.draw();
+      }
+    });
+    //Reset Filter
+    $("#creset_filter_date").click(function () {
+      // Clear the input values
+      $("#cmin, #cmax").val("");
+      // set those null aswell
+      minDate.val(null)
+      maxDate.val(null)
+      // search and draw
+      table.search()
+      table.draw();
+    });
+
+  }
+  //Get The Data CTC Online Application
+  function getDataCTCOnlineApplication() {
+    //Make Ajax Call 
+    $.ajax({
+      url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetCTCOnlineApplicationTims',
+      type: 'GET',//METHOD
+      data: '{}',
+      async: true,
+      cache: false,
+      dataType: 'json', // DATA TYPE 
+      headers: {
+        'API-Key': "apiKey",
+        'Authorization': "apiKey"
+      },
+      beforeSend: function () {
+        // This code is executed before the request is sent
+        // You can show a loading spinner or make other preparations
+        loader.show();
+      },
+      success: function (response) {
+        // HANDLES SUCCESS REPONSE
+        //You can hide the loader now
+        if (response.status) {
+          //Loader
+          loader.hide();
+          const dataCTCPedningApplication = JSON.parse(JSON.stringify(response.data));
+          //console.log(dataindividualCedula);
+          // Clear the existing table content
+          $("#ctcOnlineApplication tbody").empty();
+          for (var i = 0; i < dataCTCPedningApplication.length; i++) {
+            //Handle the null json object
+            var firstName = dataCTCPedningApplication[i].FirstName || '';
+            var middleName = dataCTCPedningApplication[i].MiddleName || '';
+            var lastName = dataCTCPedningApplication[i].LastName || '';
+            var companyName = dataCTCPedningApplication[i].CompanyName || '';
+            //Status Badge
+            var status;
+            if (dataCTCPedningApplication[i].Status == "Pending") {
+              status = '<div class="container text-center">\n'
+                + ' <img src="https://cdn-icons-png.flaticon.com/128/11677/11677478.png" data-src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" alt="img-approved " title="img-approved" class="img-fluid" width="30" height="30"> \n'
+                + ' <span class="fw-bold">' + dataCTCPedningApplication[i].Status + '</span> \n'
+                + '</div>';
+            } else if (dataCTCPedningApplication[i].Status == "Approved") {
+              status = '<div class="container text-center">\n'
+                + ' <img src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" data-src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" alt="img-approved " title="img-approved" class="img-fluid" width="30" height="30"> \n'
+                + ' <span class="fw-bold">' + dataCTCPedningApplication[i].Status + '</span> \n'
+                + '</div>';
+            } else {
+              status = '<div class="container text-center">\n'
+                + ' <img src="https://cdn-icons-png.flaticon.com/128/6416/6416372.png" data-src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" alt="img-approved " title="img-approved" class="img-fluid" width="30" height="30"> \n'
+                + ' <span class="fw-bold">' + dataCTCPedningApplication[i].Status + '</span> \n'
+                + '</div>';
+            }
+
+
+            $("#ctcOnlineApplication").append('<tr>\n'
+              + '<td>' + formatDate(dataCTCPedningApplication[i].TransactionDate) + '</td>\n'
+              + '<td>' + dataCTCPedningApplication[i].ControlNo + '</td>\n'
+              + '<td>' + dataCTCPedningApplication[i].Email + '</td>\n'
+              + '<td>' + firstName + " " + middleName + " " + lastName + " " + companyName + '</td>\n'
+              + '<td>' + dataCTCPedningApplication[i].CTC_Type + '</td>\n'
+              + '<td>' + status + '</td>\n'
+              + '<td><div>\n'
+              + '<button type="button" class="btn btn-light btn-sm btnView"  value="' + dataCTCPedningApplication[i].ControlNo + "+" + dataCTCPedningApplication[i].CTC_Type + '" onclick="viewData(this.value)"><img class="icon-view" src="https://cdn-icons-png.flaticon.com/128/11677/11677497.png" width="30" height="30" alt="View" title="View" class="img-small">View</button>\n'
+              + '</div></td>\n'
+              + '</tr>');
+          }
+          // HERE I CALL THE LOADDATATABLE FUNCTION
+          loadDataTableCTCOnlineApplication();
+        } 
+      },
+      error: function (xhr, status, errorThrown) {
+        // HANDLES ERROR REPONSE
+         //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+          console.log(xhr.responseText); // Log the response text received from the server
+          //console.log(errorThrown);
+      }
+    });
+  }
+  //End Get The Data Pending Application
+  //Get The Data Individual
+  function getDataCTCIndividual() {
+    //Make Ajax Call 
+    $.ajax({
+      url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetIndividualTims',
+      type: 'GET',//METHOD
+      data: '{}',
+      async: true,
+      cache: false,
+      dataType: 'json', // DATA TYPE 
+      beforeSend: function () {
+          // Set the Authorization header with the Bearer token
+          xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+          // This code is executed before the request is sent
+          // You can show a loading spinner or make other preparations
+          loader.show();
+      },
+      success: function (response) {
+        // HANDLES SUCCESS REPONSE
+        //You hide the loader now
+        if (response.status) {
+          //Loader
+          loader.hide();
+          const dataindividualCedula = JSON.parse(JSON.stringify(response.data));
+          //console.log(dataindividualCedula);
+          // Clear the existing table content
+          $("#ctcindividual tbody").empty();
+          for (var i = 0; i < dataindividualCedula.length; i++) {
+            //Handle Null Json Value
+            var middleName = dataindividualCedula[i].MiddleName || '';
+            //Status Badge
+            var status;
+            if (dataindividualCedula[i].Status == "Pending") {
+              status = '<div class="container text-center">\n'
+                + ' <img src="https://cdn-icons-png.flaticon.com/128/11677/11677478.png" data-src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" alt="img-approved " title="img-approved" class="img-fluid" width="30" height="30"> \n'
+                + ' <span class="fw-bold">' + dataindividualCedula[i].Status + '</span> \n'
+                + '</div>';
+            } else if (dataindividualCedula[i].Status == "Approved") {
+              status = '<div class="container text-center">\n'
+                + ' <img src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" data-src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" alt="img-approved " title="img-approved" class="img-fluid" width="30" height="30"> \n'
+                + ' <span class="fw-bold">' + dataindividualCedula[i].Status + '</span> \n'
+                + '</div>';
+            } else {
+              status = '<div class="container text-center">\n'
+                + ' <img src="https://cdn-icons-png.flaticon.com/128/6416/6416372.png" data-src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" alt="img-approved " title="img-approved" class="img-fluid" width="30" height="30"> \n'
+                + ' <span class="fw-bold">' + dataindividualCedula[i].Status + '</span> \n'
+                + '</div>';
+            }
+
+            $("#ctcindividual").append('<tr>\n'
+              + '<td>' + formatDate(dataindividualCedula[i].TransactionDate) + '</td>\n'
+              + '<td>' + dataindividualCedula[i].ControlNo + '</td>\n'
+              + '<td>' + dataindividualCedula[i].Email + '</td>\n'
+              + '<td>' + dataindividualCedula[i].FirstName + " " + middleName + " " + dataindividualCedula[i].LastName + '</td>\n'
+              + '<td>' + status + '</td>\n'
+              + '<td><div>\n'
+              + '<button type="button" class="btn btn-light btn-sm btnView" value="' + dataindividualCedula[i].ControlNo + "+" + dataindividualCedula[i].CTC_Type + '" onclick="viewData(this.value)"><img class="icon-view" src="https://cdn-icons-png.flaticon.com/128/11677/11677497.png" width="30" height="30" alt="View" title="View" class="img-small">View</button>\n'
+              + '</div></td>\n'
+              + '</tr>');
+          }
+          // HERE I CALL THE LOADDATATABLE FUNCTION
+          loadDataTableCTCIndividual();
+        } 
+      },
+      error: function (xhr, status, errorThrown) {
+        // HANDLES ERROR REPONSE
+        //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+        console.log(xhr.responseText); // Log the response text received from the server
+        //console.log(errorThrown);
+      }
+    });
+  }
+  //End Get The Data Individual
+  //Get The Data Corporation
+  function getDataCTCCorporation() {
+    //Make Ajax Call 
+    $.ajax({
+      url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetCorporationTims',
+      type: 'GET',//METHOD
+      data: '{}',
+      async: true,
+      cache: false,
+      dataType: 'json', // DATA TYPE 
+      beforeSend: function () {
+          // Set the Authorization header with the Bearer token
+          xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+          // This code is executed before the request is sent
+          // You can show a loading spinner or make other preparations
+          loader.show();
+      },
+      success: function (response) {
+        // HANDLES SUCCESS REPONSE
+        //You can hide the loader now
+        if (response.status) {
+          //Loader
+          loader.hide();
+          const dataCorporationCedula = JSON.parse(JSON.stringify(response.data));
+          // Clear the existing table content
+          $("#ctccorporation tbody").empty();
+          for (var i = 0; i < dataCorporationCedula.length; i++) {
+            //Status Badge
+            var status;
+            if (dataCorporationCedula[i].Status == "Pending") {
+              status = '<div class="container text-center">\n'
+                + ' <img src="https://cdn-icons-png.flaticon.com/128/11677/11677478.png" data-src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" alt="img-approved " title="img-approved" class="img-fluid" width="30" height="30"> \n'
+                + ' <span class="fw-bold">' + dataCorporationCedula[i].Status + '</span> \n'
+                + '</div>';
+            } else if (dataCorporationCedula[i].Status == "Approved") {
+              status = '<div class="container text-center">\n'
+                + ' <img src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" data-src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" alt="img-approved " title="img-approved" class="img-fluid" width="30" height="30"> \n'
+                + ' <span class="fw-bold">' + dataCorporationCedula[i].Status + '</span> \n'
+                + '</div>';
+            } else {
+              status = '<div class="container text-center">\n'
+                + ' <img src="https://cdn-icons-png.flaticon.com/128/6416/6416372.png" data-src="https://cdn-icons-png.flaticon.com/128/10051/10051239.png" alt="img-approved " title="img-approved" class="img-fluid" width="30" height="30"> \n'
+                + ' <span class="fw-bold">' + dataCorporationCedula[i].Status + '</span> \n'
+                + '</div>';
+            }
+            $("#ctccorporation").append('<tr>\n'
+              + '<td>' + formatDate(dataCorporationCedula[i].TransactionDate) + '</td>\n'
+              + '<td>' + dataCorporationCedula[i].ControlNo + '</td>\n'
+              + '<td>' + dataCorporationCedula[i].Email + '</td>\n'
+              + '<td>' + dataCorporationCedula[i].CompanyName + '</td>\n'
+              + '<td>' + status + '</td>\n'
+              + '<td><div>\n'
+              + '<button type="button" class="btn btn-light btn-sm btnView" value="' + dataCorporationCedula[i].ControlNo + "+" + dataCorporationCedula[i].CTC_Type + '" onclick="viewData(this.value)"><img class="icon-view"  src="https://cdn-icons-png.flaticon.com/128/11677/11677497.png" width="30" height="30" alt="View" title="View" class="img-small">View</button>\n'
+              + '</div></td>\n'
+              + '</tr>');
+          }
+          // HERE I CALL THE LOADDATATABLE FUNCTION
+          loadDataTableCTCCorporation();
+        } 
+      },
+      error: function (xhr, status, errorThrown) {
+        // HANDLES ERROR REPONSE
+         //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+        console.log(xhr.responseText); // Log the response text received from the server
+        //console.log(errorThrown);
+      }
+    });
+  }
+  //End Get The Data Corporation
+  //Format Date
+  function formatDate(key) {
+    // Step 1: Parse the original date string into a JavaScript Date object
+    var dateObject = new Date(key);
+    // Step 2: Extract the year, month, day, hours, minutes, and seconds components
+    var year = dateObject.getFullYear();
+    var month = String(dateObject.getMonth() + 1).padStart(2, '0'); // Add 1 to the month since it's zero-based
+    var day = String(dateObject.getDate()).padStart(2, '0');
+    var hours = String(dateObject.getHours()).padStart(2, '0');
+    var minutes = String(dateObject.getMinutes()).padStart(2, '0');
+    var seconds = String(dateObject.getSeconds()).padStart(2, '0');
+    // Step 3: Format the components into the "YYYY-MM-DD HH:MM:SS" format
+    //var formattedDate = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+    var formattedDate = year + '-' + month + '-' + day;
+    //document.getElementById("myDate").value = formattedDate;
+    return formattedDate;
+  }
+  //End Format Date
+  //Format Number
+  function formatNumber(key) {
+    return key.toLocaleString();
+  }
+  //End Format Number
+
+  //Dashboard Application Count
+  function dashboardCount() {
+    interval = setInterval(function () {
+      $.ajax({
+        url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetCTCOnlineApplicationTims',
+        type: 'GET',//METHOD
+        data: '{}',
+        async: true,
+        cache: false,
+        dataType: 'json', // DATA TYPE 
+        beforeSend: function () {
+            // Set the Authorization header with the Bearer token
+            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+            // This code is executed before the request is sent
+            // You can show a loading spinner or make other preparations
+        },
+        success: function (response) {
+          // HANDLES SUCCESS REPONSE
+          if (response.status) {
+            // Parse the JSON response
+            dashboardData = JSON.parse(JSON.stringify(response));
+            // Initialize counts for each status
+            let pendingCount = 0;
+            let approvedCount = 0;
+            let rejectedCount = 0;
+            // Iterate through the data array and tally the counts
+            dashboardData.data.forEach((item) => {
+              const status = item.Status;
+              switch (status) {
+                case "Pending":
+                  pendingCount++;
+                  break;
+                case "Approved":
+                  approvedCount++;
+                  break;
+                case "Rejected":
+                  rejectedCount++;
+                  break;
+                default:
+                  // Handle other statuses if needed
+                  break;
+              }
+            });
+            document.getElementsByClassName("d-ctc-pending")[0].textContent = pendingCount;
+            document.getElementsByClassName("d-ctc-approved")[0].textContent = approvedCount;
+            document.getElementsByClassName("d-ctc-rejected")[0].textContent = rejectedCount;
+          } 
+        },
+        error: function (xhr, status, errorThrown) {
+          // HANDLES ERROR REPONSE
+           //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+          console.log(xhr.responseText); // Log the response text received from the server
+          //console.log(errorThrown);
+        }
+      });
+
+    }, 100);
+
+  }
+
+  //Radial NavBar Menu
+  function radialNavBar() {
+    //Icond Menu
+    document.getElementsByClassName("home-dashboard-icon-menu")[0].style.visibility = 'hidden';
+    document.getElementsByClassName("individual-icon-menu")[0].style.visibility = 'hidden';
+    document.getElementsByClassName("corportation-icon-menu")[0].style.visibility = 'hidden';
+    document.getElementsByClassName("professional-tax-receipt-icon-menu")[0].style.visibility = 'hidden';
+
+    let isButtonClicked = false;
+    const menuToggleIcon = document.getElementsByClassName("menu-toggle-icon")[0];
+    document.getElementsByClassName("menu-toggle")[0].addEventListener("click", function () {
+      // Toggle the flag to indicate the button state
+      isButtonClicked = !isButtonClicked;
+      // Toggle the icon and perform actions based on the button state
+      if (isButtonClicked) {
+        document.getElementsByClassName("home-dashboard-icon-menu")[0].style.visibility = 'visible';
+        document.getElementsByClassName("individual-icon-menu")[0].style.visibility = 'visible';
+        document.getElementsByClassName("corportation-icon-menu")[0].style.visibility = 'visible';
+        document.getElementsByClassName("professional-tax-receipt-icon-menu")[0].style.visibility = 'visible';
+        menuToggleIcon.src = 'https://cdn-icons-png.flaticon.com/512/1828/1828939.png';
+        document.getElementsByClassName("menu-line")[0].classList.add('open');
+        // Additional actions when the button is clicked
+      } else {
+        menuToggleIcon.src = 'https://cdn-icons-png.flaticon.com/512/3388/3388823.png';
+        document.getElementsByClassName("menu-line")[0].classList.remove('open');
+        document.getElementsByClassName("home-dashboard-icon-menu")[0].style.visibility = 'hidden';
+        document.getElementsByClassName("individual-icon-menu")[0].style.visibility = 'hidden';
+        document.getElementsByClassName("corportation-icon-menu")[0].style.visibility = 'hidden';
+        document.getElementsByClassName("professional-tax-receipt-icon-menu")[0].style.visibility = 'hidden';
+        // Additional actions when the button is not clicked
+      }
+    });
+  }
+  //End Radial NavBar Menu
+
+  //Radial NavBar Menu
+  const radialNavBarMenu = () => {
+
+    //Home Dashbaord
+    document.getElementsByClassName("home-dashboard-icon-menu")[0].addEventListener("click", function () {
+      window.location.reload();
+      // Clear items in localStorage
+      localStorage.removeItem('dataTableSelector');
+      localStorage.removeItem('approvalKey');
+      localStorage.removeItem('approvalType');
+    });
+    //End Professional
+
+    //Individual 
+    document.getElementsByClassName("individual-icon-menu")[0].addEventListener("click", function () {
+      //Stop The Dashboard Count 
+      clearInterval(interval);
+      //Header
+      // document.getElementsByClassName("dashboard-icon")[0].src = 'https://cdn-icons-png.flaticon.com/512/2889/2889333.png';
+      document.getElementsByClassName("dashboard-icon")[0].style.display = "none";
+      document.getElementsByClassName("dashboard-header-moving-icons")[0].innerHTML = '<video width="256" height="256" preload="none" style="background: transparent  url("https://cdn-icons-png.flaticon.com/512/6569/6569123.png") 50% 50% / fit no-repeat;" autoplay="autoplay" loop="true" muted="muted" playsinline="">\n'
+        + '<source src="https://cdn-icons-mp4.flaticon.com/512/6569/6569123.mp4" type="video/mp4"></video>';
+      document.getElementsByClassName("dashboard-title")[0].textContent = "INDIVIDUAL CEDULA APPLICATION LIST";
+
+      document.getElementsByClassName("individual-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("corporation-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("rejected-cedula")[0].style.display = "none";
+
+      //Main
+      document.getElementsByClassName("data-controller")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-individual-body")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-corporation-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-professional-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-individual-body")[0].innerHTML = '<div style="margin: 20px;">\n'
+        + '<div class="container table-responsive-sm ctc-datatable"><table border="0" cellspacing="5" cellpadding="5" class="mb-5">\n'
+        + '<tbody>\n'
+        + '<tr><td>From:</td><td><input type="text" class="form-control form-control-sm" id="min" name="min"></td></tr>\n'
+        + '<tr><td>Until:</td><td><input type="text" class="form-control form-control-sm" id="max" name="max"></td></tr>\n'
+        + '<tr><td>\n'
+        + '<button class="btn btn-light btn-sm" id="filter_date"><img class="icon-filter" src="https://cdn-icons-png.flaticon.com/128/8948/8948330.png" width="30" height="30" alt="Filter" title="Filter" class="img-small">Filter</button>\n'
+        + '<button class="btn btn-light btn-sm" id="reset_filter_date"><img class="icon-reset" src="https://cdn-icons-png.flaticon.com/128/10246/10246807.png" width="30" height="30" alt="Reset" title="Reset" class="img-small"></button>\n'
+        + '</td></tr>\n'
+        + '</tbody>\n'
+        + '</table>\n'
+        + '<table class="table table-sm table-bordered table-hover" id="ctcindividual">\n'
+        + '<thead>\n'
+        + '<tr>\n'
+        + '<th>Date</th>\n'
+        + '<th>Control No.</th>\n'
+        + '<th>Email </th>\n'
+        + '<th>Name</th>\n'
+        + '<th>Status</th>\n'
+        + '<th>Actions</th>\n'
+        + '</tr>\n'
+        + '</thead>\n'
+        + ' <tbody></tbody>\n'
+        + '</table></div';
+      $("#ctcindividual tbody").empty();
+      getDataCTCIndividual();
+      //Put datatable ID In localstorage for datatable remove after action like approved etc
+      localStorage.setItem('dataTableSelector', '#ctcindividual');
+
+    });
+    //End Individual
+
+    //Corpotation
+    document.getElementsByClassName("corportation-icon-menu")[0].addEventListener("click", function () {
+      //Stop The Dashboard Count 
+      clearInterval(interval);
+      //Header
+      //document.getElementsByClassName("dashboard-icon")[0].src = 'https://cdn-icons-png.flaticon.com/512/2889/2889333.png';
+      document.getElementsByClassName("dashboard-icon")[0].style.display = "none";
+      document.getElementsByClassName("dashboard-header-moving-icons")[0].innerHTML = '<video width="256" height="256" preload="none" style="background: transparent  url("https://cdn-icons-png.flaticon.com/512/6569/6569123.png") 50% 50% / fit no-repeat;" autoplay="autoplay" loop="true" muted="muted" playsinline="">\n'
+        + '<source src="https://cdn-icons-mp4.flaticon.com/512/6569/6569123.mp4" type="video/mp4"></video>';
+      document.getElementsByClassName("dashboard-title")[0].textContent = "CORPORATION CEDULA APPLICATION LIST";
+
+      document.getElementsByClassName("individual-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("corporation-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("rejected-cedula")[0].style.display = "none";
+
+      //Main
+      document.getElementsByClassName("data-controller")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-individual-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-corporation-body")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-professional-body")[0].style.display = "none"
+      document.getElementsByClassName("data-controller-corporation-body")[0].innerHTML = '<div style="margin: 20px;">\n'
+        + '<div class="container table-responsive-sm ctc-datatable"><table border="0" cellspacing="5" cellpadding="5" class="mb-5">\n'
+        + '<tbody>\n'
+        + '<tr><td>From:</td><td><input type="text" class="form-control form-control-sm" id="cmin" name="cmin"></td></tr>\n'
+        + '<tr><td>Until:</td><td><input type="text" class="form-control form-control-sm" id="cmax" name="cmax"></td></tr>\n'
+        + '<tr><td>\n'
+        + '<button class="btn btn-light btn-sm" id="cfilter_date"><img class="icon-filter" src="https://cdn-icons-png.flaticon.com/128/8948/8948330.png" width="30" height="30" alt="Filter" title="Filter" class="img-small">Filter</button>\n'
+        + '<button class="btn btn-light btn-sm" id="creset_filter_date"><img class="icon-reset" src="https://cdn-icons-png.flaticon.com/128/10246/10246807.png" width="30" height="30" alt="Reset" title="Reset" class="img-small"></button>\n'
+        + '</td></tr>\n'
+        + '</tbody>\n'
+        + '</table>\n'
+        + '<table class="table table-sm table-bordered table-hover" id="ctccorporation">\n'
+        + '<thead>\n'
+        + '<tr>\n'
+        + '<th>Date</th>\n'
+        + '<th>Control No.</th>\n'
+        + '<th>Email </th>\n'
+        + '<th>Company Name</th>\n'
+        + '<th>Status</th>\n'
+        + '<th>Actions</th>\n'
+        + '</tr>\n'
+        + '</thead>\n'
+        + ' <tbody></tbody>\n'
+        + '</table></div>';
+      $("#ctccorporation tbody").empty();
+      getDataCTCCorporation();
+      //Put datatable ID In localstorage for datatable remove after action like approved etc
+      localStorage.setItem('dataTableSelector', '#ctccorporation');
+
+    });
+    //End Corpotation
+
+    //Professional
+    document.getElementsByClassName("professional-tax-receipt-icon-menu")[0].addEventListener("click", function () {
+      //Stop The Dashboard Count 
+      clearInterval(interval);
+      //Header
+      //document.getElementsByClassName("dashboard-icon")[0].src = 'https://cdn-icons-png.flaticon.com/512/2889/2889333.png';
+      document.getElementsByClassName("dashboard-icon")[0].style.display = "none";
+      document.getElementsByClassName("dashboard-header-moving-icons")[0].innerHTML = '<video width="256" height="256" preload="none" style="background: transparent  url("https://cdn-icons-png.flaticon.com/512/6569/6569123.png") 50% 50% / fit no-repeat;" autoplay="autoplay" loop="true" muted="muted" playsinline="">\n'
+        + '<source src="https://cdn-icons-mp4.flaticon.com/512/6569/6569123.mp4" type="video/mp4"></video>';
+      document.getElementsByClassName("dashboard-title")[0].textContent = "PROFESIONAL TAX RECIEPT APPLICATION LIST";
+
+      document.getElementsByClassName("individual-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("corporation-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("rejected-cedula")[0].style.display = "none";
+
+      //Main
+      document.getElementsByClassName("data-controller")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-individual-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-corporation-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-professional-body")[0].style.display = "block"
+
+      //Put datatable ID In localstorage for datatable remove after action like approved etc
+      localStorage.setItem('dataTableSelector', '#ctcindividual');
+
+    });
+    //End Professional
+
+  }
+  //End Radial NavBar Menu
+
+  //Dashboard Navbar Menu Icon
+
+  const dasboardNavBarMenu = () => {
+    //Put datatable ID In localstorage for datatable remove after action like approved etc
+    localStorage.setItem('dataTableSelector', '#ctcOnlineApplication');
+    //Individual 
+    document.getElementsByClassName("individual-cedula-pending")[0].addEventListener("click", function () {
+      //Stop The Dashboard Count 
+      clearInterval(interval);
+      //Header
+      // document.getElementsByClassName("dashboard-icon")[0].src = 'https://cdn-icons-png.flaticon.com/512/2889/2889333.png';
+      document.getElementsByClassName("dashboard-icon")[0].style.display = "none";
+      document.getElementsByClassName("dashboard-header-moving-icons")[0].innerHTML = '<video width="256" height="256" preload="none" style="background: transparent  url("https://cdn-icons-png.flaticon.com/512/6569/6569123.png") 50% 50% / fit no-repeat;" autoplay="autoplay" loop="true" muted="muted" playsinline="">\n'
+        + '<source src="https://cdn-icons-mp4.flaticon.com/512/11677/11677478.mp4" type="video/mp4"></video>';
+      document.getElementsByClassName("dashboard-title")[0].textContent = "Pending Application";
+
+      document.getElementsByClassName("individual-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("corporation-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("rejected-cedula")[0].style.display = "none";
+
+      //Main
+      document.getElementsByClassName("data-controller")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-individual-body")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-corporation-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-professional-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-individual-body")[0].innerHTML = '<div style="margin: 20px;">\n'
+        + '<div class="container table-responsive-sm ctc-datatable"><table border="0" cellspacing="5" cellpadding="5" class="mb-5">\n'
+        + '<tbody>\n'
+        + '<tr><td>From:</td><td><input type="text" class="form-control form-control-sm" id="min" name="min"></td></tr>\n'
+        + '<tr><td>Until:</td><td><input type="text" class="form-control form-control-sm" id="max" name="max"></td></tr>\n'
+        + '<tr><td>\n'
+        + '<button class="btn btn-light btn-sm" id="filter_date"><img class="icon-filter" src="https://cdn-icons-png.flaticon.com/128/8948/8948330.png" width="30" height="30" alt="Filter" title="Filter" class="img-small">Filter</button>\n'
+        + '<button class="btn btn-light btn-sm" id="reset_filter_date"><img class="icon-reset" src="https://cdn-icons-png.flaticon.com/128/10246/10246807.png" width="30" height="30" alt="Reset" title="Reset" class="img-small"></button>\n'
+        + '</td></tr>\n'
+        + '</tbody>\n'
+        + '</table>\n'
+        + '<table class="table table-sm table-bordered table-hover" id="ctcOnlineApplication">\n'
+        + '<thead>\n'
+        + '<tr>\n'
+        + '<th>Date</th>\n'
+        + '<th>Control No.</th>\n'
+        + '<th>Email </th>\n'
+        + '<th>Name/Company Name</th>\n'
+        + '<th>CTC Type</th>\n'
+        + '<th>Status</th>\n'
+        + '<th>Actions</th>\n'
+        + '</tr>\n'
+        + '</thead>\n'
+        + ' <tbody></tbody>\n'
+        + '</table></div';
+      $("#ctcOnlineApplication tbody").empty();
+      getDataCTCOnlineApplication();
+      //Search For 
+      setTimeout(function () {
+        var table = $('#ctcOnlineApplication').DataTable();
+        table.search("Pending").draw();
+      }, 100);
+
+    });
+    //End Individual
+
+    //Corpotation
+    document.getElementsByClassName("corporation-cedula-pending")[0].addEventListener("click", function () {
+      //Stop The Dashboard Count 
+      clearInterval(interval);
+      //Header
+      //document.getElementsByClassName("dashboard-icon")[0].src = 'https://cdn-icons-png.flaticon.com/512/2889/2889333.png';
+      document.getElementsByClassName("dashboard-icon")[0].style.display = "none";
+      document.getElementsByClassName("dashboard-header-moving-icons")[0].innerHTML = '<video width="256" height="256" preload="none" style="background: transparent  url("https://cdn-icons-png.flaticon.com/512/6569/6569123.png") 50% 50% / fit no-repeat;" autoplay="autoplay" loop="true" muted="muted" playsinline="">\n'
+        + '<source src="https://cdn-icons-mp4.flaticon.com/512/10051/10051239.mp4" type="video/mp4"></video>';
+      document.getElementsByClassName("dashboard-title")[0].textContent = "Approved Application";
+
+      document.getElementsByClassName("individual-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("corporation-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("rejected-cedula")[0].style.display = "none";
+
+      //Main
+      document.getElementsByClassName("data-controller")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-individual-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-corporation-body")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-professional-body")[0].style.display = "none"
+      document.getElementsByClassName("data-controller-corporation-body")[0].innerHTML = '<div style="margin: 20px;">\n'
+        + '<div class="container ctc-datatable"><table border="0" cellspacing="5" cellpadding="5" class="mb-5">\n'
+        + '<tbody>\n'
+        + '<tr><td>From:</td><td><input type="text" class="form-control form-control-sm" id="min" name="min"></td></tr>\n'
+        + '<tr><td>Until:</td><td><input type="text" class="form-control form-control-sm" id="max" name="max"></td></tr>\n'
+        + '<tr><td>\n'
+        + '<button class="btn btn-light btn-sm" id="filter_date"><img class="icon-filter" src="https://cdn-icons-png.flaticon.com/128/8948/8948330.png" width="30" height="30" alt="Filter" title="Filter" class="img-small">Filter</button>\n'
+        + '<button class="btn btn-light btn-sm" id="reset_filter_date"><img class="icon-reset" src="https://cdn-icons-png.flaticon.com/128/10246/10246807.png" width="30" height="30" alt="Reset" title="Reset" class="img-small"></button>\n'
+        + '</td></tr>\n'
+        + '</tbody>\n'
+        + '</table>\n'
+        + '<table class="table table-sm table-bordered table-hover" id="ctcOnlineApplication">\n'
+        + '<thead>\n'
+        + '<tr>\n'
+        + '<th>Date</th>\n'
+        + '<th>Control No.</th>\n'
+        + '<th>Email </th>\n'
+        + '<th>Name/Company Name</th>\n'
+        + '<th>CTC Type</th>\n'
+        + '<th>Status</th>\n'
+        + '<th>Actions</th>\n'
+        + '</tr>\n'
+        + '</thead>\n'
+        + ' <tbody></tbody>\n'
+        + '</table></div';
+      $("#ctcOnlineApplication tbody").empty();
+      getDataCTCOnlineApplication();
+      //Search For 
+      setTimeout(function () {
+        var table = $('#ctcOnlineApplication').DataTable();
+        table.search("Approved").draw();
+      }, 100);
+    });
+    //End Corpotation
+
+    //Professional
+    document.getElementsByClassName("rejected-cedula")[0].addEventListener("click", function () {
+      //Stop The Dashboard Count 
+      clearInterval(interval);
+      //Header
+      //document.getElementsByClassName("dashboard-icon")[0].src = 'https://cdn-icons-png.flaticon.com/512/2889/2889333.png';
+      document.getElementsByClassName("dashboard-icon")[0].style.display = "none";
+      document.getElementsByClassName("dashboard-header-moving-icons")[0].innerHTML = '<video width="256" height="256" preload="none" style="background: transparent  url("https://cdn-icons-png.flaticon.com/512/6416/6416372.png") 50% 50% / fit no-repeat;" autoplay="autoplay" loop="true" muted="muted" playsinline="">\n'
+        + '<source src="https://cdn-icons-mp4.flaticon.com/512/6416/6416372.mp4" type="video/mp4"></video>';
+      document.getElementsByClassName("dashboard-title")[0].textContent = "Rejected Application";
+
+      document.getElementsByClassName("individual-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("corporation-cedula-pending")[0].style.display = "none";
+      document.getElementsByClassName("rejected-cedula")[0].style.display = "none";
+
+      //Main
+      document.getElementsByClassName("data-controller")[0].style.display = "block";
+      document.getElementsByClassName("data-controller-individual-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-corporation-body")[0].style.display = "none";
+      document.getElementsByClassName("data-controller-professional-body")[0].style.display = "block"
+      document.getElementsByClassName("data-controller-professional-body")[0].innerHTML = '<div style="margin: 20px;">\n'
+        + '<div class="container ctc-datatable"><table border="0" cellspacing="5" cellpadding="5" class="mb-5">\n'
+        + '<tbody>\n'
+        + '<tr><td>From:</td><td><input type="text" class="form-control form-control-sm" id="min" name="min"></td></tr>\n'
+        + '<tr><td>Until:</td><td><input type="text" class="form-control form-control-sm" id="max" name="max"></td></tr>\n'
+        + '<tr><td>\n'
+        + '<button class="btn btn-light btn-sm" id="filter_date"><img class="icon-filter" src="https://cdn-icons-png.flaticon.com/128/8948/8948330.png" width="30" height="30" alt="Filter" title="Filter" class="img-small">Filter</button>\n'
+        + '<button class="btn btn-light btn-sm" id="reset_filter_date"><img class="icon-reset" src="https://cdn-icons-png.flaticon.com/128/10246/10246807.png" width="30" height="30" alt="Reset" title="Reset" class="img-small"></button>\n'
+        + '</td></tr>\n'
+        + '</tbody>\n'
+        + '</table>\n'
+        + '<table class="table table-sm table-bordered table-hover" id="ctcOnlineApplication">\n'
+        + '<thead>\n'
+        + '<tr>\n'
+        + '<th>Date</th>\n'
+        + '<th>Control No.</th>\n'
+        + '<th>Email </th>\n'
+        + '<th>Name/Company Name</th>\n'
+        + '<th>CTC Type</th>\n'
+        + '<th>Status</th>\n'
+        + '<th>Actions</th>\n'
+        + '</tr>\n'
+        + '</thead>\n'
+        + ' <tbody></tbody>\n'
+        + '</table></div';
+      $("#ctcOnlineApplication tbody").empty();
+      getDataCTCOnlineApplication();
+      //Search For 
+      setTimeout(function () {
+        var table = $('#ctcOnlineApplication').DataTable();
+        table.search("Rejected").draw();
+      }, 100);
+    });
+    //End Professional
+  }
+  //End Dashboard Navbar Menu Ico
+
+  //View CTC Online Application
+  function viewData(key) {
+    //Handle The Parameter and split It 
+    const parameter = key.split('+');
+    const id = parameter[0];
+    const type = parameter[1];
+    //Put local key or Id in localstorage for action menu approve or reject
+    localStorage.setItem('approvalKey', id);
+    //Make A Condition What Type Of Form To Show 
+    if (type == "Individual Cedula") {
+      //Form HTML
+      document.getElementsByClassName("cedula-icons")[0].src = "../icons/individual.gif";
+      document.getElementsByClassName("form-title")[0].textContent = type;
+
+      document.getElementsByClassName("individual-cedula-form")[0].style.display = "block";
+      document.getElementsByClassName("corporation-cedula-form")[0].style.display = "none";
+      document.getElementsByClassName("professional-tax-receipt-form")[0].style.display = "none";
+
+      document.getElementsByClassName("individual-cedula-form")[0].innerHTML = '<div class="row"> <div class="col mb-5"> <h4>Personal Information</h4> <div class="row mb-1"> <label for="_FirstName" class="col-sm-3 col-form-label col-form-label-sm">First Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_FirstName" id="_FirstName"> </div> </div> <div class="row mb-1"> <label for="_MiddleName" class="col-sm-3 col-form-label col-form-label-sm">Middle Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_MiddleName" id="_MiddleName"> </div> </div> <div class="row mb-1"> <label for="_LastName" class="col-sm-3 col-form-label col-form-label-sm">Last Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_LastName" id="_LastName"> </div> </div> <div class="row mb-1"> <label for="_BirthPlace" class="col-sm-3 col-form-label col-form-label-sm">Birth Place</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_BirthPlace" id="_BirthPlace"> </div> </div> <div class="row mb-1"> <label for="_BirthDate" class="col-sm-3 col-form-label col-form-label-sm">Birth Date</label> <div class="col-sm-9"> <input type="date" class="form-control form-control-sm" name="_BirthDate" id="_BirthDate"> </div> </div> <div class="row mb-1"> <label for="_Address" class="col-sm-3 col-form-label col-form-label-sm">Address</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_Address" id="_Address"> </div> </div> <div class="row mb-1"> <label for="_Gender" class="col-sm-3 col-form-label col-form-label-sm">Gender</label> <div class="col-sm-9"> <div class="form-check form-check-inline"> <input class="form-check-input form-check-input-sm" type="radio" name="_Gender" id="_Male" value="Male" required> <label class="form-check-label" for="_Male">Male</label> </div> <div class="form-check form-check-inline"> <input class="form-check-input form-check-input-sm" type="radio" name="_Gender" id="_Female" value="Female" required> <label class="form-check-label" for="_Female">Female</label> </div> </div> </div> <div class="row mb-1"> <label for="_CivilStatus" class="col-sm-3 col-form-label col-form-label-sm">Civil Status</label> <div class="col-sm-9"> <select class="form-select form-select-sm" id="_CivilStatus"> <option value="">Select Civil Status</option> <option value="Single">Single</option> <option value="option2">Married</option> <option value="option3">Separated</option> </select> </div> </div> <!-- <div class="row mb-1"> <label for="_notAfilipino" class="col-sm-3 col-form-label col-form-label-sm"></label> <div class="col-sm-9"> <div class="form-check form-check-inline"> <input class="form-check-input form-check-input-sm" type="checkbox" name="_notAfilipino" id="_notAfilipino" value="Not a Filipino"> <label class="form-check-label" for="_notAfilipino">Not a Filipino</label> </div> </div> </div>--> <div class="row mb-1"> <label for="_Citizenship" class="col-sm-3 col-form-label col-form-label-sm">Citizenship</label> <div class="col-sm-9"> <select class="form-select form-select-sm" name="_Citizenship" id="_Citizenship"> <option value="">Select Civil Status</option> <option value="Filipino" selected>Filipino</option> <option value="afghan">Afghan</option> <option value="albanian">Albanian</option> <option value="algerian">Algerian</option> <option value="american">American</option> <option value="andorran">Andorran</option> <option value="angolan">Angolan</option> <option value="antiguans">Antiguans</option> <option value="argentinean">Argentinean</option> <option value="armenian">Armenian</option> <option value="australian">Australian</option> <option value="austrian">Austrian</option> <option value="azerbaijani">Azerbaijani</option> <option value="bahamian">Bahamian</option> <option value="bahraini">Bahraini</option> <option value="bangladeshi">Bangladeshi</option> <option value="barbadian">Barbadian</option> <option value="barbudans">Barbudans</option> <option value="batswana">Batswana</option> <option value="belarusian">Belarusian</option> <option value="belgian">Belgian</option> <option value="belizean">Belizean</option> <option value="beninese">Beninese</option> <option value="bhutanese">Bhutanese</option> <option value="bolivian">Bolivian</option> <option value="bosnian">Bosnian</option> <option value="brazilian">Brazilian</option> <option value="british">British</option> <option value="bruneian">Bruneian</option> <option value="bulgarian">Bulgarian</option> <option value="burkinabe">Burkinabe</option> <option value="burmese">Burmese</option> <option value="burundian">Burundian</option> <option value="cambodian">Cambodian</option> <option value="cameroonian">Cameroonian</option> <option value="canadian">Canadian</option> <option value="cape verdean">Cape Verdean</option> <option value="central african">Central African</option> <option value="chadian">Chadian</option> <option value="chilean">Chilean</option> <option value="chinese">Chinese</option> <option value="colombian">Colombian</option> <option value="comoran">Comoran</option> <option value="congolese">Congolese</option> <option value="costa rican">Costa Rican</option> <option value="croatian">Croatian</option> <option value="cuban">Cuban</option> <option value="cypriot">Cypriot</option> <option value="czech">Czech</option> <option value="danish">Danish</option> <option value="djibouti">Djibouti</option> <option value="dominican">Dominican</option> <option value="dutch">Dutch</option> <option value="east timorese">East Timorese</option> <option value="ecuadorean">Ecuadorean</option> <option value="egyptian">Egyptian</option> <option value="emirian">Emirian</option> <option value="equatorial guinean">Equatorial Guinean</option> <option value="eritrean">Eritrean</option> <option value="estonian">Estonian</option> <option value="ethiopian">Ethiopian</option> <option value="fijian">Fijian</option> <option value="finnish">Finnish</option> <option value="french">French</option> <option value="gabonese">Gabonese</option> <option value="gambian">Gambian</option> <option value="georgian">Georgian</option> <option value="german">German</option> <option value="ghanaian">Ghanaian</option> <option value="greek">Greek</option> <option value="grenadian">Grenadian</option> <option value="guatemalan">Guatemalan</option> <option value="guinea-bissauan">Guinea-Bissauan</option> <option value="guinean">Guinean</option> <option value="guyanese">Guyanese</option> <option value="haitian">Haitian</option> <option value="herzegovinian">Herzegovinian</option> <option value="honduran">Honduran</option> <option value="hungarian">Hungarian</option> <option value="icelander">Icelander</option> <option value="indian">Indian</option> <option value="indonesian">Indonesian</option> <option value="iranian">Iranian</option> <option value="iraqi">Iraqi</option> <option value="irish">Irish</option> <option value="israeli">Israeli</option> <option value="italian">Italian</option> <option value="ivorian">Ivorian</option> <option value="jamaican">Jamaican</option> <option value="japanese">Japanese</option> <option value="jordanian">Jordanian</option> <option value="kazakhstani">Kazakhstani</option> <option value="kenyan">Kenyan</option> <option value="kittian and nevisian">Kittian and Nevisian</option> <option value="kuwaiti">Kuwaiti</option> <option value="kyrgyz">Kyrgyz</option> <option value="laotian">Laotian</option> <option value="latvian">Latvian</option> <option value="lebanese">Lebanese</option> <option value="liberian">Liberian</option> <option value="libyan">Libyan</option> <option value="liechtensteiner">Liechtensteiner</option> <option value="lithuanian">Lithuanian</option> <option value="luxembourger">Luxembourger</option> <option value="macedonian">Macedonian</option> <option value="malagasy">Malagasy</option> <option value="malawian">Malawian</option> <option value="malaysian">Malaysian</option> <option value="maldivan">Maldivan</option> <option value="malian">Malian</option> <option value="maltese">Maltese</option> <option value="marshallese">Marshallese</option> <option value="mauritanian">Mauritanian</option> <option value="mauritian">Mauritian</option> <option value="mexican">Mexican</option> <option value="micronesian">Micronesian</option> <option value="moldovan">Moldovan</option> <option value="monacan">Monacan</option> <option value="mongolian">Mongolian</option> <option value="moroccan">Moroccan</option> <option value="mosotho">Mosotho</option> <option value="motswana">Motswana</option> <option value="mozambican">Mozambican</option> <option value="namibian">Namibian</option> <option value="nauruan">Nauruan</option> <option value="nepalese">Nepalese</option> <option value="new zealander">New Zealander</option> <option value="ni-vanuatu">Ni-Vanuatu</option> <option value="nicaraguan">Nicaraguan</option> <option value="nigerien">Nigerien</option> <option value="north korean">North Korean</option> <option value="northern irish">Northern Irish</option> <option value="norwegian">Norwegian</option> <option value="omani">Omani</option> <option value="pakistani">Pakistani</option> <option value="palauan">Palauan</option> <option value="panamanian">Panamanian</option> <option value="papua new guinean">Papua New Guinean</option> <option value="paraguayan">Paraguayan</option> <option value="peruvian">Peruvian</option> <option value="polish">Polish</option> <option value="portuguese">Portuguese</option> <option value="qatari">Qatari</option> <option value="romanian">Romanian</option> <option value="russian">Russian</option> <option value="rwandan">Rwandan</option> <option value="saint lucian">Saint Lucian</option> <option value="salvadoran">Salvadoran</option> <option value="samoan">Samoan</option> <option value="san marinese">San Marinese</option> <option value="sao tomean">Sao Tomean</option> <option value="saudi">Saudi</option> <option value="scottish">Scottish</option> <option value="senegalese">Senegalese</option> <option value="serbian">Serbian</option> <option value="seychellois">Seychellois</option> <option value="sierra leonean">Sierra Leonean</option> <option value="singaporean">Singaporean</option> <option value="slovakian">Slovakian</option> <option value="slovenian">Slovenian</option> <option value="solomon islander">Solomon Islander</option> <option value="somali">Somali</option> <option value="south african">South African</option> <option value="south korean">South Korean</option> <option value="spanish">Spanish</option> <option value="sri lankan">Sri Lankan</option> <option value="sudanese">Sudanese</option> <option value="surinamer">Surinamer</option> <option value="swazi">Swazi</option> <option value="swedish">Swedish</option> <option value="swiss">Swiss</option> <option value="syrian">Syrian</option> <option value="taiwanese">Taiwanese</option> <option value="tajik">Tajik</option> <option value="tanzanian">Tanzanian</option> <option value="thai">Thai</option> <option value="togolese">Togolese</option> <option value="tongan">Tongan</option> <option value="trinidadian or tobagonian">Trinidadian or Tobagonian</option> <option value="tunisian">Tunisian</option> <option value="turkish">Turkish</option> <option value="tuvaluan">Tuvaluan</option> <option value="ugandan">Ugandan</option> <option value="ukrainian">Ukrainian</option> <option value="uruguayan">Uruguayan</option> <option value="uzbekistani">Uzbekistani</option> <option value="venezuelan">Venezuelan</option> <option value="vietnamese">Vietnamese</option> <option value="welsh">Welsh</option> <option value="yemenite">Yemenite</option> <option value="zambian">Zambian</option> <option value="zimbabwean">Zimbabwean</option> </select> </div> </div> <div class="row mb-1"> <label for="_Weight" class="col-sm-3 col-form-label col-form-label-sm">Weight</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_Weight" id="_Weight"> </div> </div> <div class="row mb-1"> <label for="_Height" class="col-sm-3 col-form-label col-form-label-sm">Height</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_Height" id="_Height"> </div> </div> <div class="row mb-1"> <label for="_TIN" class="col-sm-3 col-form-label col-form-label-sm">TIN</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" id="_TIN"> </div> </div> <div class="row mb-1"> <label for="_Profession" class="col-sm-3 col-form-label col-form-label-sm">Profession</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_Profession" id="_Profession"> </div> </div> <div class="row mb-1"> <label for="_AttachementFile1" class="col-sm-3 col-form-label col-form-label-sm">Attachement File</label> <div class="col-sm-9"><button type="button" class="btn btn-light btn-sm btnView"  data-bs-toggle="modal" data-bs-target="#appViewCTCAttachement"><img class="icon-view" src="https://cdn-icons-png.flaticon.com/128/11677/11677497.png" width="30" height="30" alt="View" title="View">View Attachement</button>  </div> </div> <!-- <div class="row mb-1"> <label for="_Req2" class="col-sm-3 col-form-label col-form-label-sm">Requirements 2</label> <div class="col-sm-9"> <input type="file" class="form-control form-control-sm" name="_Req2" id="_Req2"> </div> </div> --> </div> <div class="col"> <h4>Payment Information</h4> <div class="border"> <table class="table table-bordered"> <tbody><tr> <td>Basic Community Tax:</td> <td width="40%"><input type="text" class="form-control input-sm" name="_BasicTax" id="_BasicTax" readonly="readonly"></td> </tr> <tr> <td colspan="2">Additional Community Tax:</td> </tr> <tr> <td>Gross Receipts or Earnings Derived from Business During the Preceding Year (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="GrossReciept(this.value)" onkeypress="return /[0-9]/.test(event.key)" name="_GrossReciept" id="_GrossReciept" placeholder="Enter Gross Receipt"></td> </tr> <tr> <td>Salaries or Gross Receipt or Earnings Derived from Exercise of Profession or pursuit of any occupation (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="Salaries(this.value)" onkeypress="return /[0-9]/.test(event.key)"name="_Salaries" id="_Salaries" placeholder="Enter Salaries"></td> </tr> <tr> <td>Income from Real Property (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="IncomeRealProperty(this.value)" onkeypress="return /[0-9]/.test(event.key)" name="_IncomeRealProperty" id="_IncomeRealProperty" placeholder="Enter Income Real Property"></td> </tr> <tr class="text-end"> <td>Total</td> <td><input type="text" class="form-control input-sm" name="_Total" id="_Total" placeholder="0.00"></td> </tr> <tr class="text-end"> <td>Interest</td> <td><input type="text" class="form-control input-sm" name="_Interest" id="_Interest" placeholder="0.00"></td> </tr> <tr class="text-end"> <td>Amount To Pay</td> <td><input type="text" class="form-control input-sm" name="_AmountToPay" id="_AmountToPay" placeholder="0.00"></td> </tr>  </tbody> </table> </div> </div> </div>';//<tr> <td colspan="2"> <div class="d-grid gap-2"> <button class="btn btn-primary _BtnSubmitIndividualCedula" type="button">Submit</button> </div> </td> </tr>
+
+      //Select all input, select, and radio elements on the page
+      var fields = document.querySelectorAll('input[type="text"], select, input[type="radio"]');
+      //Loop through the selected elements and set readOnly to true
+      for (var i = 0; i < fields.length; i++) {
+        fields[i].readOnly = true;
+        fields[i].style.pointerEvents = "none";
+      }
+
+
+      //Make Ajax Call 
+      $.ajax({
+        url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetSpecificCTCOnlineApplicationTims/' + id + '',
+        type: 'GET',//METHOD
+        data: '{}',
+        async: true,
+        cache: false,
+        dataType: 'json', // DATA TYPE 
+        beforeSend: function () {
+            // Set the Authorization header with the Bearer token
+            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+            // This code is executed before the request is sent
+            // You can show a loading spinner or make other preparations
+            loader.show();
+        },
+        success: function (response) {
+          // HANDLES SUCCESS REPONSE
+          // You can hide the loader now
+          if (response.status) {
+            //Loader
+            loader.hide();
+            var dataCTC = JSON.parse(JSON.stringify(response.data));
+            for (var i = 0; i < dataCTC.length; i++) {
+              //alert(dataCTC[i].ControlNo);
+              //Personal Information
+              document.getElementById("_FirstName").value = dataCTC[i].FirstName;
+              document.getElementById("_MiddleName").value = dataCTC[i].MiddleName;
+              document.getElementById("_LastName").value = dataCTC[i].LastName;
+              document.getElementById("_BirthPlace").value = dataCTC[i].BirthPlace;
+              document.getElementById("_BirthDate").value = formatDate(dataCTC[i].BirthDate);
+              document.getElementById("_Address").value = dataCTC[i].Address;
+              document.getElementById(dataCTC[i].Gender === 'Male' ? '_Male' : '_Female').checked = true;
+              document.getElementById("_CivilStatus").value = dataCTC[i].CivilStatus;
+              document.getElementById("_Citizenship").value = dataCTC[i].Citizenship;
+              document.getElementById("_Weight").value = dataCTC[i].Weight;
+              document.getElementById("_Height").value = dataCTC[i].Height;
+              document.getElementById("_TIN").value = dataCTC[i].TIN;
+              document.getElementById("_Profession").value = dataCTC[i].Profession;
+              document.getElementsByClassName("ctc-attachement-file")[0].src = dataCTC[i].File;
+              //Payment Information
+              document.getElementById("_BasicTax").value = dataCTC[i].BasicCommunityTax;
+              document.getElementById("_GrossReciept").value = dataCTC[i].GrossReceipts;
+              document.getElementById("_Salaries").value = dataCTC[i].SalariesOrGross;
+              document.getElementById("_IncomeRealProperty").value = dataCTC[i].IncomeFromRealProperty;
+              document.getElementById("_Total").value = dataCTC[i].Total;
+              document.getElementById("_Interest").value = dataCTC[i].Interest;
+              document.getElementById("_AmountToPay").value = dataCTC[i].AmountToPay;
+
+            }
+
+
+          } 
+        },
+        error: function (xhr, status, errorThrown) {
+          // HANDLES ERROR REPONSE
+           //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+            console.log(xhr.responseText); // Log the response text received from the server
+            //console.log(errorThrown);
+        }
+      });
+      //End 
+
+
+
+    } else if (type == "Corporation Cedula") {
+      //Form HTML
+      document.getElementsByClassName("cedula-icons")[0].src = "../icons/corporation.gif";
+      document.getElementsByClassName("form-title")[0].textContent = type;
+      document.getElementsByClassName("individual-cedula-form")[0].style.display = "none";
+      document.getElementsByClassName("corporation-cedula-form")[0].style.display = "block";
+      document.getElementsByClassName("professional-tax-receipt-form")[0].style.display = "none";
+
+      document.getElementsByClassName("corporation-cedula-form")[0].innerHTML = '<div class="row"> <div class="col mb-5"> <h4>Company Information</h4> <div class="row mb-1"> <label for="_CCompanyName" class="col-sm-3 col-form-label col-form-label-sm">Company Name</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_CCompanyName" id="_CCompanyName"> </div> </div> <div class="row mb-1"> <label for="_CAddress" class="col-sm-3 col-form-label col-form-label-sm">Address</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_CAddress" id="_CAddress"> </div> </div> <div class="row mb-1"> <label for="_CKindofOrganization" class="col-sm-3 col-form-label col-form-label-sm">Kind of Organization</label> <div class="col-sm-9"> <select class="form-select form-select-sm" id="_CKindofOrganization"> <option value="">Select Organization</option> <option value="Corporation">Corporation</option> <option value="Association">Association</option> <option value="Partnership">Partnership</option> </select> </div> </div> <div class="row mb-1"> <label for="_CBusinessNature" class="col-sm-3 col-form-label col-form-label-sm">Business Nature</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_CBusinessNature" id="_CBusinessNature"> </div> </div> <div class="row mb-1"> <label for="_CPlaceofOrganization" class="col-sm-3 col-form-label col-form-label-sm">Place of Organization</label> <div class="col-sm-9"> <input type="text" class="form-control form-control-sm" name="_CPlaceofOrganization" id="_CPlaceofOrganization"> </div> </div> <div class="row mb-1"> <label for="_CDateofOrganization" class="col-sm-3 col-form-label col-form-label-sm">Date of Organization</label> <div class="col-sm-9"> <input type="date" class="form-control form-control-sm" name="_CDateofOrganization" id="_CDateofOrganization"> </div> </div> <div class="row mb-1"> <label for="_AttachementFile2" class="col-sm-3 col-form-label col-form-label-sm">Attachement File</label> <div class="col-sm-9"><button type="button" class="btn btn-light btn-sm btnView"  data-bs-toggle="modal" data-bs-target="#appViewCTCAttachement" ><img class="icon-view" src="https://cdn-icons-png.flaticon.com/128/11677/11677497.png" width="30" height="30" alt="View" title="View">View Attachement</button> </div> </div> </div> <div class="col"> <h4>Payment Information</h4> <div class="border"> <table class="table table-bordered"> <tbody><tr> <td>Basic Community Tax:</td> <td width="40%"><input type="text" class="form-control input-sm" name="_CBasicTax" id="_CBasicTax" readonly="readonly"></td> </tr> <tr> <td colspan="2">Additional Community Tax:</td> </tr> <tr> <td>Assessed value of real property own in the philippines (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="RealPropertyCorporation(this.value)" onkeypress="return /[0-9]/.test(event.key)" name="_CRealProperty" id="_CRealProperty" placeholder="Real Property"></td> </tr> <tr> <td>Gross receipts, including dividends/earnings derived from business in the philippines during the preceding year (Annual)</td> <td><input type="text" class="form-control input-sm" onkeyup="GrossRecieptCorporation(this.value)" onkeypress="return /[0-9]/.test(event.key)" name="_CGrossReciept" id="_CGrossReciept" placeholder="Gross Reciept"></td> </tr> <tr class="text-end"> <td>Total</td> <td><input type="text" class="form-control input-sm" name="_CTotal" id="_CTotal" placeholder="0.00"></td> </tr> <tr class="text-end"> <td>Interest</td> <td><input type="text" class="form-control input-sm" name="_CInterest" id="_CInterest" placeholder="0.00"></td> </tr> <tr class="text-end"> <td>Amount To Pay</td> <td><input type="text" class="form-control input-sm" name="_CAmountToPay" id="_CAmountToPay" placeholder="0.00"></td> </tr> </tbody> </table> </div> </div> </div';// <tr> <td colspan="2"> <div class="d-grid gap-2"> <button class="btn btn-primary _BtnSubmitCorporationCedula" type="button">Submit</button> </div> </td> </tr>
+
+      //Select all input, select, and radio elements on the page
+      var fields = document.querySelectorAll('input[type="text"], select, input[type="radio"]');
+      //Loop through the selected elements and set readOnly to true
+      for (var i = 0; i < fields.length; i++) {
+        fields[i].readOnly = true;
+        fields[i].style.pointerEvents = "none";
+      }
+
+      //Make Ajax Call 
+      $.ajax({
+        url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetSpecificCTCOnlineApplicationTims/' + id + '',
+        type: 'GET',//METHOD
+        data: '{}',
+        async: true,
+        cache: false,
+        dataType: 'json', // DATA TYPE 
+        beforeSend: function () {
+            // Set the Authorization header with the Bearer token
+            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+            // This code is executed before the request is sent
+            // You can show a loading spinner or make other preparations
+            loader.show();
+        },
+        success: function (response) {
+          // HANDLES SUCCESS REPONSE
+          //You can hide the loader now
+          if (response.status) {
+            //Loader
+            loader.hide();
+            var dataCTC = JSON.parse(JSON.stringify(response.data));
+            for (var i = 0; i < dataCTC.length; i++) {
+              //alert(dataCTC[i].CompanyName);
+
+              //Company Information
+              document.getElementById("_CCompanyName").value = dataCTC[i].CompanyName;
+              document.getElementById("_CAddress").value = dataCTC[i].Address;
+              document.getElementById("_CKindofOrganization").value = dataCTC[i].KindOfOrganization;
+              document.getElementById("_CBusinessNature").value = dataCTC[i].BusinessNature;
+              document.getElementById("_CPlaceofOrganization").value = dataCTC[i].PlaceOfOrganization;
+              document.getElementById("_CDateofOrganization").value = formatDate(dataCTC[i].DateOfOrganization);
+              document.getElementsByClassName("ctc-attachement-file")[0].src = dataCTC[i].File;
+              //Payment Information
+              document.getElementById("_CBasicTax").value = dataCTC[i].BasicCommunityTax;
+              document.getElementById("_CRealProperty").value = dataCTC[i].RealProperty;
+              document.getElementById("_CGrossReciept").value = dataCTC[i].GrossReceipts;
+              document.getElementById("_CTotal").value = dataCTC[i].Total;
+              document.getElementById("_CInterest").value = dataCTC[i].Interest;
+              document.getElementById("_CAmountToPay").value = dataCTC[i].AmountToPay;
+            }
+
+
+          } 
+        },
+        error: function (xhr, status, errorThrown) {
+          // HANDLES ERROR REPONSE
+           //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+            console.log(xhr.responseText); // Log the response text received from the server
+          //console.log(errorThrown);
+        }
+      });
+      //End 
+
+
+    } else {
+
+      //Form HTML
+      document.getElementsByClassName("cedula-icons")[0].src = "../icons/profesitional.gif";
+      document.getElementsByClassName("form-title")[0].textContent = type;
+
+      document.getElementsByClassName("individual-cedula-form")[0].style.display = "block";
+      document.getElementsByClassName("corporation-cedula-form")[0].style.display = "none";
+      document.getElementsByClassName("professional-tax-receipt-form")[0].style.display = "none";
+
+
+      //Select all input, select, and radio elements on the page
+      var fields = document.querySelectorAll('input[type="text"], select, input[type="radio"]');
+      //Loop through the selected elements and set readOnly to true
+      for (var i = 0; i < fields.length; i++) {
+        fields[i].readOnly = true;
+      }
+
+      //Make Ajax Call 
+      /* $.ajax({
+                 url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaGetSpecificCTCOnlineApplicationTims/'+ id +'', 
+                 type: 'GET',//METHOD
+                 data: '{}',
+                 async: true,
+                 cache: false,
+                 dataType: 'json', // DATA TYPE 
+                beforeSend: function () {
+                      // Set the Authorization header with the Bearer token
+                      xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+                      // This code is executed before the request is sent
+                      // You can show a loading spinner or make other preparations
+                      loader.show();
+                  },
+                 success: function(response) {
+                   // HANDLES SUCCESS REPONSE
+                  // You can hide the loader now
+                   if(response.status){
+                       //Loader
+                         loader.hide();
+                         const dataCTC = JSON.parse(JSON.stringify(response.data));
+                         console.log(dataCTC);
+                           
+                   }else{
+                     console.log(response.status,response.message);
+                   }
+                 },
+                 error: function(xhr, status, errorThrown) {
+                   // HANDLES ERROR REPONSE
+                    //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                      console.log(xhr.responseText); // Log the response text received from the server
+                    //console.log(errorThrown);
+                 }
+       });*/
+      //End 
+
+
+    }
+
+    ctcOnlineApplicationInformation.show();
+  }
+  //End View CTC Online Application
+
+  //Open CTC Online Application After View Attachement
+  function openCTCApplication() {
+    document.getElementsByClassName("ctc-back-to-application")[0].addEventListener("click", function () {
+      ctcOnlineApplicationInformation.show();
+
+    });
+  }
+  //Open CTC Online Application After View Attachement
+
+
+  //CTC Approve Or Reject 
+  function ctAction() {
+    //Notification Description
+    var notificationMessageApprove = "Are you sure you want to approve this application!";
+    var notificationMessageReject = "Are you sure you want to reject this application!";
+    document.getElementsByClassName("ctc-approve")[0].addEventListener("click", function () {
+      document.getElementsByClassName("app-notification-messages")[0].textContent = notificationMessageApprove;
+      notification.show();
+      localStorage.setItem('approvalType', 'Approved');
+    });
+    //Reject
+    document.getElementsByClassName("ctc-reject")[0].addEventListener("click", function () {
+      document.getElementsByClassName("app-notification-messages")[0].textContent = notificationMessageReject;
+      notification.show();
+      localStorage.setItem('approvalType', 'Rejected');
+    });
+  }
+
+  //CTC Confirm 
+  function ctActionConfirm() {
+    //Confirm Application
+    document.getElementsByClassName("ctc-confirm")[0].addEventListener("click", function () {
+
+      //Notification Message
+      var notificationMessage;
+      if (localStorage.getItem('approvalType') == "Approved") {
+        notificationMessage = "Application successfully approved.";
+      } else {
+        notificationMessage = "Application successfully rejected.";
+      }
+
+      var id = localStorage.getItem('approvalKey');
+      var actionType = {}
+      actionType.Action = localStorage.getItem('approvalType');
+      var dataTableSelector = localStorage.getItem('dataTableSelector');
+
+      //Make Ajax Call
+      $.ajax({
+        url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaPutActionTims/' + id + '',
+        method: 'PUT',
+        async: true,
+        cache: false,
+        contentType: 'application/json', // Set the content type to JSON
+        data: JSON.stringify(actionType), // Convert the array to JSON format
+        beforeSend: function () {
+            // Set the Authorization header with the Bearer token
+            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('KeyToken'));
+            // This code is executed before the request is sent
+            // You can show a loading spinner or make other preparations
+            loader.show();
+        },
+        success: function (response) {
+          //HANDLES SUCCESS REPONSE
+          // You can hide the loader now
+          if (response.status) {
+            loader.hide();
+            ctcOnlineApplicationInformation.hide();
+            notification.hide();
+            successNotification.show();
+            document.getElementsByClassName("app-notification-success-messages")[0].textContent = notificationMessage;
+            //Remove Data In Rows 1 is columns 
+            removeRowByValue(dataTableSelector, '1', id);
+          }
+        },
+        error: function (xhr, status, errorThrown) {
+          // HANDLES ERROR REPONSE
+          //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+          console.log(xhr.responseText); // Log the response text received from the server
+          //console.log(errorThrown);
+        }
+      });
+
+    });
+  }
+
+  //Remove Row In DataTable
+  function removeRowByValue(dataTableSelector, key, value) {
+    var dataTable = $(dataTableSelector).DataTable();
+    var rowIndexToRemove = -1;
+    dataTable.rows().every(function (rowIdx, tableLoop, rowLoop) {
+      var rowData = this.data();
+      if (rowData[key] === value) {
+        rowIndexToRemove = rowIdx;
+        return false;
+      }
+    });
+    if (rowIndexToRemove !== -1) {
+      dataTable.row(rowIndexToRemove).remove().draw();
+    }
+
+  }
+
+
+
+  //Check token is set 
+  function appCheckToken() {
+      if (localStorage.getItem('KeyToken')) {
+      } else {
+          //Current URL
+          var currentURL = window.location.href;
+          // Define the new path
+          var newPath = "Register.aspx";
+          // Replace the old path with the new one
+          var newURL = currentURL.replace(/CedulaApp\/LGUDashboard\/index\.html/, newPath);
+          // Redirect to the new URL
+          window.location.href = newURL;
+      }
+  }
+  //Account Profile
+  function accountProfile() {
+      document.getElementsByClassName("user")[0].textContent = localStorage.getItem('FirstName') + " " + localStorage.getItem('MiddleName') + " " + localStorage.getItem('LastName');
+  }
+  //Back To WebPortal
+  function backToWebPortal() {
+      document.getElementsByClassName("backToWebPortal")[0].addEventListener("click", function (event) {
+          event.preventDefault();
+          // Current URL
+          var currentURL = window.location.href;
+          // Define the new path
+          var newPath = "LGU_GeneralCollectionReport.aspx";
+          // Replace the old path with the new one
+          var newURL = currentURL.replace(/CedulaApp\/LGUDashboard\/index\.html/, newPath);
+          //Remove LocalStorage Item
+          localStorage.removeItem('UserID');
+          localStorage.removeItem('KeyToken');
+          localStorage.removeItem('FirstName');
+          localStorage.removeItem('MiddleName');
+          localStorage.removeItem('LastName');
+          localStorage.removeItem('Gender');
+          localStorage.removeItem('Office');
+          localStorage.removeItem('UserLevel');
+          localStorage.removeItem('UserType');
+          // Redirect to the new URL
+          window.location.href = newURL;
+      });
+  }
+  //Logout 
+  function logout() {
+      document.getElementsByClassName("logout")[0].addEventListener("click", function (event) {
+          event.preventDefault();
+          //Current URL
+          var currentURL = window.location.href;
+          // Define the new path
+          var newPath = "Register.aspx";
+          // Replace the old path with the new one
+          var newURL = currentURL.replace(/CedulaApp\/LGUDashboard\/index\.html/, newPath);
+          //Remove LocalStorage Item
+          localStorage.removeItem('UserID');
+          localStorage.removeItem('KeyToken');
+          localStorage.removeItem('FirstName');
+          localStorage.removeItem('MiddleName');
+          localStorage.removeItem('LastName');
+          localStorage.removeItem('Gender');
+          localStorage.removeItem('Office');
+          localStorage.removeItem('UserLevel');
+          localStorage.removeItem('UserType');
+          localStorage.removeItem('LoginEmail');
+          localStorage.removeItem('LoginPassword');
+          // Redirect to the new URL
+          window.location.href = newURL;
+
+      });
+  }
+
+
+
+
+</script>
+
+</body>
+</html>

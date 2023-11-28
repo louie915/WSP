@@ -1,0 +1,86 @@
+D:\#TFS\IMC\LGU\bin\LGU.dll.config
+D:\#TFS\IMC\LGU\bin\LGU.dll
+D:\#TFS\IMC\LGU\bin\LGU.pdb
+D:\#TFS\IMC\LGU\bin\LGU.xml
+D:\#TFS\IMC\LGU\bin\AjaxControlToolkit.dll
+D:\#TFS\IMC\LGU\bin\Microsoft.ReportViewer.Common.dll
+D:\#TFS\IMC\LGU\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\#TFS\IMC\LGU\bin\Microsoft.ReportViewer.Design.DLL
+D:\#TFS\IMC\LGU\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\#TFS\IMC\LGU\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\#TFS\IMC\LGU\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\#TFS\IMC\LGU\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\#TFS\IMC\LGU\bin\Microsoft.SqlServer.Types.dll
+D:\#TFS\IMC\LGU\bin\VB.NET.Email.dll
+D:\#TFS\IMC\LGU\bin\VB.NET.Encryption.dll
+D:\#TFS\IMC\LGU\bin\VB.NET.Informant.dll
+D:\#TFS\IMC\LGU\bin\VB.NET.Methods.dll
+D:\#TFS\IMC\LGU\bin\VB.NET.SysTraceLogDB.dll
+D:\#TFS\IMC\LGU\bin\VB.NET.Assembly.Information.dll
+D:\#TFS\IMC\LGU\bin\VB.NET.SysTraceLogFile.dll
+D:\#TFS\IMC\LGU\bin\VB.NET.Object.Controller.dll
+D:\#TFS\IMC\LGU\bin\Microsoft.Windows.Design.Interaction.dll
+D:\#TFS\IMC\LGU\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\#TFS\IMC\LGU\bin\VB.NET.Email.pdb
+D:\#TFS\IMC\LGU\bin\VB.NET.Encryption.pdb
+D:\#TFS\IMC\LGU\bin\VB.NET.Informant.pdb
+D:\#TFS\IMC\LGU\bin\VB.NET.Methods.pdb
+D:\#TFS\IMC\LGU\bin\VB.NET.SysTraceLogDB.pdb
+D:\#TFS\IMC\LGU\bin\VB.NET.Assembly.Information.pdb
+D:\#TFS\IMC\LGU\bin\VB.NET.SysTraceLogFile.pdb
+D:\#TFS\IMC\LGU\bin\VB.NET.Object.Controller.pdb
+D:\#TFS\IMC\LGU\bin\Microsoft.Windows.Design.Interaction.xml
+D:\#TFS\IMC\LGU\bin\Microsoft.Windows.Design.Extensibility.xml
+D:\#TFS\IMC\LGU\obj\Release\LGU.vbprojResolveAssemblyReference.cache
+D:\#TFS\IMC\LGU\obj\Release\Interop.Aris_Dll.dll
+D:\#TFS\IMC\LGU\obj\Release\Interop.BPLTASAIFPROCESS_OL.dll
+D:\#TFS\IMC\LGU\obj\Release\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\#TFS\IMC\LGU\obj\Release\Interop.BPLTASLINEPROCESS_OL.dll
+D:\#TFS\IMC\LGU\obj\Release\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\#TFS\IMC\LGU\obj\Release\Interop.RPTIMS_DLL.dll
+D:\#TFS\IMC\LGU\obj\Release\LGU.vbproj.ResolveComReference.cache
+D:\#TFS\IMC\LGU\obj\Release\LGU.Resources.resources
+D:\#TFS\IMC\LGU\obj\Release\LGU.vbproj.GenerateResource.Cache
+D:\#TFS\IMC\LGU\obj\Release\RdlCompile.cache
+D:\#TFS\IMC\LGU\obj\Release\RdlCompile.compiled
+D:\#TFS\IMC\LGU\obj\Release\LGU.dll
+D:\#TFS\IMC\LGU\obj\Release\LGU.xml
+D:\#TFS\IMC\LGU\obj\Release\LGU.pdb
+D:\From Madrid\IMC- Combine\LGU\bin\LGU.dll.config
+D:\From Madrid\IMC- Combine\LGU\bin\LGU.dll
+D:\From Madrid\IMC- Combine\LGU\bin\LGU.pdb
+D:\From Madrid\IMC- Combine\LGU\bin\LGU.xml
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.ReportViewer.Common.dll
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.ReportViewer.Design.DLL
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.SqlServer.Types.dll
+D:\From Madrid\IMC- Combine\LGU\bin\VB.NET.SysTraceLogFile.dll
+D:\From Madrid\IMC- Combine\LGU\bin\VB.NET.Assembly.Information.dll
+D:\From Madrid\IMC- Combine\LGU\bin\VB.NET.Object.Controller.dll
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.Windows.Design.Interaction.dll
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\From Madrid\IMC- Combine\LGU\bin\VB.NET.SysTraceLogFile.pdb
+D:\From Madrid\IMC- Combine\LGU\bin\VB.NET.Assembly.Information.pdb
+D:\From Madrid\IMC- Combine\LGU\bin\VB.NET.Object.Controller.pdb
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.Windows.Design.Interaction.xml
+D:\From Madrid\IMC- Combine\LGU\bin\Microsoft.Windows.Design.Extensibility.xml
+D:\From Madrid\IMC- Combine\LGU\obj\Release\LGU.vbprojResolveAssemblyReference.cache
+D:\From Madrid\IMC- Combine\LGU\obj\Release\Interop.Aris_Dll.dll
+D:\From Madrid\IMC- Combine\LGU\obj\Release\Interop.BPLTASAIFPROCESS_OL.dll
+D:\From Madrid\IMC- Combine\LGU\obj\Release\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\From Madrid\IMC- Combine\LGU\obj\Release\Interop.BPLTASLINEPROCESS_OL.dll
+D:\From Madrid\IMC- Combine\LGU\obj\Release\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\From Madrid\IMC- Combine\LGU\obj\Release\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\From Madrid\IMC- Combine\LGU\obj\Release\Interop.RPTIMS_DLL.dll
+D:\From Madrid\IMC- Combine\LGU\obj\Release\LGU.vbproj.ResolveComReference.cache
+D:\From Madrid\IMC- Combine\LGU\obj\Release\LGU.Resources.resources
+D:\From Madrid\IMC- Combine\LGU\obj\Release\LGU.vbproj.GenerateResource.Cache
+D:\From Madrid\IMC- Combine\LGU\obj\Release\RdlCompile.cache
+D:\From Madrid\IMC- Combine\LGU\obj\Release\RdlCompile.compiled
+D:\From Madrid\IMC- Combine\LGU\obj\Release\LGU.dll
+D:\From Madrid\IMC- Combine\LGU\obj\Release\LGU.xml
+D:\From Madrid\IMC- Combine\LGU\obj\Release\LGU.pdb

@@ -1,0 +1,547 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="OAIMS_New0.Master.vb" Inherits="SPIDC.OAIMS_New0" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>
+     <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+  <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <title runat="server" id="titleLGU">SPIDC Web Portal</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="../CSS_JS_IMG/OS-JS-CSS/fontawesome-free/css/all.min.css" rel="stylesheet" />                  
+  <link href="../CSS_JS_IMG/OS-JS-CSS/Css/Online-Services.css" rel="stylesheet" />   
+
+
+ 
+  
+  <!-- Google Fonts -->
+ <%--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">--%>
+
+  <!-- Bootstrap CSS File -->
+
+  <!-- Libraries CSS Files -->
+
+    <script src="../CSS_JS_IMG/js/newjs//SPIDC-ARC-JS.js"></script>
+                <script src="../CSS_JS_IMG/js/newjs/SPIDC-ARC-JS.min.js"></script>
+    <script src="../CSS_JS_IMG/OS-JS-CSS/jquery/jquery.min.js"></script>
+        <script src="../CSS_JS_IMG/OS-JS-CSS/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../CSS_JS_IMG/OS-JS-CSS/jquery-easing/jquery.easing.min.js"></script>
+        <%--<script src="../CSS_JS_IMG/js/newjs/sb-admin-2.min.js"></script>--%>
+        <script src="../CSS_JS_IMG/OS-JS-CSS/Js/Online-Services.js"></script>
+        <script src="../CSS_JS_IMG/OS-JS-CSS/Js/OS-MainPage.js"></script>
+
+              
+
+  <!-- Main Stylesheet File -->
+  <link href=" ../../CSS_JS_IMG/css/style.css" rel="stylesheet">
+    <style>
+        .tomi {
+            background-image: url('../CSS_JS_IMG/img/NavbarDesignIn.jpg');
+            background-size: cover;
+        }
+
+        #snackbar {
+            visibility: hidden;
+            min-width: 200px;
+            margin-left: -125px;
+            background-color: #E74C3C;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 20px;
+            position: fixed;
+            z-index: 1;
+            top: 100px;
+            right: 30px;
+            font-size: 15px;
+        }
+
+        #snackbargreen {
+            visibility: hidden;
+            min-width: 200px;
+            margin-left: -125px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 20px;
+            position: fixed;
+            z-index: 1;
+            top: 100px;
+            right: 30px;
+            font-size: 15px;
+        }
+
+        #snackbar.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.2s, fadeout 0.5s 2.5s;
+        }
+
+        #snackbargreen.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.2s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {
+                right: 0;
+                opacity: 0;
+            }
+
+            to {
+                right: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                right: 0;
+                opacity: 0;
+            }
+
+            to {
+                right: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                right: 30px;
+                opacity: 1;
+            }
+
+            to {
+                top: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                right: 30px;
+                opacity: 1;
+            }
+
+            to {
+                top: 0;
+                opacity: 0;
+            }
+        }
+
+        @media only screen and (max-width: 500px), (min-device-width: 200px) and (max-device-width: 340px) {
+            .NavBar-MV:active {
+                display: flex !Important;
+            }
+
+            .NavBar-MV:before {
+                display: flex !Important;
+            }
+
+            .NavBar-MV {
+                display: flex !Important;
+            }
+
+            .tomi {
+                background-image: url('../CSS_JS_IMG/img/NavbarDesignInMobile.jpg');
+                background-size: 100% 100%;
+            }
+        }
+    </style>    
+
+</head>
+
+<body onload="onload()" class="Main-Color" >    
+    <script>
+        function onload() {
+            sessionStorage.setItem("Active", "sAccounts");
+            sessionStorage.setItem("Counter", "");
+        }
+    </script>
+    <form id="form1" runat="server">     
+
+           <!-- !PAGE HEADER! -->
+            <div class="w3-main w3-content tomi" style="min-height: 10vh; position:relative; width: 100%; background-color: #000034; z-index: 1000;">
+            
+                <div class="modal-body form-row"  style="margin: 0;">
+                    <div class="col-lg-7"  margin: 0;">
+                        <br /> <br /> <br /> 
+                    </div>
+                    <div class="col-lg-2" style="position: relative;">
+                        <br />
+                        <div>
+                            <label class="input-txt input-txt-active">
+                                <span><span class="m-2" style="color: white">Email Address</span></span>
+                            </label>
+                                 <span class="form-control">
+                            <input type="text" id="txtLoginEmail" style="border:none;width:100%"  runat="server"/></span>
+                                 
+                        </div>     
+                                         </div>
+                    <div class="col-lg-2" style="position: relative;">                    
+                        <br />
+                          <div>
+                            <label class="input-txt input-txt-active">
+                                <span><span class="m-2" style="color: white">Password</span></span>
+                            </label>
+                             <span class="form-control">
+                                 <input type="password" style="border:none;width:100%" name="txtLoginPassword" id="txtLoginPassword"  runat="server"/>                         
+                             </span>                                 
+                        </div>   
+                          <a href="#" tabindex="99" data-toggle="modal" data-dismiss="modal" data-target="#Forgot" data-ticket-type="standard-access" class="mr-auto" style="color: white;font-size:small">Forgot password ?</a>
+                                      
+                    </div>
+                    <div class="col-lg-1" style="position: relative;">       
+                        <br />
+                        <div>
+                             <button ID="btnSignIn" runat="server" style="width:100%" class="btn btn-primary" usesubmitbehaiviour="true">Login</button>
+                        </div>
+                      
+                        </div>
+
+                </div>
+            </div>
+
+            <!-- End HEADER content -->
+
+
+ <!--
+    <nav class="navbar tomi navbar-expand-lg row py-3 ">
+           
+        <div class="navbar-collapse text-primary collapse show" id="navbarNav">
+
+               <ul class="nav navbar-nav ml-auto" style="text-align:center;font-weight:bold;">   
+                
+                <li class="nav-item  pt-1" >
+                    &nbsp &nbsp
+                   <a href="#" style="color:white;display:none;" id="_About" runat="server"> About</a> &nbsp &nbsp
+                   <a href="#" style="color:white;display:none;" id="_HowTo" runat="server"> How To's</a> &nbsp &nbsp
+                   <a href="#" style="color:white;display:none;" id="_FAQs" runat="server"> FAQs</a> &nbsp &nbsp
+                   <a href="#" style="color:white;display:none;" id="_PrivacyPolicy" runat="server"> Privacy Policy</a> &nbsp &nbsp
+                    
+                    </li>
+                   </ul>
+            
+            <ul class="nav navbar-nav ">        
+                <li class="nav-item col-lg-5 pt-3">
+                    <div class="m-1 ">
+                       
+
+                    </div>
+                </li>
+
+                <li class="nav-item col-lg-5 pt-3">
+                    <div class="m-1">
+                      
+
+                    
+
+                    </div>
+                </li>
+                <li class="nav-item col-lg-2 pt-3">
+                    <div class=" ">                       
+                     
+                    </div>
+                    
+                </li>
+                <li class="nav-item col-sm-4 h-25">
+                    &nbsp
+                   
+                   
+
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+ ==========================
+    Header  #0C1126";
+  ============================-->
+
+
+
+
+
+
+
+     
+        
+      <%--   SNACKBAR--%>
+             <div id="snackbar">
+            <asp:Label runat="server" id="_oLabelSnackbar" />           
+        </div>
+        <div id="snackbargreen" style="position:absolute">>
+            <asp:Label runat="server" id="_oLabelSnackbargreen"/>           
+        </div>
+       <%--   SNACKBAR--%>
+
+               
+
+          <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <div >
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+    </div>
+    
+  </form>
+
+    
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            // Custom 
+            var stickyToggle = function (sticky, stickyWrapper, scrollElement) {
+                var stickyHeight = sticky.outerHeight();
+                var stickyTop = stickyWrapper.offset().top;
+                if (scrollElement.scrollTop() >= stickyTop) {
+                    stickyWrapper.height(stickyHeight);
+                    sticky.addClass("is-sticky");
+                }
+                else {
+                    sticky.removeClass("is-sticky");
+                    stickyWrapper.height('auto');
+                }
+            };
+
+            // Find all data-toggle="sticky-onscroll" elements
+            $('[data-toggle="sticky-onscroll"]').each(function () {
+                var sticky = $(this);
+                var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
+                sticky.before(stickyWrapper);
+                sticky.addClass('sticky');
+
+                // Scroll & resize events
+                $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function () {
+                    stickyToggle(sticky, stickyWrapper, $(this));
+                });
+
+                // On page load
+                stickyToggle(sticky, stickyWrapper, $(window));
+            });
+        });
+
+
+        function GetValEmail() {
+            var edValue = document.getElementById("_Email");
+
+            var s = edValue.value;
+
+            document.getElementById("txtLoginEmail").value = s;
+
+        }
+
+        function GetValPassword() {
+            var edValue = document.getElementById("_Password");
+
+            var s = edValue.value;
+
+            document.getElementById("txtLoginPassword").value = s;
+
+        }
+
+
+
+
+        $('.form').find('input, textarea, select').on('keyup blur focus', function (e) {
+
+            var $this = $(this),
+            label = $this.prev('label', 'input')
+
+            if (e.type === 'keyup' || e.type === 'focus') {
+
+
+
+                label.addClass('input-txt-active input-txt-highlight');
+
+
+            } else if (e.type === 'blur') {
+                if ($this.val() === '') {
+                    label.removeClass('input-txt-active input-txt-highlight');
+                } else {
+                    label.removeClass('input-txt-highlight');
+                }
+            } else if (e.type === 'focus') {
+
+                if ($this.val() === '') {
+                    label.removeClass('input-txt-highlight');
+                } else
+                    if ($this.val() !== '') {
+                        label.addClass('input-txt-highlight');
+                    }
+            }
+
+        });
+
+        $('.tab a').on('click', function (e) {
+
+            e.preventDefault();
+
+            $(this).parent().addClass('active');
+            $(this).parent().siblings().removeClass('active');
+
+            target = $(this).attr('href');
+
+            $('.tab-content > div').not(target).hide();
+
+            $(target).fadeIn(600);
+
+        });
+
+
+
+
+
+
+        </script>  
+    <script>function NextPage() { document.getElementById("NextLoading").style.display = "block"; }</script>
+<div id="NextLoading" runat="server" style="display:none">
+        <div class="modal-backdrop fade show">
+
+        </div> 
+<div class="modal fade show" aria-modal="true" style="padding-right: 17px; display: block;">
+        <div class="d-flex justify-content-center align-content-center">
+
+
+                        <style>
+                            .loader {
+                                border: 16px solid #f3f3f3;
+                                border-radius: 50%;
+                                border-top: 16px solid #3498db;
+                                width: 120px;
+                                height: 120px;
+                                -webkit-animation: spin 2s linear infinite; /* Safari */
+                                animation: spin 2s linear infinite;
+                            }
+
+                            /* Safari */
+                            @-webkit-keyframes spin {
+                                0% {
+                                    -webkit-transform: rotate(0deg);
+                                }
+
+                                100% {
+                                    -webkit-transform: rotate(360deg);
+                                }
+                            }
+
+                            @keyframes spin {
+                                0% {
+                                    transform: rotate(0deg);
+                                }
+
+                                100% {
+                                    transform: rotate(360deg);
+                                }
+                            }
+                        </style>
+
+
+
+<div class="loader" style="                  
+    position: absolute;
+    top: 40%;        
+ "></div>
+
+</div>
+                </div></div>
+    <script>
+
+        document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                  "#loading").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                  "#loading").style.display = "none";
+            }
+        };
+
+        function Lodingscreen() {
+            if (document.readyState !== "complete") {
+                document.querySelector(
+                  "#loading").style.visibility = "visible";
+            } else {
+                document.querySelector(
+                  "#loading").style.display = "none";
+            }
+        };
+
+</script>
+
+
+<div id="loading" runat="server">
+        <div class="modal-backdrop fade show">
+
+        </div> 
+<div class="modal fade show" aria-modal="true" style="padding-right: 17px; display: block;">
+        <div class="d-flex justify-content-center align-content-center">
+
+
+                        <style>
+                            .loader {
+                                border: 16px solid #f3f3f3;
+                                border-radius: 50%;
+                                border-top: 16px solid #3498db;
+                                width: 120px;
+                                height: 120px;
+                                -webkit-animation: spin 2s linear infinite; /* Safari */
+                                animation: spin 2s linear infinite;
+                            }
+
+                            /* Safari */
+                            @-webkit-keyframes spin {
+                                0% {
+                                    -webkit-transform: rotate(0deg);
+                                }
+
+                                100% {
+                                    -webkit-transform: rotate(360deg);
+                                }
+                            }
+
+                            @keyframes spin {
+                                0% {
+                                    transform: rotate(0deg);
+                                }
+
+                                100% {
+                                    transform: rotate(360deg);
+                                }
+                            }
+                        </style>
+
+
+
+<div class="loader" style="                  
+    position: absolute;
+    top: 40%;        
+ "></div>
+
+</div>
+                </div></div>
+
+</body>
+
+  
+   
+</html>
+
+

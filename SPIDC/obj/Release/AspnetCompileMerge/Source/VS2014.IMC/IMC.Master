@@ -1,0 +1,139 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="IMC.master.vb" Inherits="IMC.IMC" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+     <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+  <meta charset="utf-8">
+  <title>Information Management Centre</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+
+  <!-- Favicons -->
+ <link href="../CSS_JS_IMG/img/favicon.png" rel="icon">
+ <link href="../CSS_JS_IMG/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+ <link href="../CSS_JS_IMG/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="../CSS_JS_IMG/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../CSS_JS_IMG/lib/venobox/venobox.css" rel="stylesheet">
+  <link href="../CSS_JS_IMG/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="../CSS_JS_IMG/css/style.css" rel="stylesheet">
+
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/css/footable.min.css"
+    rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-footable/0.1.0/js/footable.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('[id*=GridView1]').footable();
+    });
+</script>
+ 
+
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header" style="background-color:#0C1126">
+          <center style="background-color:darkred;color:white; top:0px;float:left;position:absolute;width:100%">
+          Development Mode
+         </center>
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+        <a href="#" class="scrollto"><img src="../CSS_JS_IMG/img/logo.png" alt="" title=""></a>
+       <h5 style="display:inline-block;color:white"> Online Services</h5>
+      
+
+      </div>
+       
+
+         <nav id="nav-menu-container">
+             
+        <ul class="nav-menu">
+          <li><a href="../VS2014.IMC/Main.aspx">Home</a></li>
+
+         <%-- 
+             <li><a href="../VS2014.BPLTIMS/BPLTIMS.aspx">BPLTIMS</a></li>
+          <li><a href="../VS2014.RPTIMS/RPTIMS.aspx">RPTIMS</a></li>
+          <li><a href="#Profile">My Profile</a></li>       
+            
+              --%>
+          <li><a runat="server" id="btnlogout" href="#">Log out</a></li>   
+             
+      
+        </ul>
+           
+      </nav><!-- #nav-menu-container -->
+
+        </div>
+      
+  </header><!-- #header -->
+
+  
+
+
+   
+    <form id="form1" runat="server">
+      
+          <asp:ScriptManager ID="ScriptManager1" runat="server" />
+       
+    <div style="min-height:700px">
+         
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer"  >   
+    <div class="container" >
+      <div class="copyright">
+        Powered by <a href="https://www.spidc.com.ph/">SPIDC Solutions</a>
+      </div>
+    
+    </div>
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  
+  <script src="../CSS_JS_IMG/lib/jquery/jquery.min.js"></script>
+  <script src="../CSS_JS_IMG/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../CSS_JS_IMG/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../CSS_JS_IMG/lib/easing/easing.min.js"></script>
+  <script src="../CSS_JS_IMG/lib/superfish/hoverIntent.js"></script>
+  <script src="../CSS_JS_IMG/lib/superfish/superfish.min.js"></script>
+  <script src="../CSS_JS_IMG/lib/wow/wow.min.js"></script>
+  <script src="../CSS_JS_IMG/lib/venobox/venobox.min.js"></script>
+  <script src="../CSS_JS_IMG/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../CSS_JS_IMG/js/main.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+ 
+
+</body>
+
+
+</html>

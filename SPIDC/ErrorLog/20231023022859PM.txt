@@ -1,0 +1,10 @@
+Time: 23/10/2023 02:28:59 PM
+-----------------------------------------------------------
+Message: Could not load file or assembly 'VB.NET.Assembly.Information, Version=2015.8.5.1307, Culture=neutral, PublicKeyToken=null' or one of its dependencies. The system cannot find the file specified.
+StackTrace:    at VB.NET.Methods.ClassReturnTypes._pReturnString(Object _nColumnValue)
+   at SPIDC.cDalPayment._pSubGetParameter2() in E:\#IMC\IMC\SPIDC\Classes\cDalPayment.vb:line 3051
+Source: VB.NET.Methods
+Exception: System.IO.FileNotFoundException
+TargetSite: System.String _pReturnString(System.Object)
+-----------------------------------------------------------
+

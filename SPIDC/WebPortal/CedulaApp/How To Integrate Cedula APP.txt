@@ -1,0 +1,94 @@
+﻿//Taxpayer Module
+1.Add this in login 
+
+//THIS CODE IS FOR CEDULA APP
+localStrage.setItem('LoginEmail', document.getElementById('LoginEmail').value);
+localStorage.setItem('LoginPassword', document.getElementById('LoginPassword').value);
+//END THIS CODE IS FOR CEDULA APP
+
+2.Add this in navbar menu of Cedula APP
+create menu and add class  cedulaApp
+ document.getElementsByClassName("cedulaApp")[0].addEventListener("click", function (event) {
+            event.preventDefault();
+            //window.location.href = "CedulaApp/Taxpayer/index.html";
+            //Check User Before Can Access Cedula App
+            var logindata = {
+                "Email": localStorage.getItem('LoginEmail'),
+                "Password": localStorage.getItem('LoginPassword')
+            };
+            $.ajax({
+                url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaLoginOAIMS',
+                type: 'POST',
+                async: true,
+                cache: false,
+                data: JSON.stringify(logindata),
+                contentType: 'application/json',
+                success: function (response) {
+                    // HANDLES SUCCESS REPONSE
+                    if (response.status) {
+                        const userData = JSON.parse(JSON.stringify(response));
+                        localStorage.setItem('UserID',userData.data[0].UserID);
+                        localStorage.setItem('KeyToken',userData.data[0].KeyToken);
+                        localStorage.setItem('FirstName',userData.data[0].FirstName);
+                        localStorage.setItem('MiddleName',userData.data[0].MiddleName);
+                        localStorage.setItem('LastName',userData.data[0].LastName);
+                        localStorage.setItem('Gender',userData.data[0].SetupGender);
+                        localStorage.setItem('Office',userData.data[0].Office);
+                        localStorage.setItem('UserLevel',userData.data[0].UserLevel);
+                        localStorage.setItem('UserType', userData.data[0].UserType);
+                        window.location.href = "CedulaApp/Taxpayer/index.html";
+                    }
+                },
+                error: function (xhr, status, errorThrown) {
+                    // HANDLES ERROR REPONSE
+                    //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                    console.log(xhr.responseText); // Log the response text received from the server
+                    //console.log(errorThrown);
+                }
+            });
+        });
+
+//LGU Dashboard
+2.Add this in navbar menu of Cedula APP
+create menu and add class  cedulDashboard
+ document.getElementsByClassName("cedulDashboard")[0].addEventListener("click", function (event) {
+            event.preventDefault();
+            //window.location.href = "CedulaApp/Taxpayer/index.html";
+            //Check User Before Can Access Cedula App
+            var logindata = {
+                "Email": localStorage.getItem('LoginEmail'),
+                "Password": localStorage.getItem('LoginPassword')
+            };
+            $.ajax({
+                url: 'https://online.spidc.com.ph/spidc_web_api/api/v1/spidcproxy/cedulaLoginOAIMS',
+                type: 'POST',
+                async: true,
+                cache: false,
+                data: JSON.stringify(logindata),
+                contentType: 'application/json',
+                success: function (response) {
+                    // HANDLES SUCCESS REPONSE
+                    if (response.status) {
+                        const userData = JSON.parse(JSON.stringify(response));
+                        localStorage.setItem('UserID',userData.data[0].UserID);
+                        localStorage.setItem('KeyToken',userData.data[0].KeyToken);
+                        localStorage.setItem('FirstName',userData.data[0].FirstName);
+                        localStorage.setItem('MiddleName',userData.data[0].MiddleName);
+                        localStorage.setItem('LastName',userData.data[0].LastName);
+                        localStorage.setItem('Gender',userData.data[0].SetupGender);
+                        localStorage.setItem('Office',userData.data[0].Office);
+                        localStorage.setItem('UserLevel',userData.data[0].UserLevel);
+                        localStorage.setItem('UserType', userData.data[0].UserType);
+                        window.location.href = "CedulaApp/Taxpayer/index.html";
+                    }
+                },
+                error: function (xhr, status, errorThrown) {
+                    // HANDLES ERROR REPONSE
+                    //console.log(xhr.status); // Log the HTTP status code (e.g., 500)
+                    console.log(xhr.responseText); // Log the response text received from the server
+                    //console.log(errorThrown);
+                }
+            });
+        });
+
+

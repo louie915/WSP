@@ -1,0 +1,143 @@
+D:\#TFS\IMC\SanJuan\bin\WebPortal\Report\BillingTOP.rdlc
+D:\#TFS\IMC\SanJuan\bin\SanJuan.dll.config
+D:\#TFS\IMC\SanJuan\bin\SanJuan.dll
+D:\#TFS\IMC\SanJuan\bin\SanJuan.pdb
+D:\#TFS\IMC\SanJuan\bin\SanJuan.xml
+D:\#TFS\IMC\SanJuan\bin\AjaxControlToolkit.dll
+D:\#TFS\IMC\SanJuan\bin\Microsoft.ReportViewer.Common.dll
+D:\#TFS\IMC\SanJuan\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\#TFS\IMC\SanJuan\bin\Microsoft.ReportViewer.Design.DLL
+D:\#TFS\IMC\SanJuan\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\#TFS\IMC\SanJuan\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\#TFS\IMC\SanJuan\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\#TFS\IMC\SanJuan\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\#TFS\IMC\SanJuan\bin\Microsoft.SqlServer.Types.dll
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Email.dll
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Encryption.dll
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Informant.dll
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Methods.dll
+D:\#TFS\IMC\SanJuan\bin\VB.NET.SysTraceLogDB.dll
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Assembly.Information.dll
+D:\#TFS\IMC\SanJuan\bin\VB.NET.SysTraceLogFile.dll
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Object.Controller.dll
+D:\#TFS\IMC\SanJuan\bin\Microsoft.Windows.Design.Interaction.dll
+D:\#TFS\IMC\SanJuan\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Email.pdb
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Encryption.pdb
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Informant.pdb
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Methods.pdb
+D:\#TFS\IMC\SanJuan\bin\VB.NET.SysTraceLogDB.pdb
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Assembly.Information.pdb
+D:\#TFS\IMC\SanJuan\bin\VB.NET.SysTraceLogFile.pdb
+D:\#TFS\IMC\SanJuan\bin\VB.NET.Object.Controller.pdb
+D:\#TFS\IMC\SanJuan\bin\Microsoft.Windows.Design.Interaction.xml
+D:\#TFS\IMC\SanJuan\bin\Microsoft.Windows.Design.Extensibility.xml
+D:\#TFS\IMC\SanJuan\obj\Debug\SanJuan.vbprojResolveAssemblyReference.cache
+D:\#TFS\IMC\SanJuan\obj\Debug\Interop.Aris_Dll.dll
+D:\#TFS\IMC\SanJuan\obj\Debug\Interop.BPLTASAIFPROCESS_OL.dll
+D:\#TFS\IMC\SanJuan\obj\Debug\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\#TFS\IMC\SanJuan\obj\Debug\Interop.BPLTASLINEPROCESS_OL.dll
+D:\#TFS\IMC\SanJuan\obj\Debug\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\#TFS\IMC\SanJuan\obj\Debug\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\#TFS\IMC\SanJuan\obj\Debug\Interop.RPTIMS_DLL.dll
+D:\#TFS\IMC\SanJuan\obj\Debug\SanJuan.vbproj.ResolveComReference.cache
+D:\#TFS\IMC\SanJuan\obj\Debug\SanJuan.Resources.resources
+D:\#TFS\IMC\SanJuan\obj\Debug\SanJuan.vbproj.GenerateResource.Cache
+D:\#TFS\IMC\SanJuan\obj\Debug\RdlCompile.cache
+D:\#TFS\IMC\SanJuan\obj\Debug\RdlCompile.compiled
+D:\#TFS\IMC\SanJuan\obj\Debug\SanJuan.dll
+D:\#TFS\IMC\SanJuan\obj\Debug\SanJuan.xml
+D:\#TFS\IMC\SanJuan\obj\Debug\SanJuan.pdb
+D:\#TFS\IMC\San Juan\bin\WebPortal\Report\BillingTOP.rdlc
+D:\#TFS\IMC\San Juan\bin\SanJuan.dll.config
+D:\#TFS\IMC\San Juan\bin\SanJuan.dll
+D:\#TFS\IMC\San Juan\bin\SanJuan.pdb
+D:\#TFS\IMC\San Juan\bin\SanJuan.xml
+D:\#TFS\IMC\San Juan\bin\AjaxControlToolkit.dll
+D:\#TFS\IMC\San Juan\bin\Microsoft.ReportViewer.Common.dll
+D:\#TFS\IMC\San Juan\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\#TFS\IMC\San Juan\bin\Microsoft.ReportViewer.Design.DLL
+D:\#TFS\IMC\San Juan\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\#TFS\IMC\San Juan\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\#TFS\IMC\San Juan\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\#TFS\IMC\San Juan\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\#TFS\IMC\San Juan\bin\Microsoft.SqlServer.Types.dll
+D:\#TFS\IMC\San Juan\bin\VB.NET.Email.dll
+D:\#TFS\IMC\San Juan\bin\VB.NET.Encryption.dll
+D:\#TFS\IMC\San Juan\bin\VB.NET.Informant.dll
+D:\#TFS\IMC\San Juan\bin\VB.NET.Methods.dll
+D:\#TFS\IMC\San Juan\bin\VB.NET.SysTraceLogDB.dll
+D:\#TFS\IMC\San Juan\bin\VB.NET.Assembly.Information.dll
+D:\#TFS\IMC\San Juan\bin\VB.NET.SysTraceLogFile.dll
+D:\#TFS\IMC\San Juan\bin\VB.NET.Object.Controller.dll
+D:\#TFS\IMC\San Juan\bin\Microsoft.Windows.Design.Interaction.dll
+D:\#TFS\IMC\San Juan\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\#TFS\IMC\San Juan\bin\VB.NET.Email.pdb
+D:\#TFS\IMC\San Juan\bin\VB.NET.Encryption.pdb
+D:\#TFS\IMC\San Juan\bin\VB.NET.Informant.pdb
+D:\#TFS\IMC\San Juan\bin\VB.NET.Methods.pdb
+D:\#TFS\IMC\San Juan\bin\VB.NET.SysTraceLogDB.pdb
+D:\#TFS\IMC\San Juan\bin\VB.NET.Assembly.Information.pdb
+D:\#TFS\IMC\San Juan\bin\VB.NET.SysTraceLogFile.pdb
+D:\#TFS\IMC\San Juan\bin\VB.NET.Object.Controller.pdb
+D:\#TFS\IMC\San Juan\bin\Microsoft.Windows.Design.Interaction.xml
+D:\#TFS\IMC\San Juan\bin\Microsoft.Windows.Design.Extensibility.xml
+D:\#TFS\IMC\San Juan\obj\Debug\Interop.Aris_Dll.dll
+D:\#TFS\IMC\San Juan\obj\Debug\Interop.BPLTASAIFPROCESS_OL.dll
+D:\#TFS\IMC\San Juan\obj\Debug\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\#TFS\IMC\San Juan\obj\Debug\Interop.BPLTASLINEPROCESS_OL.dll
+D:\#TFS\IMC\San Juan\obj\Debug\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\#TFS\IMC\San Juan\obj\Debug\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\#TFS\IMC\San Juan\obj\Debug\Interop.RPTIMS_DLL.dll
+D:\#TFS\IMC\San Juan\obj\Debug\SanJuan.vbproj.ResolveComReference.cache
+D:\#TFS\IMC\San Juan\obj\Debug\SanJuan.Resources.resources
+D:\#TFS\IMC\San Juan\obj\Debug\SanJuan.vbproj.GenerateResource.Cache
+D:\#TFS\IMC\San Juan\obj\Debug\RdlCompile.cache
+D:\#TFS\IMC\San Juan\obj\Debug\RdlCompile.compiled
+D:\#TFS\IMC\San Juan\obj\Debug\SanJuan.dll
+D:\#TFS\IMC\San Juan\obj\Debug\SanJuan.xml
+D:\#TFS\IMC\San Juan\obj\Debug\SanJuan.pdb
+D:\IMC\San Juan\obj\Debug\SanJuan.vbprojResolveAssemblyReference.cache
+D:\IMC\San Juan\obj\Debug\Interop.Aris_Dll.dll
+D:\IMC\San Juan\obj\Debug\Interop.BPLTASAIFPROCESS_OL.dll
+D:\IMC\San Juan\obj\Debug\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\IMC\San Juan\obj\Debug\Interop.BPLTASLINEPROCESS_OL.dll
+D:\IMC\San Juan\obj\Debug\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\IMC\San Juan\obj\Debug\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\IMC\San Juan\obj\Debug\Interop.RPTIMS_DLL.dll
+D:\IMC\San Juan\obj\Debug\SanJuan.vbproj.ResolveComReference.cache
+D:\IMC\San Juan\obj\Debug\SanJuan.Resources.resources
+D:\IMC\San Juan\obj\Debug\SanJuan.vbproj.GenerateResource.Cache
+D:\IMC\San Juan\obj\Debug\RdlCompile.cache
+D:\IMC\San Juan\obj\Debug\RdlCompile.compiled
+D:\IMC\San Juan\obj\Debug\SanJuan.dll
+D:\IMC\San Juan\obj\Debug\SanJuan.xml
+D:\IMC\San Juan\obj\Debug\SanJuan.pdb
+D:\IMC\San Juan\bin\WebPortal\Report\BillingTOP.rdlc
+D:\IMC\San Juan\bin\SanJuan.dll.config
+D:\IMC\San Juan\bin\SanJuan.dll
+D:\IMC\San Juan\bin\SanJuan.pdb
+D:\IMC\San Juan\bin\SanJuan.xml
+D:\IMC\San Juan\bin\Microsoft.ReportViewer.Common.dll
+D:\IMC\San Juan\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\IMC\San Juan\bin\Microsoft.ReportViewer.Design.DLL
+D:\IMC\San Juan\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\IMC\San Juan\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\IMC\San Juan\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\IMC\San Juan\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\IMC\San Juan\bin\Microsoft.SqlServer.Types.dll
+D:\IMC\San Juan\bin\VB.NET.Assembly.Information.dll
+D:\IMC\San Juan\bin\VB.NET.SysTraceLogFile.dll
+D:\IMC\San Juan\bin\VB.NET.Object.Controller.dll
+D:\IMC\San Juan\bin\Microsoft.Windows.Design.Interaction.dll
+D:\IMC\San Juan\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\IMC\San Juan\bin\VB.NET.Email.pdb
+D:\IMC\San Juan\bin\VB.NET.Encryption.pdb
+D:\IMC\San Juan\bin\VB.NET.Informant.pdb
+D:\IMC\San Juan\bin\VB.NET.Methods.pdb
+D:\IMC\San Juan\bin\VB.NET.SysTraceLogDB.pdb
+D:\IMC\San Juan\bin\VB.NET.Assembly.Information.pdb
+D:\IMC\San Juan\bin\VB.NET.SysTraceLogFile.pdb
+D:\IMC\San Juan\bin\VB.NET.Object.Controller.pdb
+D:\IMC\San Juan\bin\Microsoft.Windows.Design.Interaction.xml
+D:\IMC\San Juan\bin\Microsoft.Windows.Design.Extensibility.xml

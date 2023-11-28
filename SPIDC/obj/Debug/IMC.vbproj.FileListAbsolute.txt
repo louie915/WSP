@@ -1,0 +1,213 @@
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\bin\IMC.dll.config
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\bin\IMC.dll
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\bin\IMC.pdb
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\bin\IMC.xml
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\obj\Debug\IMC.Resources.resources
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\obj\Debug\IMC.vbproj.GenerateResource.Cache
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\obj\Debug\IMC.dll
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\obj\Debug\IMC.xml
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\obj\Debug\IMC.pdb
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\obj\Debug\Interop.Aris_Dll.dll
+C:\Users\madrid.SPIDC\Desktop\IMC Web App\IMC\IMC\obj\Debug\IMC.vbproj.ResolveComReference.cache
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\IMC.dll.config
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\IMC.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\IMC.pdb
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\IMC.xml
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.Assembly.Information.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.SysTraceLogFile.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.Object.Controller.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.Email.pdb
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.Encryption.pdb
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.Informant.pdb
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.Methods.pdb
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.SysTraceLogDB.pdb
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.Assembly.Information.pdb
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.SysTraceLogFile.pdb
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\bin\VB.NET.Object.Controller.pdb
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\IMC.vbprojResolveAssemblyReference.cache
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\Interop.Aris_Dll.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\Interop.BPLTASAIFPROCESS_OL.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\Interop.BPLTASLINEPROCESS_OL.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\IMC.vbproj.ResolveComReference.cache
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\IMC.Resources.resources
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\IMC.vbproj.GenerateResource.Cache
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\RdlCompile.cache
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\RdlCompile.compiled
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\IMC.dll
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\IMC.xml
+D:\From Madrid\IMC 2-18-2020 tomi\IMC\obj\Debug\IMC.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\IMC.dll.config
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\IMC.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\IMC.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\IMC.xml
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\AjaxControlToolkit.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Email.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Encryption.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Informant.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Methods.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.SysTraceLogDB.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Assembly.Information.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.SysTraceLogFile.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Object.Controller.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Email.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Encryption.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Informant.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Methods.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.SysTraceLogDB.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Assembly.Information.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.SysTraceLogFile.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\bin\VB.NET.Object.Controller.pdb
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\IMC.vbprojResolveAssemblyReference.cache
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\Interop.Aris_Dll.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\Interop.BPLTASAIFPROCESS_OL.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\Interop.BPLTASLINEPROCESS_OL.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\IMC.vbproj.ResolveComReference.cache
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\IMC.Resources.resources
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\IMC.vbproj.GenerateResource.Cache
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\RdlCompile.cache
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\RdlCompile.compiled
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\IMC.dll
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\IMC.xml
+D:\Sharing\IMC 2-20-2020 tomi\IMC\obj\Debug\IMC.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\IMC.dll.config
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\IMC.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\IMC.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\IMC.xml
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\AjaxControlToolkit.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Email.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Encryption.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Informant.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Methods.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.SysTraceLogDB.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Assembly.Information.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.SysTraceLogFile.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Object.Controller.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Email.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Encryption.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Informant.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Methods.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.SysTraceLogDB.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Assembly.Information.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.SysTraceLogFile.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\bin\VB.NET.Object.Controller.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\Interop.Aris_Dll.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\Interop.BPLTASAIFPROCESS_OL.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\Interop.BPLTASAIF_PERLINE_OL.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\Interop.BPLTASLINEPROCESS_OL.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\Interop.BPLTAS_AIFASKRANGE_OL.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\Interop.BPLTAS_BILLING_ONLINE.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\IMC.vbproj.ResolveComReference.cache
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\IMC.Resources.resources
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\IMC.vbproj.GenerateResource.Cache
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\RdlCompile.cache
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\RdlCompile.compiled
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\IMC.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\IMC.xml
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\IMC.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\IMC.vbprojResolveAssemblyReference.cache
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\Interop.Aris_Dll.dll
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\IMC.vbproj.ResolveComReference.cache
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\IMC.Resources.resources
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\IMC.vbproj.GenerateResource.Cache
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\RdlCompile.cache
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\RdlCompile.compiled
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\IMC.dll
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\IMC.xml
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\IMC.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\bin\IMC.dll.config
+E:\##SHARING\WEBAPP\IMC\IMC\bin\IMC.dll
+E:\##SHARING\WEBAPP\IMC\IMC\bin\IMC.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\bin\IMC.xml
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.Assembly.Information.dll
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.SysTraceLogFile.dll
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.Object.Controller.dll
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.Email.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.Encryption.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.Informant.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.Methods.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.SysTraceLogDB.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.Assembly.Information.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.SysTraceLogFile.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\bin\VB.NET.Object.Controller.pdb
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\Interop.BPLTASAIFPROCESS_OL.dll
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\Interop.BPLTASAIF_PERLINE_OL.dll
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\Interop.BPLTASLINEPROCESS_OL.dll
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\Interop.BPLTAS_AIFASKRANGE_OL.dll
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\Interop.BPLTAS_BILLING_ONLINE.dll
+E:\##SHARING\WEBAPP\IMC\IMC\obj\Debug\Interop.RPTASONLINEWEB.dll
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\IMC.vbprojResolveAssemblyReference.cache
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\Interop.Aris_Dll.dll
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\Interop.BPLTASAIFPROCESS_OL.dll
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\Interop.BPLTASAIF_PERLINE_OL.dll
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\Interop.BPLTASLINEPROCESS_OL.dll
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\Interop.BPLTAS_AIFASKRANGE_OL.dll
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\Interop.BPLTAS_BILLING_ONLINE.dll
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\IMC.vbproj.ResolveComReference.cache
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\IMC.Resources.resources
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\IMC.vbproj.GenerateResource.Cache
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\RdlCompile.cache
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\RdlCompile.compiled
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\IMC.dll
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\IMC.xml
+\\vatican\##SHARING\WEBAPP\IMC EDITED TRAPPING ERROR\IMC\obj\Debug\IMC.pdb
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\Interop.RPTIMS_DLL.dll
+C:\Users\madrid.SPIDC\Desktop\Files\IMC Web App\IMC\IMC\obj\Debug\IMC.vbprojResolveAssemblyReference.cache
+D:\#TFS\IMC\IMC\obj\Debug\Interop.Aris_Dll.dll
+D:\#TFS\IMC\IMC\obj\Debug\Interop.BPLTASAIFPROCESS_OL.dll
+D:\#TFS\IMC\IMC\obj\Debug\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\#TFS\IMC\IMC\obj\Debug\Interop.BPLTASLINEPROCESS_OL.dll
+D:\#TFS\IMC\IMC\obj\Debug\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\#TFS\IMC\IMC\obj\Debug\Interop.RPTIMS_DLL.dll
+D:\#TFS\IMC\IMC\obj\Debug\IMC.vbproj.ResolveComReference.cache
+D:\#TFS\IMC\IMC\obj\Debug\IMC.Resources.resources
+D:\#TFS\IMC\IMC\obj\Debug\IMC.vbproj.GenerateResource.Cache
+D:\#TFS\IMC\IMC\obj\Debug\RdlCompile.cache
+D:\#TFS\IMC\IMC\obj\Debug\RdlCompile.compiled
+D:\#TFS\IMC\IMC\bin\SqlServerTypes\x64\msvcr100.dll
+D:\#TFS\IMC\IMC\bin\SqlServerTypes\x64\SqlServerSpatial110.dll
+D:\#TFS\IMC\IMC\bin\SqlServerTypes\x86\msvcr100.dll
+D:\#TFS\IMC\IMC\bin\SqlServerTypes\x86\SqlServerSpatial110.dll
+D:\#TFS\IMC\IMC\bin\IMC.dll.config
+D:\#TFS\IMC\IMC\bin\IMC.dll
+D:\#TFS\IMC\IMC\bin\IMC.pdb
+D:\#TFS\IMC\IMC\bin\IMC.xml
+D:\#TFS\IMC\IMC\bin\AjaxControlToolkit.dll
+D:\#TFS\IMC\IMC\bin\Ionic.Zip.dll
+D:\#TFS\IMC\IMC\bin\Microsoft.ReportViewer.Common.dll
+D:\#TFS\IMC\IMC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\#TFS\IMC\IMC\bin\Microsoft.ReportViewer.Design.DLL
+D:\#TFS\IMC\IMC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\#TFS\IMC\IMC\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\#TFS\IMC\IMC\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\#TFS\IMC\IMC\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\#TFS\IMC\IMC\bin\Microsoft.SqlServer.Types.dll
+D:\#TFS\IMC\IMC\bin\VB.NET.Email.dll
+D:\#TFS\IMC\IMC\bin\VB.NET.Encryption.dll
+D:\#TFS\IMC\IMC\bin\VB.NET.Informant.dll
+D:\#TFS\IMC\IMC\bin\VB.NET.Methods.dll
+D:\#TFS\IMC\IMC\bin\VB.NET.SysTraceLogDB.dll
+D:\#TFS\IMC\IMC\bin\VB.NET.Assembly.Information.dll
+D:\#TFS\IMC\IMC\bin\VB.NET.SysTraceLogFile.dll
+D:\#TFS\IMC\IMC\bin\VB.NET.Object.Controller.dll
+D:\#TFS\IMC\IMC\bin\Microsoft.Windows.Design.Interaction.dll
+D:\#TFS\IMC\IMC\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\#TFS\IMC\IMC\bin\VB.NET.Email.pdb
+D:\#TFS\IMC\IMC\bin\VB.NET.Encryption.pdb
+D:\#TFS\IMC\IMC\bin\VB.NET.Informant.pdb
+D:\#TFS\IMC\IMC\bin\VB.NET.Methods.pdb
+D:\#TFS\IMC\IMC\bin\VB.NET.SysTraceLogDB.pdb
+D:\#TFS\IMC\IMC\bin\VB.NET.Assembly.Information.pdb
+D:\#TFS\IMC\IMC\bin\VB.NET.SysTraceLogFile.pdb
+D:\#TFS\IMC\IMC\bin\VB.NET.Object.Controller.pdb
+D:\#TFS\IMC\IMC\bin\Microsoft.Windows.Design.Interaction.xml
+D:\#TFS\IMC\IMC\bin\Microsoft.Windows.Design.Extensibility.xml
+D:\#TFS\IMC\IMC\obj\Debug\IMC.dll
+D:\#TFS\IMC\IMC\obj\Debug\IMC.xml
+D:\#TFS\IMC\IMC\obj\Debug\IMC.pdb
+D:\#TFS\IMC\IMC\obj\Debug\IMC.vbprojResolveAssemblyReference.cache

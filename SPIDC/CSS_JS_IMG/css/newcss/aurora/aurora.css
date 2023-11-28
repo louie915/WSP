@@ -1,0 +1,74 @@
+.step-indicator {
+  width: auto;
+  height: 70px;
+  margin: 0px 0px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400; }
+  .step-indicator .steps {
+    counter-reset: step;
+    padding: 0; }
+  .step-indicator .steps li {
+    list-style-type: none;
+    width: 25%;
+    float: left;
+    font-size: 12px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #666666; }
+  .step-indicator .steps li a {
+    padding-top: 4rem; }
+  .step-indicator .steps li:before {
+    width: 40px;
+    height: 40px;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 32px;
+    border: 4px solid #CECECE;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+    font-size: 21px; }
+  .step-indicator .steps li:after {
+    width: 100%;
+    height: 4px;
+    content: '';
+    position: absolute;
+    background-color: #CECECE;
+    top: 18px;
+    left: -50%;
+    z-index: -1; }
+  .step-indicator .steps li:first-child:after {
+    content: none; }
+  .step-indicator .steps li.complete {
+    color: #0278A4; }
+  .step-indicator .steps li.complete:before {
+    border-color: #058abc;
+    content: "\2713"; }
+  .step-indicator .steps li.complete + li:after {
+    background-color: #058abc; }
+  .step-indicator .steps li.active {
+    color: #5070DA; }
+  .step-indicator .steps li.active:before {
+    border-color: #5070DA;
+    box-shadow: 0 0 0 0.2rem rgba(5, 138, 188, 0.25); }
+	
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0; }
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal; }

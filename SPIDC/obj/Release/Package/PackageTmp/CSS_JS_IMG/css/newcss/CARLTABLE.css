@@ -1,0 +1,9 @@
+﻿.GRID tr:nth-child(odd) {
+    background-color: #e5e5e5;
+    color:black;
+}
+
+
+.GRID tr:nth-child(even) {
+    color:black;
+}

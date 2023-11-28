@@ -1,0 +1,40 @@
+
+CREATE PROCEDURE [dbo].[GENERATETEMPPERMITNO]
+AS
+BEGIN
+    DECLARE @transactionNumber AS VARCHAR(MAX)
+    DECLARE @currentMonth AS INT
+    DECLARE @currentYear AS INT
+    DECLARE @nextNumber AS INT
+
+    -- Get the current month and year
+    SET @currentMonth = MONTH(GETDATE())
+    SET @currentYear = YEAR(GETDATE())
+
+    -- Check if the transaction number for the current month and identifier already exists
+    IF EXISTS (SELECT 1 FROM BUSINESSPERMITTEMPGENPERMITNO WHERE YEAR(DATENOW) = @currentYear AND MONTH(DATENOW) = @currentMonth )
+    BEGIN
+        -- Get the next transaction number for the current month and identifier
+        SELECT @nextNumber = MAX(CAST(RIGHT(PERMITNO, 4) AS INT)) + 1
+        FROM BUSINESSPERMITTEMPGENPERMITNO
+        WHERE YEAR(DATENOW) = @currentYear AND MONTH(DATENOW) = @currentMonth
+    END
+    ELSE
+    BEGIN
+        -- The current month and identifier have no transactions, so set the next number to 1
+        SET @nextNumber = 1
+    END
+
+    -- Format the transaction number as IdentifierYYYYMM### (e.g. ABC202203001)
+    SET @transactionNumber = CONVERT(VARCHAR(4), @currentYear)+ '-'+ RIGHT('00' + CONVERT(VARCHAR(2), @currentMonth), 2) +'-'+ RIGHT('000000' + CONVERT(VARCHAR(6), @nextNumber), 6)
+
+    -- Insert the new transaction number into the Transactions table
+    INSERT INTO BUSINESSPERMITTEMPGENPERMITNO (PERMITNO, DATENOW)
+    VALUES (@transactionNumber, GETDATE())
+
+    -- Return the transaction number
+    SELECT @transactionNumber
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+END

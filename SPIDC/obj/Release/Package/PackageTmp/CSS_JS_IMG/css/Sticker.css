@@ -1,0 +1,91 @@
+﻿.note
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     background-color: #f0f7fb;
+     background-image: url(../../CSS_JS_IMG/img/note.png);
+     background-position: 9px 0px;
+     background-repeat: no-repeat;
+     border: solid 1px #3498db;
+     border-radius: 6px;
+     line-height: 18px;
+     overflow: hidden;
+     padding:  10px 30px 0px;
+     text-align:left;
+     font-family:Arial;
+     font-size:small;
+}
+
+
+.tips
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     background-color: #f5f6e2;
+     background-image: url(../../CSS_JS_IMG/img/bulb.png);
+     background-position: 9px 0px;
+     background-repeat: no-repeat;
+     border: solid 1px #dbcc24;
+     border-radius: 6px;
+     line-height: 18px;
+     overflow: hidden;
+     padding:  10px 30px 0px;
+     text-align:left;
+     font-family:Arial;
+     font-size:small;
+}
+
+
+.correct
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     background-color: #e7f6e2;
+     background-image: url(../../CSS_JS_IMG/img/check.png);
+     background-position: 9px 0px;
+     background-repeat: no-repeat;
+     border: solid 1px #7adb24;
+     border-radius: 6px;
+     line-height: 18px;
+     overflow: hidden;
+     padding:  10px 30px 0px;
+     text-align:left;
+     font-family:Arial;
+     font-size:small;
+}
+
+
+.warning
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     background-color: #f6e1de;
+     background-image: url(../../CSS_JS_IMG/img/warning.png);
+     background-position: 9px 0px;
+     background-repeat: no-repeat;
+     border: solid 1px #d93c25;
+     border-radius: 6px;
+     line-height: 18px;
+     overflow: hidden;
+     padding:  10px 30px 0px;
+     text-align:left;
+     font-family:Arial;
+     font-size:small;
+}
+
+.instruct
+{
+     -moz-border-radius: 6px;
+     -webkit-border-radius: 6px;
+     background-image: url(../../CSS_JS_IMG/img/instruction.png);
+     background-position: 9px 0px;
+     background-repeat: no-repeat;
+     border: solid 1px #0a0202;
+     border-radius: 6px;
+     line-height: 18px;
+     overflow: hidden;
+     padding:  10px 30px 0px;
+     text-align:left;
+     font-family:Arial;
+     font-size:small;
+}

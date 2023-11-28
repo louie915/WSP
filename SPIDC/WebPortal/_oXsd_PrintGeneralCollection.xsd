@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="_oXsd_PrintGeneralCollection" targetNamespace="http://tempuri.org/_oXsd_PrintGeneralCollection.xsd" xmlns:mstns="http://tempuri.org/_oXsd_PrintGeneralCollection.xsd" xmlns="http://tempuri.org/_oXsd_PrintGeneralCollection.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="SOS_OAIMS_20200605ConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="SOS_OAIMS_20200605ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.SOS_OAIMS_20200605ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="SOS_OAIMS_CAINTAConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="SOS_OAIMS_CAINTAConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.SOS_OAIMS_CAINTAConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=HAVANA\MSSQL2019;Initial Catalog=SOS_OAIMS_CAINTA;User ID=sa;Password=P@ssw0rd" IsAppSettingsProperty="false" Modifier="Assembly" Name="havana\mssql2019.SOS_OAIMS_CAINTA.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="havana\mssql2019.SOS_OAIMS_CAINTA.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>WITH temporaryTable AS (SELECT        AssessNo, TDN
+                                                         FROM            SOS_RPT_CAINTA.dbo.Assess_FrmNewBilling_A
+                                                         GROUP BY AssessNo, TDN
+                                                         UNION
+                                                         SELECT        AssessNo, TDN
+                                                         FROM            SOS_RPT_CAINTA.dbo.HistAssess_FrmNewBilling_A
+                                                         GROUP BY AssessNo, TDN)
+    SELECT DISTINCT OPR.TransDate, OPR.TXNREFNO, OPR.GateWayRefNo, OPR.EMAILADDR, OPR.PAYMENTCHANNEL, OPR.Type, OPR.ACCTNO, OPR.StatusID, OPR.rawAmount, OPR.feeAmount, OPR.totAmount, tT.AssessNo,
+                                  (SELECT        TDN + '; ' AS Expr1
+                                    FROM            temporaryTable AS tT2
+                                    WHERE        (tT.AssessNo = AssessNo) FOR XML PATH('')) AS TDN
+     FROM            temporaryTable AS tT RIGHT OUTER JOIN
+                              OnlinePaymentRefno AS OPR ON OPR.ACCTNO = tT.AssessNo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TransDate" DataSetColumn="TransDate" />
+              <Mapping SourceColumn="TXNREFNO" DataSetColumn="TXNREFNO" />
+              <Mapping SourceColumn="GateWayRefNo" DataSetColumn="GateWayRefNo" />
+              <Mapping SourceColumn="EMAILADDR" DataSetColumn="EMAILADDR" />
+              <Mapping SourceColumn="PAYMENTCHANNEL" DataSetColumn="PAYMENTCHANNEL" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+              <Mapping SourceColumn="ACCTNO" DataSetColumn="ACCTNO" />
+              <Mapping SourceColumn="StatusID" DataSetColumn="StatusID" />
+              <Mapping SourceColumn="rawAmount" DataSetColumn="rawAmount" />
+              <Mapping SourceColumn="feeAmount" DataSetColumn="feeAmount" />
+              <Mapping SourceColumn="totAmount" DataSetColumn="totAmount" />
+              <Mapping SourceColumn="AssessNo" DataSetColumn="AssessNo" />
+              <Mapping SourceColumn="TDN" DataSetColumn="TDN" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="_oXsd_PrintGeneralCollection" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="_oXsd_PrintGeneralCollection" msprop:Generator_UserDSName="_oXsd_PrintGeneralCollection">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="General_x0020_Collection" msprop:Generator_TableClassName="General_CollectionDataTable" msprop:Generator_TableVarName="tableGeneral_Collection" msprop:Generator_RowChangedName="General_CollectionRowChanged" msprop:Generator_TablePropName="General_Collection" msprop:Generator_RowDeletingName="General_CollectionRowDeleting" msprop:Generator_RowChangingName="General_CollectionRowChanging" msprop:Generator_RowEvHandlerName="General_CollectionRowChangeEventHandler" msprop:Generator_RowDeletedName="General_CollectionRowDeleted" msprop:Generator_RowClassName="General_CollectionRow" msprop:Generator_UserTableName="General Collection" msprop:Generator_RowEvArgName="General_CollectionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Date" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Time" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="4000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TransactionNumber" msprop:Generator_ColumnVarNameInTable="columnTransactionNumber" msprop:Generator_ColumnPropNameInRow="TransactionNumber" msprop:Generator_ColumnPropNameInTable="TransactionNumberColumn" msprop:Generator_UserColumnName="TransactionNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TransactionType" msprop:Generator_ColumnVarNameInTable="columnTransactionType" msprop:Generator_ColumnPropNameInRow="TransactionType" msprop:Generator_ColumnPropNameInTable="TransactionTypeColumn" msprop:Generator_UserColumnName="TransactionType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Owner" msprop:Generator_ColumnVarNameInTable="columnOwner" msprop:Generator_ColumnPropNameInRow="Owner" msprop:Generator_ColumnPropNameInTable="OwnerColumn" msprop:Generator_UserColumnName="Owner">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AmountPaid" msprop:Generator_ColumnVarNameInTable="columnAmountPaid" msprop:Generator_ColumnPropNameInRow="AmountPaid" msprop:Generator_ColumnPropNameInTable="AmountPaidColumn" msprop:Generator_UserColumnName="AmountPaid" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TransDate" msprop:Generator_ColumnVarNameInTable="columnTransDate" msprop:Generator_ColumnPropNameInRow="TransDate" msprop:Generator_ColumnPropNameInTable="TransDateColumn" msprop:Generator_UserColumnName="TransDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TXNREFNO" msprop:Generator_ColumnVarNameInTable="columnTXNREFNO" msprop:Generator_ColumnPropNameInRow="TXNREFNO" msprop:Generator_ColumnPropNameInTable="TXNREFNOColumn" msprop:Generator_UserColumnName="TXNREFNO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GateWayRefNo" msprop:Generator_ColumnVarNameInTable="columnGateWayRefNo" msprop:Generator_ColumnPropNameInRow="GateWayRefNo" msprop:Generator_ColumnPropNameInTable="GateWayRefNoColumn" msprop:Generator_UserColumnName="GateWayRefNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EMAILADDR" msprop:Generator_ColumnVarNameInTable="columnEMAILADDR" msprop:Generator_ColumnPropNameInRow="EMAILADDR" msprop:Generator_ColumnPropNameInTable="EMAILADDRColumn" msprop:Generator_UserColumnName="EMAILADDR">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PAYMENTCHANNEL" msprop:Generator_ColumnVarNameInTable="columnPAYMENTCHANNEL" msprop:Generator_ColumnPropNameInRow="PAYMENTCHANNEL" msprop:Generator_ColumnPropNameInTable="PAYMENTCHANNELColumn" msprop:Generator_UserColumnName="PAYMENTCHANNEL">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ACCTNO" msprop:Generator_ColumnVarNameInTable="columnACCTNO" msprop:Generator_ColumnPropNameInRow="ACCTNO" msprop:Generator_ColumnPropNameInTable="ACCTNOColumn" msprop:Generator_UserColumnName="ACCTNO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StatusID" msprop:Generator_ColumnVarNameInTable="columnStatusID" msprop:Generator_ColumnPropNameInRow="StatusID" msprop:Generator_ColumnPropNameInTable="StatusIDColumn" msprop:Generator_UserColumnName="StatusID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rawAmount" msprop:Generator_ColumnVarNameInTable="columnrawAmount" msprop:Generator_ColumnPropNameInRow="rawAmount" msprop:Generator_ColumnPropNameInTable="rawAmountColumn" msprop:Generator_UserColumnName="rawAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="feeAmount" msprop:Generator_ColumnVarNameInTable="columnfeeAmount" msprop:Generator_ColumnPropNameInRow="feeAmount" msprop:Generator_ColumnPropNameInTable="feeAmountColumn" msprop:Generator_UserColumnName="feeAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="totAmount" msprop:Generator_ColumnVarNameInTable="columntotAmount" msprop:Generator_ColumnPropNameInRow="totAmount" msprop:Generator_ColumnPropNameInTable="totAmountColumn" msprop:Generator_UserColumnName="totAmount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="AssessNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAssessNo" msprop:Generator_ColumnPropNameInRow="AssessNo" msprop:Generator_ColumnPropNameInTable="AssessNoColumn" msprop:Generator_UserColumnName="AssessNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TDN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTDN" msprop:Generator_ColumnPropNameInRow="TDN" msprop:Generator_ColumnPropNameInTable="TDNColumn" msprop:Generator_UserColumnName="TDN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,10 @@
+Time: 22/08/2022 12:13:00 PM
+-----------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at SPIDC.cBllRegistered._pFuncVerifyIfAccountIsRegistered(String _nUserID, String xLiteral) in D:\#TFS\IMC\SPIDC\Classes\cBllRegistered.vb:line 283
+Source: SPIDC
+Exception: System.NullReferenceException
+TargetSite: Boolean _pFuncVerifyIfAccountIsRegistered(System.String, System.String)
+Dll Date Complied: 
+-----------------------------------------------------------
+

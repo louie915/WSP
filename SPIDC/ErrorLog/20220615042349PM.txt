@@ -1,0 +1,9 @@
+Time: 15/06/2022 04:23:49 PM
+-----------------------------------------------------------
+Message: Object reference not set to an instance of an object.
+StackTrace:    at SPIDC.cSessionLGUProfile._pGetLGUProfile(String& ctr) in D:\#TFS\IMC\SPIDC\Classes\cSessionLGUProfile.vb:line 144
+Source: SPIDC
+Exception: System.NullReferenceException
+TargetSite: Void _pGetLGUProfile(System.String ByRef)
+-----------------------------------------------------------
+

@@ -1,0 +1,342 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="eOR" targetNamespace="http://tempuri.org/eOR.xsd" xmlns:mstns="http://tempuri.org/eOR.xsd" xmlns="http://tempuri.org/eOR.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="4" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=texas\mssql2014;Initial Catalog=TOIMS2020_CAINTA_WEB;User ID=sa;Password=P@ssw0rd" IsAppSettingsProperty="false" Modifier="Assembly" Name="texas\mssql2014.TOIMS2020_CAINTA_WEB.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=texas\mssql2014;Initial Catalog=BPLTAS_CAINTA_WEB;User ID=sa;Password=P@ssw0rd" IsAppSettingsProperty="false" Modifier="Assembly" Name="texas\mssql2014.BPLTAS_CAINTA_WEB.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=TEXAS\MSSQL2014;Initial Catalog=RPTAS_CAINTA_20230117;User ID=sa;Password=P@ssw0rd" IsAppSettingsProperty="false" Modifier="Assembly" Name="texas\mssql2014.RPTAS_CAINTA_20230117.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=HAVANA\MSSQL2019;Initial Catalog=SOS_OAIMS_CALOOCAN_2021;User ID=sa;Password=P@ssw0rd" IsAppSettingsProperty="false" Modifier="Assembly" Name="havana\mssql2019.SOS_OAIMS_CALOOCAN_2021.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=HAVANA\MSSQL2019;Initial Catalog=SOS_OAIMS_CAINTA;User ID=sa;Password=P@ssw0rd" IsAppSettingsProperty="false" Modifier="Assembly" Name="havana\mssql2019.SOS_OAIMS_CAINTA.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="eORTableAdapter" GeneratorDataComponentClassName="eORTableAdapter" Name="eOR" UserDataComponentName="eORTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="havana\mssql2019.SOS_OAIMS_CAINTA.dbo" DbObjectName="SOS_OAIMS_CAINTA.dbo.eOR" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        PayorName, Barangay, TaxType, TDNBIN, PIN, PeriodCovered, AssessNo, eORno, DateTime, OnlineID, Gateway_Selected, Gateway_RefNo, Gateway_ConfDate, Bill_Amount, Gateway_Fee, SPIDC_Fee, GrandTotal, QR_File, 
+                         QR_String, PrevORno, PrevAmountPaid, Sent, Sent_Date
+FROM            eOR</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PayorName" DataSetColumn="PayorName" />
+              <Mapping SourceColumn="Barangay" DataSetColumn="Barangay" />
+              <Mapping SourceColumn="TaxType" DataSetColumn="TaxType" />
+              <Mapping SourceColumn="TDNBIN" DataSetColumn="TDNBIN" />
+              <Mapping SourceColumn="PeriodCovered" DataSetColumn="PeriodCovered" />
+              <Mapping SourceColumn="DateTime" DataSetColumn="DateTime" />
+              <Mapping SourceColumn="OnlineID" DataSetColumn="OnlineID" />
+              <Mapping SourceColumn="Gateway_Selected" DataSetColumn="Gateway_Selected" />
+              <Mapping SourceColumn="Gateway_RefNo" DataSetColumn="Gateway_RefNo" />
+              <Mapping SourceColumn="Gateway_ConfDate" DataSetColumn="Gateway_ConfDate" />
+              <Mapping SourceColumn="PIN" DataSetColumn="PIN" />
+              <Mapping SourceColumn="AssessNo" DataSetColumn="AssessNo" />
+              <Mapping SourceColumn="eORno" DataSetColumn="eORno" />
+              <Mapping SourceColumn="Bill_Amount" DataSetColumn="Bill_Amount" />
+              <Mapping SourceColumn="Gateway_Fee" DataSetColumn="Gateway_Fee" />
+              <Mapping SourceColumn="SPIDC_Fee" DataSetColumn="SPIDC_Fee" />
+              <Mapping SourceColumn="GrandTotal" DataSetColumn="GrandTotal" />
+              <Mapping SourceColumn="QR_File" DataSetColumn="QR_File" />
+              <Mapping SourceColumn="QR_String" DataSetColumn="QR_String" />
+              <Mapping SourceColumn="PrevORno" DataSetColumn="PrevORno" />
+              <Mapping SourceColumn="PrevAmountPaid" DataSetColumn="PrevAmountPaid" />
+              <Mapping SourceColumn="Sent" DataSetColumn="Sent" />
+              <Mapping SourceColumn="Sent_Date" DataSetColumn="Sent_Date" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="eOR_ExtnTableAdapter" GeneratorDataComponentClassName="eOR_ExtnTableAdapter" Name="eOR_Extn" UserDataComponentName="eOR_ExtnTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="havana\mssql2019.SOS_OAIMS_CAINTA.dbo" DbObjectName="SOS_OAIMS_CAINTA.dbo.eOR_Extn" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [eOR_Extn] ([eORNO], [ORno], [TDNBIN], [AccountCode], [NatureOfCollection], [Amount]) VALUES (@eORNO, @ORno, @TDNBIN, @AccountCode, @NatureOfCollection, @Amount)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@eORNO" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="eORNO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ORno" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="ORno" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@TDNBIN" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="TDNBIN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@AccountCode" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="AccountCode" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NatureOfCollection" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="NatureOfCollection" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Amount" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Amount" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        eORNO, ORno, TDNBIN, AccountCode, NatureOfCollection, Amount
+FROM            eOR_Extn</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="eORNO" DataSetColumn="eORNO" />
+              <Mapping SourceColumn="ORno" DataSetColumn="ORno" />
+              <Mapping SourceColumn="TDNBIN" DataSetColumn="TDNBIN" />
+              <Mapping SourceColumn="AccountCode" DataSetColumn="AccountCode" />
+              <Mapping SourceColumn="NatureOfCollection" DataSetColumn="NatureOfCollection" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="eOR_SetupTableAdapter" GeneratorDataComponentClassName="eOR_SetupTableAdapter" Name="eOR_Setup" UserDataComponentName="eOR_SetupTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="havana\mssql2019.SOS_OAIMS_CAINTA.dbo" DbObjectName="SOS_OAIMS_CAINTA.dbo.eOR_Setup" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [eOR_Setup] ([Watermark_File], [eSignature_File], [Officer_Name], [Officer_Position], [Header1], [Header2]) VALUES (@Watermark_File, @eSignature_File, @Officer_Name, @Officer_Position, @Header1, @Header2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@Watermark_File" Precision="0" ProviderType="VarBinary" Scale="0" Size="0" SourceColumn="Watermark_File" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Binary" Direction="Input" ParameterName="@eSignature_File" Precision="0" ProviderType="VarBinary" Scale="0" Size="0" SourceColumn="eSignature_File" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Officer_Name" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Officer_Name" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Officer_Position" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Officer_Position" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Header1" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Header1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Header2" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Header2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Watermark_File, eSignature_File, Officer_Name, Officer_Position, Header1, Header2,
+                             (SELECT        LGU_LOGO
+                               FROM            SOS_CR_CAINTA.dbo.LGU_Profile) AS LGU_Logo
+FROM            eOR_Setup</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Watermark_File" DataSetColumn="Watermark_File" />
+              <Mapping SourceColumn="eSignature_File" DataSetColumn="eSignature_File" />
+              <Mapping SourceColumn="Officer_Name" DataSetColumn="Officer_Name" />
+              <Mapping SourceColumn="Officer_Position" DataSetColumn="Officer_Position" />
+              <Mapping SourceColumn="Header1" DataSetColumn="Header1" />
+              <Mapping SourceColumn="Header2" DataSetColumn="Header2" />
+              <Mapping SourceColumn="LGU_Logo" DataSetColumn="LGU_Logo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="eOR" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="eOR" msprop:Generator_UserDSName="eOR">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="eOR" msprop:Generator_TableClassName="eORDataTable" msprop:Generator_TableVarName="tableeOR" msprop:Generator_RowChangedName="eORRowChanged" msprop:Generator_TablePropName="_eOR" msprop:Generator_RowDeletingName="eORRowDeleting" msprop:Generator_RowChangingName="eORRowChanging" msprop:Generator_RowEvHandlerName="eORRowChangeEventHandler" msprop:Generator_RowDeletedName="eORRowDeleted" msprop:Generator_RowClassName="eORRow" msprop:Generator_UserTableName="eOR" msprop:Generator_RowEvArgName="eORRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PayorName" msprop:Generator_ColumnVarNameInTable="columnPayorName" msprop:Generator_ColumnPropNameInRow="PayorName" msprop:Generator_ColumnPropNameInTable="PayorNameColumn" msprop:Generator_UserColumnName="PayorName">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Barangay" msprop:Generator_ColumnVarNameInTable="columnBarangay" msprop:Generator_ColumnPropNameInRow="Barangay" msprop:Generator_ColumnPropNameInTable="BarangayColumn" msprop:Generator_UserColumnName="Barangay">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TaxType" msprop:Generator_ColumnVarNameInTable="columnTaxType" msprop:Generator_ColumnPropNameInRow="TaxType" msprop:Generator_ColumnPropNameInTable="TaxTypeColumn" msprop:Generator_UserColumnName="TaxType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TDNBIN" msprop:Generator_ColumnVarNameInTable="columnTDNBIN" msprop:Generator_ColumnPropNameInRow="TDNBIN" msprop:Generator_ColumnPropNameInTable="TDNBINColumn" msprop:Generator_UserColumnName="TDNBIN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PeriodCovered" msprop:Generator_ColumnVarNameInTable="columnPeriodCovered" msprop:Generator_ColumnPropNameInRow="PeriodCovered" msprop:Generator_ColumnPropNameInTable="PeriodCoveredColumn" msprop:Generator_UserColumnName="PeriodCovered">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateTime" msprop:Generator_ColumnVarNameInTable="columnDateTime" msprop:Generator_ColumnPropNameInRow="DateTime" msprop:Generator_ColumnPropNameInTable="DateTimeColumn" msprop:Generator_UserColumnName="DateTime">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OnlineID" msprop:Generator_ColumnVarNameInTable="columnOnlineID" msprop:Generator_ColumnPropNameInRow="OnlineID" msprop:Generator_ColumnPropNameInTable="OnlineIDColumn" msprop:Generator_UserColumnName="OnlineID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gateway_Selected" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGateway_Selected" msprop:Generator_ColumnPropNameInRow="Gateway_Selected" msprop:Generator_ColumnPropNameInTable="Gateway_SelectedColumn" msprop:Generator_UserColumnName="Gateway_Selected">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gateway_RefNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGateway_RefNo" msprop:Generator_ColumnPropNameInRow="Gateway_RefNo" msprop:Generator_ColumnPropNameInTable="Gateway_RefNoColumn" msprop:Generator_UserColumnName="Gateway_RefNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gateway_ConfDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGateway_ConfDate" msprop:Generator_ColumnPropNameInRow="Gateway_ConfDate" msprop:Generator_ColumnPropNameInTable="Gateway_ConfDateColumn" msprop:Generator_UserColumnName="Gateway_ConfDate">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PIN" msprop:Generator_ColumnVarNameInTable="columnPIN" msprop:Generator_ColumnPropNameInRow="PIN" msprop:Generator_ColumnPropNameInTable="PINColumn" msprop:Generator_UserColumnName="PIN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AssessNo" msprop:Generator_ColumnVarNameInTable="columnAssessNo" msprop:Generator_ColumnPropNameInRow="AssessNo" msprop:Generator_ColumnPropNameInTable="AssessNoColumn" msprop:Generator_UserColumnName="AssessNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="eORno" msprop:Generator_ColumnVarNameInTable="columneORno" msprop:Generator_ColumnPropNameInRow="eORno" msprop:Generator_ColumnPropNameInTable="eORnoColumn" msprop:Generator_UserColumnName="eORno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bill_Amount" msprop:Generator_ColumnVarNameInTable="columnBill_Amount" msprop:Generator_ColumnPropNameInRow="Bill_Amount" msprop:Generator_ColumnPropNameInTable="Bill_AmountColumn" msprop:Generator_UserColumnName="Bill_Amount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Gateway_Fee" msprop:Generator_ColumnVarNameInTable="columnGateway_Fee" msprop:Generator_ColumnPropNameInRow="Gateway_Fee" msprop:Generator_ColumnPropNameInTable="Gateway_FeeColumn" msprop:Generator_UserColumnName="Gateway_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="SPIDC_Fee" msprop:Generator_ColumnVarNameInTable="columnSPIDC_Fee" msprop:Generator_ColumnPropNameInRow="SPIDC_Fee" msprop:Generator_ColumnPropNameInTable="SPIDC_FeeColumn" msprop:Generator_UserColumnName="SPIDC_Fee" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GrandTotal" msprop:Generator_ColumnVarNameInTable="columnGrandTotal" msprop:Generator_ColumnPropNameInRow="GrandTotal" msprop:Generator_ColumnPropNameInTable="GrandTotalColumn" msprop:Generator_UserColumnName="GrandTotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="QR_File" msprop:Generator_ColumnVarNameInTable="columnQR_File" msprop:Generator_ColumnPropNameInRow="QR_File" msprop:Generator_ColumnPropNameInTable="QR_FileColumn" msprop:Generator_UserColumnName="QR_File" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="QR_String" msprop:Generator_ColumnVarNameInTable="columnQR_String" msprop:Generator_ColumnPropNameInRow="QR_String" msprop:Generator_ColumnPropNameInTable="QR_StringColumn" msprop:Generator_UserColumnName="QR_String" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PrevORno" msprop:Generator_ColumnVarNameInTable="columnPrevORno" msprop:Generator_ColumnPropNameInRow="PrevORno" msprop:Generator_ColumnPropNameInTable="PrevORnoColumn" msprop:Generator_UserColumnName="PrevORno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PrevAmountPaid" msprop:Generator_ColumnVarNameInTable="columnPrevAmountPaid" msprop:Generator_ColumnPropNameInRow="PrevAmountPaid" msprop:Generator_ColumnPropNameInTable="PrevAmountPaidColumn" msprop:Generator_UserColumnName="PrevAmountPaid" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sent" msprop:Generator_ColumnVarNameInTable="columnSent" msprop:Generator_ColumnPropNameInRow="Sent" msprop:Generator_ColumnPropNameInTable="SentColumn" msprop:Generator_UserColumnName="Sent" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Sent_Date" msprop:Generator_ColumnVarNameInTable="columnSent_Date" msprop:Generator_ColumnPropNameInRow="Sent_Date" msprop:Generator_ColumnPropNameInTable="Sent_DateColumn" msprop:Generator_UserColumnName="Sent_Date" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="eOR_Extn" msprop:Generator_TableClassName="eOR_ExtnDataTable" msprop:Generator_TableVarName="tableeOR_Extn" msprop:Generator_RowChangedName="eOR_ExtnRowChanged" msprop:Generator_TablePropName="eOR_Extn" msprop:Generator_RowDeletingName="eOR_ExtnRowDeleting" msprop:Generator_RowChangingName="eOR_ExtnRowChanging" msprop:Generator_RowEvHandlerName="eOR_ExtnRowChangeEventHandler" msprop:Generator_RowDeletedName="eOR_ExtnRowDeleted" msprop:Generator_RowClassName="eOR_ExtnRow" msprop:Generator_UserTableName="eOR_Extn" msprop:Generator_RowEvArgName="eOR_ExtnRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="eORNO" msprop:Generator_ColumnVarNameInTable="columneORNO" msprop:Generator_ColumnPropNameInRow="eORNO" msprop:Generator_ColumnPropNameInTable="eORNOColumn" msprop:Generator_UserColumnName="eORNO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ORno" msprop:Generator_ColumnVarNameInTable="columnORno" msprop:Generator_ColumnPropNameInRow="ORno" msprop:Generator_ColumnPropNameInTable="ORnoColumn" msprop:Generator_UserColumnName="ORno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TDNBIN" msprop:Generator_ColumnVarNameInTable="columnTDNBIN" msprop:Generator_ColumnPropNameInRow="TDNBIN" msprop:Generator_ColumnPropNameInTable="TDNBINColumn" msprop:Generator_UserColumnName="TDNBIN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AccountCode" msprop:Generator_ColumnVarNameInTable="columnAccountCode" msprop:Generator_ColumnPropNameInRow="AccountCode" msprop:Generator_ColumnPropNameInTable="AccountCodeColumn" msprop:Generator_UserColumnName="AccountCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NatureOfCollection" msprop:Generator_ColumnVarNameInTable="columnNatureOfCollection" msprop:Generator_ColumnPropNameInRow="NatureOfCollection" msprop:Generator_ColumnPropNameInTable="NatureOfCollectionColumn" msprop:Generator_UserColumnName="NatureOfCollection" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="eOR_Setup" msprop:Generator_TableClassName="eOR_SetupDataTable" msprop:Generator_TableVarName="tableeOR_Setup" msprop:Generator_RowChangedName="eOR_SetupRowChanged" msprop:Generator_TablePropName="eOR_Setup" msprop:Generator_RowDeletingName="eOR_SetupRowDeleting" msprop:Generator_RowChangingName="eOR_SetupRowChanging" msprop:Generator_RowEvHandlerName="eOR_SetupRowChangeEventHandler" msprop:Generator_RowDeletedName="eOR_SetupRowDeleted" msprop:Generator_RowClassName="eOR_SetupRow" msprop:Generator_UserTableName="eOR_Setup" msprop:Generator_RowEvArgName="eOR_SetupRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Watermark_File" msprop:Generator_ColumnVarNameInTable="columnWatermark_File" msprop:Generator_ColumnPropNameInRow="Watermark_File" msprop:Generator_ColumnPropNameInTable="Watermark_FileColumn" msprop:Generator_UserColumnName="Watermark_File" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="eSignature_File" msprop:Generator_ColumnVarNameInTable="columneSignature_File" msprop:Generator_ColumnPropNameInRow="eSignature_File" msprop:Generator_ColumnPropNameInTable="eSignature_FileColumn" msprop:Generator_UserColumnName="eSignature_File" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Officer_Name" msprop:Generator_ColumnVarNameInTable="columnOfficer_Name" msprop:Generator_ColumnPropNameInRow="Officer_Name" msprop:Generator_ColumnPropNameInTable="Officer_NameColumn" msprop:Generator_UserColumnName="Officer_Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Officer_Position" msprop:Generator_ColumnVarNameInTable="columnOfficer_Position" msprop:Generator_ColumnPropNameInRow="Officer_Position" msprop:Generator_ColumnPropNameInTable="Officer_PositionColumn" msprop:Generator_UserColumnName="Officer_Position" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Header1" msprop:Generator_ColumnVarNameInTable="columnHeader1" msprop:Generator_ColumnPropNameInRow="Header1" msprop:Generator_ColumnPropNameInTable="Header1Column" msprop:Generator_UserColumnName="Header1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Header2" msprop:Generator_ColumnVarNameInTable="columnHeader2" msprop:Generator_ColumnPropNameInRow="Header2" msprop:Generator_ColumnPropNameInTable="Header2Column" msprop:Generator_UserColumnName="Header2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LGU_Logo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLGU_Logo" msprop:Generator_ColumnPropNameInRow="LGU_Logo" msprop:Generator_ColumnPropNameInTable="LGU_LogoColumn" msprop:Generator_UserColumnName="LGU_Logo" type="xs:base64Binary" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

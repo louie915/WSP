@@ -1,0 +1,27 @@
+CREATE PROCEDURE IncrementLatestID
+AS
+BEGIN
+    DECLARE @LatestID VARCHAR(15);  -- Assuming the ID is a VARCHAR with leading zeros
+    DECLARE @NewID VARCHAR(15);
+    
+    -- Find the latest ID
+    SELECT TOP 1 @LatestID = xFileNo  -- Replace YourIDColumn with your actual column name
+    FROM BUSINESSPERMITTEMPGENIMAGEBYTES  -- Replace YourTable with your actual table name
+    ORDER BY xFileNo DESC;
+    
+    -- If there are no records, set the initial ID
+    IF @LatestID IS NULL
+        SET @NewID = '000000000000001';  -- Set an initial value
+    ELSE
+    BEGIN
+        -- Convert to an integer, increment, and format with leading zeros
+        DECLARE @CurrentInt INT = CAST(@LatestID AS INT) + 1;
+        SET @NewID = RIGHT('000000000000000' + CAST(@CurrentInt AS VARCHAR(15)), 15);
+    END
+    
+    -- Return the @NewID value
+    SELECT @NewID AS NewID;
+    
+    -- Insert the @NewID into your table
+    --INSERT INTO YourTable (YourIDColumn) VALUES (@NewID);
+END;

@@ -1,0 +1,340 @@
+D:\San Juan\bin\WebPortal\Report\BillingTOP.rdlc
+D:\San Juan\bin\SPIDC.dll.config
+D:\San Juan\bin\SPIDC.dll
+D:\San Juan\bin\SPIDC.pdb
+D:\San Juan\bin\SPIDC.xml
+D:\San Juan\bin\AjaxControlToolkit.dll
+D:\San Juan\bin\Microsoft.ReportViewer.Common.dll
+D:\San Juan\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\San Juan\bin\Microsoft.ReportViewer.Design.dll
+D:\San Juan\bin\Microsoft.ReportViewer.ProcessingObjectModel.dll
+D:\San Juan\bin\Microsoft.ReportViewer.WebDesign.dll
+D:\San Juan\bin\Microsoft.ReportViewer.WebForms.dll
+D:\San Juan\bin\Microsoft.ReportViewer.WinForms.dll
+D:\San Juan\bin\Microsoft.SqlServer.Types.dll
+D:\San Juan\bin\VB.NET.Email.dll
+D:\San Juan\bin\VB.NET.Encryption.dll
+D:\San Juan\bin\VB.NET.Informant.dll
+D:\San Juan\bin\VB.NET.Methods.dll
+D:\San Juan\bin\VB.NET.SysTraceLogDB.dll
+D:\San Juan\bin\VB.NET.Assembly.Information.dll
+D:\San Juan\bin\VB.NET.SysTraceLogFile.dll
+D:\San Juan\bin\VB.NET.Object.Controller.dll
+D:\San Juan\bin\Microsoft.Windows.Design.Interaction.dll
+D:\San Juan\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\San Juan\bin\VB.NET.Email.pdb
+D:\San Juan\bin\VB.NET.Encryption.pdb
+D:\San Juan\bin\VB.NET.Informant.pdb
+D:\San Juan\bin\VB.NET.Methods.pdb
+D:\San Juan\bin\VB.NET.SysTraceLogDB.pdb
+D:\San Juan\bin\VB.NET.Assembly.Information.pdb
+D:\San Juan\bin\VB.NET.SysTraceLogFile.pdb
+D:\San Juan\bin\VB.NET.Object.Controller.pdb
+D:\San Juan\bin\Microsoft.Windows.Design.Interaction.xml
+D:\San Juan\bin\Microsoft.Windows.Design.Extensibility.xml
+D:\San Juan\obj\Release\SPIDC.vbprojResolveAssemblyReference.cache
+D:\San Juan\obj\Release\Interop.Aris_Dll.dll
+D:\San Juan\obj\Release\Interop.BPLTASAIFPROCESS_OL.dll
+D:\San Juan\obj\Release\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\San Juan\obj\Release\Interop.BPLTASLINEPROCESS_OL.dll
+D:\San Juan\obj\Release\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\San Juan\obj\Release\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\San Juan\obj\Release\Interop.RPTIMS_DLL.dll
+D:\San Juan\obj\Release\SPIDC.vbproj.ResolveComReference.cache
+D:\San Juan\obj\Release\SPIDC.Resources.resources
+D:\San Juan\obj\Release\SPIDC.vbproj.GenerateResource.Cache
+D:\San Juan\obj\Release\RdlCompile.cache
+D:\San Juan\obj\Release\RdlCompile.compiled
+D:\San Juan\obj\Release\SPIDC.dll
+D:\San Juan\obj\Release\SPIDC.xml
+D:\San Juan\obj\Release\SPIDC.pdb
+D:\#TFS\IMC\SPIDC\bin\SPIDC.dll.config
+D:\#TFS\IMC\SPIDC\bin\SPIDC.dll
+D:\#TFS\IMC\SPIDC\bin\SPIDC.pdb
+D:\#TFS\IMC\SPIDC\bin\SPIDC.xml
+D:\#TFS\IMC\SPIDC\bin\AjaxControlToolkit.dll
+D:\#TFS\IMC\SPIDC\bin\Microsoft.ReportViewer.Common.dll
+D:\#TFS\IMC\SPIDC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\#TFS\IMC\SPIDC\bin\Microsoft.ReportViewer.Design.DLL
+D:\#TFS\IMC\SPIDC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\#TFS\IMC\SPIDC\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\#TFS\IMC\SPIDC\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\#TFS\IMC\SPIDC\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\#TFS\IMC\SPIDC\bin\Microsoft.SqlServer.Types.dll
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Email.dll
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Encryption.dll
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Informant.dll
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Methods.dll
+D:\#TFS\IMC\SPIDC\bin\VB.NET.SysTraceLogDB.dll
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Assembly.Information.dll
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Object.Controller.dll
+D:\#TFS\IMC\SPIDC\bin\Microsoft.Windows.Design.Interaction.dll
+D:\#TFS\IMC\SPIDC\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Email.pdb
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Encryption.pdb
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Informant.pdb
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Methods.pdb
+D:\#TFS\IMC\SPIDC\bin\VB.NET.SysTraceLogDB.pdb
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Assembly.Information.pdb
+D:\#TFS\IMC\SPIDC\bin\VB.NET.Object.Controller.pdb
+D:\#TFS\IMC\SPIDC\bin\Microsoft.Windows.Design.Interaction.xml
+D:\#TFS\IMC\SPIDC\bin\Microsoft.Windows.Design.Extensibility.xml
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.Aris_Dll.dll
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.BPLTASAIFPROCESS_OL.dll
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.BPLTASLINEPROCESS_OL.dll
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.RPTIMS_DLL.dll
+D:\#TFS\IMC\SPIDC\obj\Release\SPIDC.vbproj.ResolveComReference.cache
+D:\#TFS\IMC\SPIDC\obj\Release\SPIDC.Resources.resources
+D:\#TFS\IMC\SPIDC\obj\Release\SPIDC.vbproj.GenerateResource.Cache
+D:\#TFS\IMC\SPIDC\obj\Release\RdlCompile.cache
+D:\#TFS\IMC\SPIDC\obj\Release\RdlCompile.compiled
+D:\#TFS\IMC\SPIDC\obj\Release\SPIDC.dll
+D:\#TFS\IMC\SPIDC\obj\Release\SPIDC.xml
+D:\#TFS\IMC\SPIDC\obj\Release\SPIDC.pdb
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\WebPortal\Report\BillingTOP.rdlc
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\SPIDC.dll.config
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\SPIDC.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\SPIDC.pdb
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\SPIDC.xml
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.ReportViewer.Design.DLL
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.ReportViewer.WebDesign.DLL
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.ReportViewer.WinForms.DLL
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.SqlServer.Types.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.Windows.Design.Interaction.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.Windows.Design.Extensibility.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.Windows.Design.Interaction.xml
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\bin\Microsoft.Windows.Design.Extensibility.xml
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\SPIDC.vbprojResolveAssemblyReference.cache
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\Interop.Aris_Dll.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\Interop.BPLTASAIFPROCESS_OL.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\Interop.BPLTASAIF_PERLINE_OL.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\Interop.BPLTASLINEPROCESS_OL.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\Interop.BPLTAS_AIFASKRANGE_OL.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\Interop.BPLTAS_BILLING_ONLINE.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\Interop.RPTIMS_DLL.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\SPIDC.vbproj.ResolveComReference.cache
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\SPIDC.Resources.resources
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\SPIDC.vbproj.GenerateResource.Cache
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\RdlCompile.cache
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\RdlCompile.compiled
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\SPIDC.dll
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\SPIDC.xml
+C:\Users\ARMSTERDAM\Desktop\IMC\SPIDC\obj\Release\SPIDC.pdb
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.RPTIMS_TOIMS_DLL.dll
+D:\#TFS\IMC\SPIDC\bin\QRCoder.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\WebPortal\Report\BillingTOP.rdlc
+D:\Sharing\IMC\IMC\SPIDC\bin\SPIDC.dll.config
+D:\Sharing\IMC\IMC\SPIDC\bin\SPIDC.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\SPIDC.pdb
+D:\Sharing\IMC\IMC\SPIDC\bin\SPIDC.xml
+D:\Sharing\IMC\IMC\SPIDC\bin\AjaxControlToolkit.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.Common.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.Design.DLL
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.SqlServer.Types.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Email.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Encryption.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Informant.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Methods.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.SysTraceLogDB.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Assembly.Information.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Object.Controller.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.Windows.Design.Interaction.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Email.pdb
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Encryption.pdb
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Informant.pdb
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Methods.pdb
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.SysTraceLogDB.pdb
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Assembly.Information.pdb
+D:\Sharing\IMC\IMC\SPIDC\bin\VB.NET.Object.Controller.pdb
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.Windows.Design.Interaction.xml
+D:\Sharing\IMC\IMC\SPIDC\bin\Microsoft.Windows.Design.Extensibility.xml
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\SPIDC.vbprojResolveAssemblyReference.cache
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\Interop.Aris_Dll.dll
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\Interop.BPLTASAIFPROCESS_OL.dll
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\Interop.BPLTASLINEPROCESS_OL.dll
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\Interop.RPTIMS_DLL.dll
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\Interop.RPTIMS_TOIMS_DLL.dll
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\SPIDC.vbproj.ResolveComReference.cache
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\SPIDC.Resources.resources
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\SPIDC.vbproj.GenerateResource.Cache
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\RdlCompile.cache
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\RdlCompile.compiled
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\SPIDC.dll
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\SPIDC.xml
+D:\Sharing\IMC\IMC\SPIDC\obj\Release\SPIDC.pdb
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.ADODB.dll
+D:\#TFS\IMC\SPIDC\bin\Newtonsoft.Json.dll
+D:\#TFS\IMC\SPIDC\bin\Newtonsoft.Json.xml
+D:\#TFS\IMC\SPIDC\bin\RestSharp.dll
+D:\#TFS\IMC\SPIDC\bin\RestSharp.xml
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\WebPortal\Report\BillingTOP.rdlc
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\SPIDC.dll.config
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\SPIDC.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\SPIDC.pdb
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\SPIDC.xml
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\AjaxControlToolkit.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.ReportViewer.Common.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.ReportViewer.Design.DLL
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.SqlServer.Types.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Newtonsoft.Json.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\RestSharp.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Email.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Encryption.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Informant.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Methods.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.SysTraceLogDB.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Assembly.Information.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Object.Controller.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.Windows.Design.Interaction.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.Windows.Design.Extensibility.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Newtonsoft.Json.xml
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\RestSharp.xml
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Email.pdb
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Encryption.pdb
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Informant.pdb
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Methods.pdb
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.SysTraceLogDB.pdb
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Assembly.Information.pdb
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\VB.NET.Object.Controller.pdb
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.Windows.Design.Interaction.xml
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\bin\Microsoft.Windows.Design.Extensibility.xml
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\SPIDC.vbprojResolveAssemblyReference.cache
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\Interop.ADODB.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\Interop.Aris_Dll.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\Interop.BPLTASAIFPROCESS_OL.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\Interop.BPLTASLINEPROCESS_OL.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\Interop.RPTIMS_DLL.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\Interop.RPTIMS_TOIMS_DLL.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\SPIDC.vbproj.ResolveComReference.cache
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\SPIDC.Resources.resources
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\SPIDC.vbproj.GenerateResource.Cache
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\RdlCompile.cache
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\RdlCompile.compiled
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\SPIDC.dll
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\SPIDC.xml
+D:\Sharing\IMC\IMC 12222021 345pm\SPIDC\obj\Release\SPIDC.pdb
+D:\#TFS\IMC\SPIDC\obj\Release\SPIDC.vbprojResolveAssemblyReference.cache
+D:\#TFS\IMC\SPIDC\bin\GenerateQRCode.dll
+D:\#TFS\IMC\SPIDC\bin\ThoughtWorks.QRCode.dll
+D:\#TFS\IMC\SPIDC\bin\Neodynamic.SDK.Barcode.dll
+D:\#TFS\IMC\SPIDC\bin\zxing.dll
+D:\#TFS\IMC\SPIDC\bin\zxing.presentation.dll
+D:\#TFS\IMC\SPIDC\bin\zxing.xml
+D:\#TFS\IMC\SPIDC\bin\zxing.presentation.xml
+D:\#TFS\IMC\SPIDC\obj\Release\Interop.BPLTAS_POSTING_ONLINE.dll
+D:\WFH\WFH\IMC\SPIDC\bin\SPIDC.dll.config
+D:\WFH\WFH\IMC\SPIDC\bin\SPIDC.dll
+D:\WFH\WFH\IMC\SPIDC\bin\SPIDC.pdb
+D:\WFH\WFH\IMC\SPIDC\bin\SPIDC.xml
+D:\WFH\WFH\IMC\SPIDC\bin\Microsoft.ReportViewer.Common.dll
+D:\WFH\WFH\IMC\SPIDC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+D:\WFH\WFH\IMC\SPIDC\bin\Microsoft.ReportViewer.Design.DLL
+D:\WFH\WFH\IMC\SPIDC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\WFH\WFH\IMC\SPIDC\bin\Microsoft.ReportViewer.WebDesign.DLL
+D:\WFH\WFH\IMC\SPIDC\bin\Microsoft.ReportViewer.WebForms.DLL
+D:\WFH\WFH\IMC\SPIDC\bin\Microsoft.ReportViewer.WinForms.DLL
+D:\WFH\WFH\IMC\SPIDC\bin\Microsoft.SqlServer.Types.dll
+D:\WFH\WFH\IMC\SPIDC\bin\Newtonsoft.Json.dll
+D:\WFH\WFH\IMC\SPIDC\bin\RestSharp.dll
+D:\WFH\WFH\IMC\SPIDC\bin\zxing.dll
+D:\WFH\WFH\IMC\SPIDC\bin\zxing.presentation.dll
+D:\WFH\WFH\IMC\SPIDC\bin\VB.NET.Assembly.Information.dll
+D:\WFH\WFH\IMC\SPIDC\bin\VB.NET.Object.Controller.dll
+D:\WFH\WFH\IMC\SPIDC\bin\Newtonsoft.Json.xml
+D:\WFH\WFH\IMC\SPIDC\bin\RestSharp.xml
+D:\WFH\WFH\IMC\SPIDC\bin\VB.NET.Email.pdb
+D:\WFH\WFH\IMC\SPIDC\bin\VB.NET.Encryption.pdb
+D:\WFH\WFH\IMC\SPIDC\bin\VB.NET.Informant.pdb
+D:\WFH\WFH\IMC\SPIDC\bin\VB.NET.Methods.pdb
+D:\WFH\WFH\IMC\SPIDC\bin\VB.NET.SysTraceLogDB.pdb
+D:\WFH\WFH\IMC\SPIDC\bin\zxing.xml
+D:\WFH\WFH\IMC\SPIDC\bin\zxing.presentation.xml
+D:\WFH\WFH\IMC\SPIDC\bin\VB.NET.Assembly.Information.pdb
+D:\WFH\WFH\IMC\SPIDC\bin\VB.NET.Object.Controller.pdb
+D:\WFH\WFH\IMC\SPIDC\obj\Release\SPIDC.vbprojResolveAssemblyReference.cache
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.ADODB.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.Aris_Dll.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.BPLTASAIFPROCESS_OL.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.BPLTASAIF_PERLINE_OL.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.BPLTASLINEPROCESS_OL.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.BPLTAS_AIFASKRANGE_OL.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.BPLTAS_BILLING_ONLINE.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.BPLTAS_POSTING_ONLINE.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.RPTIMS_DLL.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\Interop.RPTIMS_TOIMS_DLL.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\SPIDC.vbproj.ResolveComReference.cache
+D:\WFH\WFH\IMC\SPIDC\obj\Release\SPIDC.Resources.resources
+D:\WFH\WFH\IMC\SPIDC\obj\Release\SPIDC.vbproj.GenerateResource.Cache
+D:\WFH\WFH\IMC\SPIDC\obj\Release\RdlCompile.cache
+D:\WFH\WFH\IMC\SPIDC\obj\Release\RdlCompile.compiled
+D:\WFH\WFH\IMC\SPIDC\obj\Release\SPIDC.dll
+D:\WFH\WFH\IMC\SPIDC\obj\Release\SPIDC.xml
+D:\WFH\WFH\IMC\SPIDC\obj\Release\SPIDC.pdb
+E:\#IMC\IMC\SPIDC\bin\SPIDC.dll.config
+E:\#IMC\IMC\SPIDC\bin\SPIDC.dll
+E:\#IMC\IMC\SPIDC\bin\SPIDC.pdb
+E:\#IMC\IMC\SPIDC\bin\SPIDC.xml
+E:\#IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.Common.dll
+E:\#IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.DataVisualization.DLL
+E:\#IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.Design.DLL
+E:\#IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+E:\#IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.WebDesign.DLL
+E:\#IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.WebForms.DLL
+E:\#IMC\IMC\SPIDC\bin\Microsoft.ReportViewer.WinForms.DLL
+E:\#IMC\IMC\SPIDC\bin\Microsoft.SqlServer.Types.dll
+E:\#IMC\IMC\SPIDC\bin\Neodynamic.SDK.Barcode.dll
+E:\#IMC\IMC\SPIDC\bin\Newtonsoft.Json.dll
+E:\#IMC\IMC\SPIDC\bin\RestSharp.dll
+E:\#IMC\IMC\SPIDC\bin\zxing.dll
+E:\#IMC\IMC\SPIDC\bin\zxing.presentation.dll
+E:\#IMC\IMC\SPIDC\bin\Microsoft.Windows.Design.Interaction.dll
+E:\#IMC\IMC\SPIDC\bin\Microsoft.Windows.Design.Extensibility.dll
+E:\#IMC\IMC\SPIDC\bin\Newtonsoft.Json.xml
+E:\#IMC\IMC\SPIDC\bin\RestSharp.xml
+E:\#IMC\IMC\SPIDC\bin\zxing.xml
+E:\#IMC\IMC\SPIDC\bin\zxing.presentation.xml
+E:\#IMC\IMC\SPIDC\bin\Microsoft.Windows.Design.Interaction.xml
+E:\#IMC\IMC\SPIDC\bin\Microsoft.Windows.Design.Extensibility.xml
+E:\#IMC\IMC\SPIDC\obj\Release\SPIDC.vbprojResolveAssemblyReference.cache
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.ADODB.dll
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.Aris_Dll.dll
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.BPLTASAIFPROCESS_OL.dll
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.BPLTASAIF_PERLINE_OL.dll
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.BPLTASLINEPROCESS_OL.dll
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.BPLTAS_AIFASKRANGE_OL.dll
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.BPLTAS_BILLING_ONLINE.dll
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.BPLTAS_POSTING_ONLINE.dll
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.RPTIMS_DLL.dll
+E:\#IMC\IMC\SPIDC\obj\Release\Interop.RPTIMS_TOIMS_DLL.dll
+E:\#IMC\IMC\SPIDC\obj\Release\SPIDC.vbproj.ResolveComReference.cache
+E:\#IMC\IMC\SPIDC\obj\Release\SPIDC.Resources.resources
+E:\#IMC\IMC\SPIDC\obj\Release\SPIDC.vbproj.GenerateResource.Cache
+E:\#IMC\IMC\SPIDC\obj\Release\RdlCompile.cache
+E:\#IMC\IMC\SPIDC\obj\Release\RdlCompile.compiled
+E:\#IMC\IMC\SPIDC\obj\Release\SPIDC.dll
+E:\#IMC\IMC\SPIDC\obj\Release\SPIDC.xml
+E:\#IMC\IMC\SPIDC\obj\Release\SPIDC.pdb

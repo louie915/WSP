@@ -1,0 +1,245 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="OAIMS_New.Master.vb" Inherits="SPIDC.OAIMS_New" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta charset="utf-8">
+    <title runat="server" id="titleLGU">SPIDC Web Portal</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="../CSS_JS_IMG/OS-JS-CSS/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="../CSS_JS_IMG/OS-JS-CSS/Css/Online-Services.css" rel="stylesheet" />
+    <script src="../CSS_JS_IMG/js/newjs//SPIDC-ARC-JS.js"></script>
+    <script src="../CSS_JS_IMG/js/newjs/SPIDC-ARC-JS.min.js"></script>
+    <script src="../CSS_JS_IMG/OS-JS-CSS/jquery/jquery.min.js"></script>
+    <script src="../CSS_JS_IMG/OS-JS-CSS/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../CSS_JS_IMG/OS-JS-CSS/jquery-easing/jquery.easing.min.js"></script>
+    <%--<script src="../CSS_JS_IMG/js/newjs/sb-admin-2.min.js"></script>--%>
+    <script src="../CSS_JS_IMG/OS-JS-CSS/Js/Online-Services.js"></script>
+    <script src="../CSS_JS_IMG/OS-JS-CSS/Js/OS-MainPage.js"></script>
+    
+    <!-- Main Stylesheet File -->
+    <link href=" ../CSS_JS_IMG/css/style.css" rel="stylesheet">
+    <style>
+      .tomi {
+                background-image: url('../CSS_JS_IMG/img/NavbarDesignIn.jpg');
+                background-size: 100% 100%;
+            }
+
+     #snackbar {
+            visibility: hidden;
+            max-width: 300px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 10px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            top: 30px;
+            font-size: 17px;
+        }
+
+            #snackbar.show {
+                visibility: visible;
+                -webkit-animation: fadein 0.5s, fadeout 0.5s 3s;
+                animation: fadein 0.5s, fadeout 0.5s 3s;
+            }
+
+        @-webkit-keyframes fadein {
+            from {
+                top: 0;
+                opacity: 0;
+            }
+
+            to {
+                top: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadein {
+            from {
+                top: 0;
+                opacity: 0;
+            }
+
+            to {
+                top: 30px;
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes fadeout {
+            from {
+                top: 30px;
+                opacity: 1;
+            }
+
+            to {
+                top: 0;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                top: 30px;
+                opacity: 1;
+            }
+
+            to {
+                top: 0;
+                opacity: 0;
+            }
+        }
+
+        a:hover {
+            text-shadow: 0 0 5px #ff0000;
+        }
+
+        @media only screen and (max-width: 500px), (min-device-width: 200px) and (max-device-width: 340px) {
+            .NavBar-MV:active {
+                display: flex !Important;
+            }
+
+            .NavBar-MV:before {
+                display: flex !Important;
+            }
+
+            .NavBar-MV {
+                display: flex !Important;
+            }
+
+            .tomi {
+                background-image: url('../CSS_JS_IMG/img/.jpg');
+                background-size: 100% 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body onload="onload()" class="Main-Color">
+    <script>
+        function onload() {
+            sessionStorage.setItem("Active", "sAccounts");
+            sessionStorage.setItem("Counter", "");
+        }
+    </script>
+  
+        <!-- !PAGE HEADER! -->
+           <%-- <div class="w3-main w3-content tomi" style="background:url('../CSS_JS_IMG/img/NavbarDesignIn.jpg');background-size: cover;min-height: 10vh; position:relative; width: 100%; background-color: #000034; z-index: 1000;">--%>
+              <div class="column">
+          <%--  <nav class="navbar navbar-expand-lg row py-3 Main-Navbar tomi" style="background-image: url('../CSS_JS_IMG/img/NavbarDesignIn.jpg') !important;">--%>
+               <nav class="navbar navbar-expand-lg row py-3 Main-Navbar tomi">
+                <div class="modal-body form-row"  margin: 0;">
+                  
+                    <div class="col-lg-3" style="position: relative;display:none;">
+                        <br />
+                        <table style="width: 100%; position: absolute; bottom: 0; text-align: center;display:none;">
+                            <tr>
+                                <td><a href="#" style="color: white">About</a></td>
+                                <td><a href="HowTo.pdf" style="color: white">How To's</a></td>
+                                <td><a href="#" style="color: white">FAQs</a></td>
+                                <td><a href="#" style="color: white">Privacy Policy</a></td>
+                            </tr>
+                        </table>                     
+                    </div>
+                </div>
+                 </nav>
+            </div>
+
+<%--     <div class=" col-lg-12" style="color:white;background-color:red;font-weight:bold;" ><marquee>Website Under Maintenance, DO NOT LOGIN to avoid inconveniece. We'll be back soon.</marquee></div>--%>
+
+            <!-- End HEADER content -->
+
+
+     
+
+              
+              <div style="display:none;">
+
+                <ul class="nav navbar-nav ml-auto" style="text-align: center; font-weight: bold;">
+
+                    <li class="nav-item  pt-1">&nbsp &nbsp
+                   <a href="#" style="color: white; display: none;" id="_About" runat="server">About</a> &nbsp &nbsp
+                   <a href="#" style="color: white; display: none;" id="_HowTo" runat="server">How To's</a> &nbsp &nbsp
+                   <a href="#" style="color: white; display: none;" id="_FAQs" runat="server">FAQs</a> &nbsp &nbsp
+                   <a href="#" style="color: white; display: none;" id="_PrivacyPolicy" runat="server">Privacy Policy</a> &nbsp &nbsp
+                    
+                    </li>
+                </ul>
+
+            
+                
+            </div>    
+        <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+
+        <!--==========================
+    Footer
+  ============================-->
+
+    </form>
+
+ 
+
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+</body>
+
+<!-- Your Chat Plugin code 
+          102377038527379 - Mitomi
+          102731694643998 - CAL
+          266738467075416 - MAN   
+          111050048250019 - MUN      
+   -->
+<!-- Messenger Chat Plugin Code 
+<div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "102377038527379");
+    chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            xfbml: true,
+            version: 'v13.0'
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+     -->
+</html>
+
+

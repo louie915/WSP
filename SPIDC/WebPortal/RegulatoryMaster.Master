@@ -1,0 +1,282 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="RegulatoryMaster.Master.vb" Inherits="SPIDC.RegulatoryMaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title runat="server" id="titleLGU">Web Service Portal</title>
+    <link href="../CSS_JS_IMG/UserManagement/Css/style.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%--<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">--%>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="../CSS_JS_IMG/OS-JS-CSS/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="../CSS_JS_IMG/OS-JS-CSS/Css/Online-Services.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="../CSS_JS_IMG/OS-JS-CSS/Js/OS-Mobile-View.js"></script>
+    <link href="../CSS_JS_IMG/css/newcss/TableResponsiveMB_0708.css" rel="stylesheet" />
+
+</head>
+<body id="page-top">
+    <form id="form1" runat="server">
+        <div class="wrapper d-flex align-items-stretch">
+            <nav id="sidebar" style="z-index: 1 !Important">
+                <div class="custom-menu" style="z-index: 1">
+                    <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                        <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle Menu</span>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h1><a href="#" class="logo color-white" runat="server" id="lblLGU">SPIDC <span>Online Services</span></a></h1>
+
+
+                    <ul class="list-unstyled components mb-5">
+                        <li>
+                            <a href="Regulatory.aspx" onclick="NextPage();" id="_oSbtnRegAL">
+                                <span class="fa fa-users mr-3"></span>
+                                For Approval
+                            </a>
+                        </li>
+
+                         <li>
+                            <a href="RegulatoryAppointmentApproval.aspx" onclick="NextPage();" id="_oSbtnBPLOAAA">
+                                <span class="fa fa-book mr-3"></span>
+                                <span style="float: right; background-color: red; border-radius: 500px;">
+                                    <span style="padding: 10px 10px 10px 10px; font-size: smaller" runat="server" id="ctrAR">99</span>
+                                </span>
+                                Appointment Requests
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="RegulatoryAppointmentList.aspx" onclick="NextPage();" id="_oSbtnREGAL">
+                                <span class="fa fa-book mr-3"></span>
+                                <span style="float: right; background-color: red; border-radius: 500px;">
+                                    <span style="padding: 10px 10px 10px 10px; font-size: smaller" runat="server" id="ctrAL">99</span>
+                                </span>
+                                Appointment List
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="footer" style="display:none;">
+                        <p>
+                            Copyright ©<script type="text/javascript">document.write(new Date().getFullYear());</script>All rights reserved | <i class="icon-heart" aria-hidden="true"></i>by <a href="https://www.spidc.com.ph/home.html" target="_blank" class="color-white">SPIDC.com</a>
+                        </p>
+                    </div>
+                </div>
+            </nav>
+
+            <div id="content">
+                <div class="column">
+                    <nav class="navbar navbar-expand-lg row py-3 Main-Navbar" style="background-image: url('../CSS_JS_IMG/img/NavbarDesignIn.jpg') !important;">
+
+
+                        <table class="col-12">
+                            <tr style="width: 100%; background-color: transparent;">
+                                <td>
+                                    <table class="col-12" style="color: white; background-color: transparent">
+
+                                        <tr style="color: white; background-color: transparent" class="mx-auto">
+
+                                            <td style="width: 80%; align-items: center" class="my-auto"></td>
+                                            <td style="width: 10%;">
+                                                <div class="nav-item dropdown no-arrow col">
+                                                    <a class="nav-link dropdown-toggle color-white" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <asp:Label ID="_oLabelUserName" runat="server" CssClass="d-none d-lg-inline small color-White" Text="Welcome" Style="text-align: right" />
+                                                        <i class="fa fa-user mr-2 text-gray-400 color-white"></i>
+
+
+                                                    </a>
+                                                    <asp:Label ID="_oLabelEmail" runat="server" CssClass="d-none d-lg-inline small Color-White float-right mr-2" Text="Welcome" Style="text-align: right" /><br />
+                                                     <asp:Label ID="_oLabelOffice" runat="server" CssClass="d-none d-lg-inline small Color-White float-right mr-2" Text="Welcome" Style="text-align: right" />
+                                                    <!-- Dropdown - User Information -->
+                                                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                                        <button runat="server" class="dropdown-item" href="#" id="_oBtnProfile">
+                                                            <i class="fa fa-user fa-fw mr-2 text-gray-400"></i>
+                                                            Profile
+                                                        </button>
+                                                        <button runat="server" class="dropdown-item" href="#" id="_oBtnChangePass">
+                                                            <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                            Change Password
+                                                        </button>
+
+                                                        <div class="dropdown-divider"></div>
+                                                        <button runat="server" class="dropdown-item" href="#" data-toggle="modal" id="_oBtnLogout">
+                                                            <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                                            Logout
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr style="width: 100%; background-color: transparent;">
+                                <td style="text-align: right">
+                                    <span id="_oTxtTime" class="text-white mr-3 small"></span>
+                                </td>
+                                <script type="text/javascript">
+
+                                    var str = window.location.href;
+                                    //  if (str.toUpperCase().includes("CSJDM") == false) {
+                                    document.getElementById('_oSbtnBPLOAR').style.display = 'none';
+                                    //  }
+
+
+
+
+                                    function display_c() {
+                                        var refresh = 1000; // Refresh rate in milli seconds
+                                        mytime = setTimeout('display_ct()', refresh)
+                                    }
+
+                                    function display_ct() {
+                                        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+                                        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+                                        var x = new Date()
+                                        var hours = x.getHours();
+                                        var date = x.toDateString();
+                                        var minutes = x.getMinutes();
+                                        var seconds = x.getSeconds();
+                                        var ampm = hours >= 12 ? 'pm' : 'am';
+                                        hours = hours % 12;
+                                        hours = hours ? hours : 12; // the hour '0' should be '12'
+                                        minutes = minutes < 10 ? '0' + minutes : minutes;
+                                        //alert(seconds.toString().length);
+                                        if (seconds.toString().length == 1) seconds = '0' + seconds;
+                                        var strTime = days[x.getDay()] + ' ' + months[x.getMonth()] + ' ' + x.getDate() + ', ' + x.getFullYear() + ' ' + hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+                                        document.getElementById('_oTxtTime').innerHTML = strTime;
+                                        display_c();
+                                    }
+                                    addLoadEvent(display_ct);
+                                </script>
+                            </tr>
+                        </table>
+                        <!-- Nav Item - Messages -->
+
+                        <!-- Nav Item - User Information -->
+
+                    </nav>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+            </div>
+        </div>
+        <div>
+        </div>
+        <div id="NextLoading" runat="server" style="display: none">
+            <div class="modal-backdrop fade show">
+            </div>
+            <div class="modal fade show" aria-modal="true" style="padding-right: 17px; display: block;">
+                <div class="d-flex justify-content-center align-content-center">
+                    <div class="loader" style="position: absolute; top: 40%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="Cloading" class="modal fade">
+            <div>
+                <div class="loader" style="position: absolute; top: 50%; left: 50%; margin: -15px;">
+                </div>
+            </div>
+        </div>
+
+        <script>function NextPage() { document.getElementById("NextLoading").style.display = "block"; }</script>
+        <div id="Div1" runat="server" style="display: none">
+            <div class="modal-backdrop fade show">
+            </div>
+            <div class="modal fade show" aria-modal="true" style="padding-right: 17px; display: block;">
+                <div class="d-flex justify-content-center align-content-center">
+
+
+                    <style>
+                        .loader {
+                            border: 16px solid #f3f3f3;
+                            border-radius: 50%;
+                            border-top: 16px solid #3498db;
+                            width: 120px;
+                            height: 120px;
+                            -webkit-animation: spin 2s linear infinite; /* Safari */
+                            animation: spin 2s linear infinite;
+                        }
+
+                        /* Safari */
+                        @-webkit-keyframes spin {
+                            0% {
+                                -webkit-transform: rotate(0deg);
+                            }
+
+                            100% {
+                                -webkit-transform: rotate(360deg);
+                            }
+                        }
+
+                        @keyframes spin {
+                            0% {
+                                transform: rotate(0deg);
+                            }
+
+                            100% {
+                                transform: rotate(360deg);
+                            }
+                        }
+                    </style>
+
+
+
+                    <div class="loader" style="position: absolute; top: 40%;">
+                    </div>
+
+                </div>
+                <style>
+       
+    </style>
+            </div>
+        </div>
+
+        <a class="scroll-to-top rounded" href="#page-top" style="display: none;">
+            <i class="fas fa-angle-up"></i>
+        </a>
+        <script src="../CSS_JS_IMG/OS-JS-CSS/jquery/jquery.min.js"></script>
+        <script src="../CSS_JS_IMG/OS-JS-CSS/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../CSS_JS_IMG/OS-JS-CSS/jquery-easing/jquery.easing.min.js"></script>
+        <%--<script src="../CSS_JS_IMG/js/newjs/sb-admin-2.min.js"></script>--%>
+        <script src="../CSS_JS_IMG/OS-JS-CSS/Js/Online-Services.js"></script>
+        <script src="../CSS_JS_IMG/OS-JS-CSS/Js/OS-MainPage.js"></script>
+        <script>
+            (function ($) {
+
+                "use strict";
+
+                var fullHeight = function () {
+
+                    $('.js-fullheight').css('height', $(window).height());
+                    $(window).resize(function () {
+                        $('.js-fullheight').css('height', $(window).height());
+                    });
+
+                };
+                fullHeight();
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').toggleClass('active');
+                });
+
+            })(jQuery);
+
+        </script>
+
+
+
+    </form>
+</body>
+</html>

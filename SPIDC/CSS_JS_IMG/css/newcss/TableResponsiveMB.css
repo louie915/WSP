@@ -1,0 +1,1283 @@
+﻿@media only screen and (max-width: 760px), (min-device-width: 360px) and (max-device-width: 1024px) {
+
+
+       /* Force table to not be like tables anymore */
+    table.bpr, th.bpr, td.bpr, tr.bpr, table.otr, th.otr, td.otr, tr.otr, table.bpa, th.bpa, td.bpa,
+    tr.bpa,table.bppa, th.bppa, td.bppa,
+    tr.bppa, table.rpa, th.rpa, td.rpa, tr.rpa, table.rpb, th.rpb, td.rpb, tr.rpb,
+    table.vp, th.vp, td.vp, tr.vp, table.st, th.st, td.st, tr.st,
+    table.lv, th.lv, td.lv, tr.lv,
+    table.up, th.up, td.up, tr.up,
+    table.tl, th.tl, td.tl, tr.tl,
+    table.ji, th.ji, td.ji, tr.ji,
+    table.ei, th.ei, td.ei, tr.ei,
+    table.cse, th.cse, td.cse, tr.cse
+    table.we, th.we, td.we, tr.we,
+    table.lap, th.lap, td.lap, tr.lap,
+    table.al, th.al, td.al, tr.al,
+    table.obto, th.obto, td.obto, tr.obto ,
+        table.tra, th.tra, td.tra, tr.tra ,
+    table.UAM, th.UAM, td.UAM, tr.UAM,
+     table.ref, th.ref, td.ref, tr.ref,
+    table.tvr, th.tvr, td.tvr, tr.tvr,
+    table.tpr, th.tpr, td.tpr, tr.tpr ,
+    table.oir, th.oir, td.oir, tr.oir,
+    table.ta, th.ta, td.ta, tr.ta  {
+        display: block;
+        text-align: left;
+        border-style: none;
+    }           
+           table.oir, table.ta, table.tpr,table.tvr,table.ref,table.UAM, table.tra,table.obto,table.al,table.lap, table.vp, table.st, table.ji, table.ei,table.cse,table.we,table.lv,table.up
+            {           
+                top:2%;   
+                bottom:2%;  
+                left: 5%;
+                right: 5%;
+                border-style:none;
+                width:95%;
+                outline-color: #4975c3;
+            }
+
+                /* Hide table headers (but not display: none;, for accessibility) */
+                thead tr.bpr,thead tr.rpb,thead tr.otr,thead tr.rpa,thead tr.bpa, tr.bppa,   
+                thead tr.vp,thead tr.lap, thead tr.st, thead tr.ji, thead tr.ei, thead tr.cse, thead tr.we, thead tr.lv, thead tr.up,tr.UAM,thead tr.ref,
+                thead tr.ta {
+                    position: absolute;
+                    top: -9999px;
+                    left: -9999px;                 
+                    
+                }
+
+            th.tpr,th.tvr,th.obto,th.otr,th.vp,th.st,th.ji,th.ei,th.cse,th.we,th.lv,th.up,th.lap,th.al,th.tra,th.UAM ,th.ta {
+            
+               display:none;
+            }
+
+            tr.rpb,tr.otr,tr.rpa,tr.bpa,tr.bppa,
+            tr.vp,tr.st,tr.ji,tr.ei,tr.cse,tr.we,th.lv,th.up,tr.lap, tr.al,tr.obto,tr.tra,tr.tvr,tr.tpr,tr.oir,tr.ta{
+                margin: 0 0 1rem 0;
+                border:solid;
+                border-width:1px;
+            }
+
+
+            th.bpr,th.bpa,th.bppa,th.otr, th.rpa, th.rpb,th.st,th.ji,th.ei,th.cse,th.we,th.lap,th.al ,th.obto,th.tra,th.ref,th.tvr,th.tpr,th.oir,th.ta
+             {
+                    display:none;
+                }
+
+            tr:nth-child(even){
+   
+      color:black;
+    }
+
+                         tr:nth-child(odd){
+                            background: #eae9e9;
+                            color:black;
+                        }
+
+            td.bpr,td.bpa,td.bppa,td.rpa,td.rpb, td.lap,td.al,td.obto,td.tra,td.ref,td.tvr,td.tpr,td.oir
+
+            td.vp,td.st,td.ji,td.ei,td.cse,td.we,th.lv,th.up,th.ta{                    
+                position: relative;                
+                text-align:left;        
+                padding-left: 0.5em;    
+               
+            }
+
+                /*td.bpa:active,td.rpa:active,td.rpb:active {                    
+                    text-align:left;                                                          
+                }
+
+               td.rpb:before {                   
+                    position: absolute;                    
+                    top: 0;
+                    left: 6px;
+                    width: 100%;
+                    padding-right: 5px;
+                    white-space: nowrap;
+                    text-align:left;
+               }*/                                                                
+                /*all new header in mobile view*/
+
+                /*business permit account*/
+
+                td.bpa:nth-of-type(1):before {
+                    content: " BIN : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bpa:nth-of-type(2):before {
+                    content: " Owner : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bpa:nth-of-type(3):before {
+                    content: " Bus. Name : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bpa:nth-of-type(4):before {
+                    content: " Bus. Address : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bpa:nth-of-type(5):before {
+                    content: " Category : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bpa:nth-of-type(6):before {
+                    content: " Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bpa:nth-of-type(7):before {
+                    content: "";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bpa:nth-of-type(8):before {
+                    content: "";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                /*business permit account payment*/
+
+                td.bppa:nth-of-type(1):before {
+                    content: " BIN : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bppa:nth-of-type(2):before {
+                    content: " Owner : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bppa:nth-of-type(3):before {
+                    content: " Bus. Name : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bppa:nth-of-type(4):before {
+                    content: " Bus. Address : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bppa:nth-of-type(5):before {
+                    content: " Status : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bppa:nth-of-type(6):before {
+                    content: " Category : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bppa:nth-of-type(7):before {
+                    content: " Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                /*td.bppa:nth-of-type(7):before {
+                    content: "";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                td.bppa:nth-of-type(8):before {
+                    content: "";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }*/
+
+
+
+                /*RPT*/
+
+
+                td.rpa:nth-of-type(1):before {
+                    content: " TDN : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.rpa:nth-of-type(2):before {
+                    content: " PIN : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.rpa:nth-of-type(3):before {
+                    content: " Kind : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.rpa:nth-of-type(4):before {
+                    content: " Owner : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.rpa:nth-of-type(5):before {
+                    content: " Location : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.rpa:nth-of-type(6):before {
+                    content: " Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.rpa:nth-of-type(7):before {
+                    content: "";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+
+                }
+
+                td.rpa:nth-of-type(8):before {
+                    content: "";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+
+
+                td.ph:nth-of-type(1):before {
+                    content: "Period : ";
+                    text-align:left;
+                    width: 40%;
+                }
+
+                td.ph:nth-of-type(2):before {
+                    content: "OR Number : ";
+                    text-align:left;
+                    width: 40%;
+                }
+
+                td.ph:nth-of-type(3):before {
+                    content: "Description : ";
+                    text-align:left;
+                    width: 40%;
+                }
+
+                td.ph:nth-of-type(4):before {
+                    content: "Amount Paid : ";
+                    text-align:left;
+                    width: 40%;
+                }
+
+                /*VACANT POSITION - TRANSACT LIST (STATUS COLUMN)*/
+
+                td.vp:nth-of-type(1):before {
+                    content: "Item # : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.vp:nth-of-type(2):before {
+                    content: "Position Title :";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+
+                }
+
+                td.vp:nth-of-type(3):before {
+                    content: "Business Name : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+
+
+                td.vp:nth-of-type(4):before {
+                    content: "SGrate : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.vp:nth-of-type(5):before {
+                    content: "Amount : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.vp:nth-of-type(6):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.vp:nth-of-type(7):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }          
+                
+                td.st:nth-of-type(7):before {
+                    content: "Status : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }  
+                
+
+
+                /*LEAVE APPLICATION GIMAY 20200610*/ 
+                td.lv:nth-of-type(1):before {
+                    content: "Leave Type : ";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }
+                td.lv:nth-of-type(2):before {
+                    content: "Leave From :";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }
+                td.lv:nth-of-type(3):before {
+                    content: "Leave To : ";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }
+                td.lv:nth-of-type(4):before {
+                    content: "Status : ";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }
+
+
+                  /*UPDATE PROFILE GIMAY 20200610*/ 
+                td.up:nth-of-type(1):before {
+                    content: "FILE TYPE : ";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }
+                td.up:nth-of-type(2):before {
+                    content: "FILE_NAME :";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }
+                /*td.up:nth-of-type(3):before {
+                    content: "ACTION : ";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }*/
+
+
+
+                  /*TRANSACTION LOG GIMAY 20200623*/ 
+                td.tl:nth-of-type(1):before {
+                    content: "TRANSACTION DATE : ";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }
+                td.tl:nth-of-type(2):before {
+                    content: "MODULE :";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }
+                td.tl:nth-of-type(3):before {
+                    content: "TRANSACTION TYPE : ";
+                    text-align: left;
+                    font-weight: bold;
+                    width: 40%;
+                }
+                td.tl:nth-of-type(4):before {
+                    content: "DETAILS : ";
+                    text-align: right;
+                   font-size:small;
+                    font-weight: bold;
+                    width: 40%;
+                }
+
+                /*JOB INFORMATION*/
+                td.ji:nth-of-type(1):before {
+                    content: "Code : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ji:nth-of-type(2):before {
+                    content: "Education : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ji:nth-of-type(3):before {
+                    content: "Experience : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }             
+                
+                td.ji:nth-of-type(4):before {
+                    content: "Training : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ji:nth-of-type(5):before {
+                    content: "Eligibility : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ji:nth-of-type(6):before {
+                    content: "Competency : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ji:nth-of-type(7):before {
+                    content: "Competency (IF APPLICABLE) : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }        
+                
+                /*EDUCATION INFORMATION*/
+                
+                /*td.ei:nth-of-type(1):before {
+                    content: "IDNO : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                
+                td.ei:nth-of-type(2):before {
+                    content: "EL_NO : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }*/
+
+                td.ei:nth-of-type(1):before {
+                    content: "Level : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ei:nth-of-type(2):before {
+                    content: "School :";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+
+                }
+
+                td.ei:nth-of-type(3):before {
+                    content: "Degree Course : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+
+
+                td.ei:nth-of-type(4):before {
+                    content: "Year Graduated : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ei:nth-of-type(5):before {
+                    content: "Highest Grade Level Units Earned : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ei:nth-of-type(6):before {
+                    content: "From : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ei:nth-of-type(7):before {
+                    content: "To : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }        
+                
+                
+              td.ei:nth-of-type(8):before {
+                    content: "Scholarship Academic Honors Detail : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.ei:nth-of-type(9):before {
+                    content: "Action :";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+
+                }
+
+                td.ei:nth-of-type(10):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                /*CIVIL SERVICE ELIGIBILITY*/
+                td.cse:nth-of-type(1):before {
+                    content: "Career Service : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: auto;
+                }
+
+                td.cse:nth-of-type(2):before {
+                    content: "Rating :";
+                    text-align:left;
+                    font-weight:bold;
+                    width:auto;
+
+                }
+
+                td.cse:nth-of-type(3):before {
+                    content: "Date of Examination : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+
+
+                td.cse:nth-of-type(4):before {
+                    content: "Place of Examination : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.cse:nth-of-type(5):before {
+                    content: "License No. : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.cse:nth-of-type(6):before {
+                    content: "License Date : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.cse:nth-of-type(7):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }        
+                
+                
+              td.cse:nth-of-type(8):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+                
+
+              /*WORK EXPERIENCE*/
+
+                td.we:nth-of-type(1):before {
+                    content: "Employer : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.we:nth-of-type(2):before {
+                    content: "From :";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+
+                }
+
+                td.we:nth-of-type(3):before {
+                    content: "To : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.we:nth-of-type(4):before {
+                    content: "Job Position : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.we:nth-of-type(5):before {
+                    content: "Monthly Salary : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.we:nth-of-type(6):before {
+                    content: "Salary Grade : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.we:nth-of-type(7):before {
+                    content: "Status of Appointment : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }        
+                
+                
+              td.we:nth-of-type(8):before {
+                    content: "Gov`t Service : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+                td.we:nth-of-type(9):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }        
+                
+                
+              td.we:nth-of-type(10):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+
+              td.lap:nth-of-type(1):before {
+                    content: "Name : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                
+
+              td.lap:nth-of-type(2):before {
+                    content: "Description : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.lap:nth-of-type(3):before {
+                    content: "Date From : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.lap:nth-of-type(4):before {
+                    content: "Date To: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.lap:nth-of-type(5):before {
+                    content: "No. Day's: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+               td.lap:nth-of-type(6):before {
+                    content: "Status: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+               td.lap:nth-of-type(7):before {
+                    content: "Actions: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+                td.al:nth-of-type(1):before {
+                    content: "Item # : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                
+
+              td.al:nth-of-type(2):before {
+                    content: "Position Title : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.al:nth-of-type(3):before {
+                    content: "Office Department  : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.al:nth-of-type(4):before {
+                    content: "Name: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.al:nth-of-type(5):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+               td.al:nth-of-type(6):before {
+                    content: "Status: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                /*--------Offial Business-----*/
+                        td.obto:nth-of-type(1):before {
+                    content: "Name : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                
+
+              td.obto:nth-of-type(2):before {
+                    content: "Date From : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.obto:nth-of-type(3):before {
+                    content: "Date To : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.obto:nth-of-type(4):before {
+                    content: "Departure ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.obto:nth-of-type(5):before {
+                    content: "Arrival : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+               td.obto:nth-of-type(6):before {
+                    content: "Destination: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                 td.obto:nth-of-type(7):before {
+                    content: "Purpose : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                } 
+                  td.obto:nth-of-type(8):before {
+                    content: "Date Apply: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                    td.obto:nth-of-type(9):before {
+                    content: "Status: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }  
+                    td.obto:nth-of-type(10):before {
+                    content: "Action: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+
+                            /*--------Training-----*/
+                        td.tra:nth-of-type(1):before {
+                    content: "Name : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                
+
+              td.tra:nth-of-type(2):before {
+                    content: "Training Course : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.tra:nth-of-type(3):before {
+                    content: "Seminar \ Training Description: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.tra:nth-of-type(4):before {
+                    content: "Date From  ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.tra:nth-of-type(5):before {
+                    content: "Date To : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+               td.tra:nth-of-type(6):before {
+                    content: "Venue : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                 td.tra:nth-of-type(7):before {
+                    content: "Conducted by : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                } 
+                  td.tra:nth-of-type(8):before {
+                    content: "Date Apply : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                    td.tra:nth-of-type(9):before {
+                    content: "Status : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }  
+                    td.tra:nth-of-type(10):before {
+                    content: "Action: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+                    td.UAM:nth-of-type(1):before {
+                    content: "Email Address : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+              td.UAM:nth-of-type(2):before {
+                    content: "Name : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+              td.UAM:nth-of-type(3):before {
+                    content: "Office : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+
+              td.UAM:nth-of-type(4):before {
+                    content: "User Level : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+              td.UAM:nth-of-type(5):before {
+                    content: "Active: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+              td.UAM:nth-of-type(6):before {
+                    content: "Action: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 40%;
+                }
+              /*reference*/
+                 td.ref:nth-of-type(1):before {
+                    content: "Name : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                
+
+
+              td.ref:nth-of-type(2):before {
+                    content: "Address : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.ref:nth-of-type(3):before {
+                    content: "Tel No. : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+              td.ref:nth-of-type(4):before {
+                    content: "Action 1 : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                 td.ref:nth-of-type(5):before {
+                    content: "Action 2 : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+  /*Training Voluntary Works*/
+    td.tvr:nth-of-type(1):before {
+                    content: "From : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                
+
+              td.tvr:nth-of-type(2):before {
+                    content: "To : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.tvr:nth-of-type(3):before {
+                    content: "Organization Name : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.tvr:nth-of-type(4):before {
+                    content: "Organization Address ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.tvr:nth-of-type(5):before {
+                    content: "No. Of Hr : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+               td.tvr:nth-of-type(6):before {
+                    content: "Position : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                 td.tvr:nth-of-type(7):before {
+                    content: "Nature of Work : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                } 
+                  td.tvr:nth-of-type(8):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                  /*training Attainment*/
+                      td.tpr:nth-of-type(1):before {
+                    content: "From : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                
+
+              td.tpr:nth-of-type(2):before {
+                    content: "To : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.tpr:nth-of-type(3):before {
+                    content: "Title of Seminar Conference Workshop ShortCourse : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.tpr:nth-of-type(4):before {
+                    content: "No. of Hours : ";
+                    text-align:left;
+                    font-weight:bold;   
+                    width: 100%;
+                }
+
+              td.tpr:nth-of-type(5):before {
+                    content: "Type of Learning Development : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+               td.tpr:nth-of-type(6):before {
+                    content: "Conducted Sponsored By : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+                  td.tpr:nth-of-type(7):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+                  /*Other information*/
+
+                    td.oir:nth-of-type(1):before {
+                    content: "Special Skills/ Hobbies: ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+                
+
+              td.oir:nth-of-type(2):before {
+                    content: "Non - Academic / Distinctions / Recognition : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.oir:nth-of-type(3):before {
+                    content: "Membership in Association / Organization : ";
+                    text-align:left;
+                    font-weight:bold;
+                    width: 100%;
+                }
+
+              td.oir:nth-of-type(4):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;   
+                    width: 100%;
+                }
+
+              /*Transactions*/
+
+              td.ta:nth-of-type(1):before {
+                    content: "Transaction Date : ";
+                    text-align:left;
+                    font-weight:bold;   
+                    width: 100%;
+                }
+
+              td.ta:nth-of-type(2):before {
+                    content: "Transaction No. : ";
+                    text-align:left;
+                    font-weight:bold;   
+                    width: 100%;
+                }
+
+              td.ta:nth-of-type(3):before {
+                    content: "Account No. : ";
+                    text-align:left;
+                    font-weight:bold;   
+                    width: 100%;
+                }
+
+              td.ta:nth-of-type(4):before {
+                    content: "Transaction Type. : ";
+                    text-align:left;
+                    font-weight:bold;   
+                    width: 100%;
+                }
+
+
+              td.ta:nth-of-type(5):before {
+                    content: "Status : ";
+                    text-align:left;
+                    font-weight:bold;   
+                    width: 100%;
+                }
+              td.ta:nth-of-type(6):before {
+                    content: "Action : ";
+                    text-align:left;
+                    font-weight:bold;   
+                    width: 100%;
+                }
+        }
+
+
+.mGrid { 
+
+}
+.mGrid td { 
+
+    border: solid 1px #c1c1c1; 
+    color: #717171; 
+
+
+}
+
+
+
+.mGrid tr:nth-child(even) {
+    color:black;
+}
+
+
+.mGrid tr:nth-child(odd) {
+    background: #eae9e9;
+    color:black;
+}
+
+
+
+.mGrid th { 
+    
+    color: #fff; 
+    background: #4975c3 url(grd_head.png) repeat-x top; 
+    border:none;
+    
+}
+.mGrid .alt { background: #fcfcfc url(grd_alt.png) repeat-x top; }
+.mGrid .pgr { background: #424242 url(grd_pgr.png) repeat-x top; }
+.mGrid .pgr table { margin: 5px 0; }
+.mGrid .pgr td { 
+    border-width: 0; 
+    padding: 0 6px; 
+    border-left: solid 1px #666; 
+    font-weight: bold; 
+    color: #fff; 
+    line-height: 12px; 
+ }   
+.mGrid .pgr a { color: #666; text-decoration: none; }
+.mGrid .pgr a:hover { color: #000; text-decoration: none; }
+
+
+
+
+
+.NotResG td { 
+
+    border: solid 1px #c1c1c1; 
+    color: #717171; 
+}
+
+    .NotResG tr:last-child {
+
+        font-weight:bold;
+
+    }
+
+.NotResG tr:nth-child(even) {
+    color:black;
+}
+
+
+.NotResG tr:nth-child(odd) {
+    background: #eae9e9;
+    color:black;
+}
+
+
+
+.NotResG th { 
+    
+    color: #fff; 
+    background: #4975c3 url(grd_head.png) repeat-x top; 
+    border:none;
+    
+}
