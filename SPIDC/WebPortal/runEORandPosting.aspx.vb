@@ -15,108 +15,143 @@ Public Class runEORandPosting
     Public Shared _mStrSql2 As String
     Public Shared _mStrSql3 As String
     Private Property _URL As String = HttpContext.Current.Request.Url.AbsoluteUri
-
-
+    
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         'PayMaya FIELD
+        cEventLog._pLiteral = _oLiteral
+
+
+
+        cEventLog._pSubEventLog("PayMayaField")
 
         PayMayaField()
         'GCash FIELD
+        cEventLog._pSubEventLog("GcashField")
         GcashField()
         'LBP1 FIELD
+        cEventLog._pSubEventLog("LBP1Field")
         LBP1Field()
         'LBP2 FIELD
+        cEventLog._pSubEventLog("LBP2Field")
         LBP2Field()
         Response.Write("<script>sessionStorage.setItem('_gateWay', '" & Session("runEORandPostingPaymentGateway") & "');</script>")
     End Sub
 
     'RUN THE EOR AND POSTING AND OTHER PAYMAYA
     Private Sub _btnRunEORandPostingPaymaya_ServerClick(sender As Object, e As EventArgs) Handles _btnRunEORandPostingPaymaya.ServerClick
-        'Check EOR Is Active
-        If _checkEORMOduleIsActive() Then
-            Dim GatewayStatusPaymaya As String = _GatewayStatusPaymaya.Value
-            Dim PaymentReferencePaymaya As String = Nothing
-            Dim GatewayReferencePaymaya As String = Nothing
-            If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) Then
-                PaymentReferencePaymaya = Session("runEORandPostingPaymentRefNo")
-                GatewayReferencePaymaya = Session("runEORandPostingGatewayRefNo")
+        Try
+            cEventLog._pSubEventLog("btnRunEORandPostingPaymaya_ServerClick")
+
+
+            'Check EOR Is Active
+            If _checkEORMOduleIsActive() Then
+                Dim GatewayStatusPaymaya As String = _GatewayStatusPaymaya.Value
+                Dim PaymentReferencePaymaya As String = Nothing
+                Dim GatewayReferencePaymaya As String = Nothing
+                If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) Then
+                    PaymentReferencePaymaya = Session("runEORandPostingPaymentRefNo")
+                    GatewayReferencePaymaya = Session("runEORandPostingGatewayRefNo")
+                Else
+                    PaymentReferencePaymaya = _PaymentReferencePaymaya.Value
+                    GatewayReferencePaymaya = _GatewayReferencePaymaya.Value
+                End If
+                'Response.Write("<script>setTimeout(function() {document.getElementsByClassName('loader-title')[0].textContent = 'Please wait while processing...'; loader.show();}, 1000);</script>")
+                runEORAndPostingPaymaya(GatewayStatusPaymaya, PaymentReferencePaymaya, GatewayReferencePaymaya)
             Else
-                PaymentReferencePaymaya = _PaymentReferencePaymaya.Value
-                GatewayReferencePaymaya = _GatewayReferencePaymaya.Value
+                Response.Write("<script>alert('EOR AND POSTING IS DISABLED');</script>")
             End If
-            'Response.Write("<script>setTimeout(function() {document.getElementsByClassName('loader-title')[0].textContent = 'Please wait while processing...'; loader.show();}, 1000);</script>")
-            runEORAndPostingPaymaya(GatewayStatusPaymaya, PaymentReferencePaymaya, GatewayReferencePaymaya)
-        Else
-            Response.Write("<script>alert('EOR AND POSTING IS DISABLED');</script>")
-        End If
+        Catch ex As Exception
+            cEventLog._pSubEventLog(ex.Message)
+
+        End Try
+       
 
     End Sub
 
     'RUN THE EOR AND POSTING AND OTHER GCASH
     Private Sub _btnRunEORandPostingGcash_ServerClick(sender As Object, e As EventArgs) Handles _btnRunEORandPostingGcash.ServerClick
-        'Check EOR Is Active
-        If _checkEORMOduleIsActive() Then
-            Dim GatewayStatusGcash As String = _GatewayStatusGcash.Value
-            Dim PaymentReferenceGcash As String = Nothing
-            Dim GatewayReferenceGcash As String = Nothing
+        Try
+            cEventLog._pSubEventLog("_btnRunEORandPostingGcash_ServerClick")
+            'Check EOR Is Active
+            cEventLog._pSubEventLog("_checkEORMOduleIsActive")
+            If _checkEORMOduleIsActive() Then
+                Dim GatewayStatusGcash As String = _GatewayStatusGcash.Value
+                Dim PaymentReferenceGcash As String = Nothing
+                Dim GatewayReferenceGcash As String = Nothing
 
-            If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) Then
-                PaymentReferenceGcash = Session("runEORandPostingPaymentRefNo")
-                GatewayReferenceGcash = Session("runEORandPostingGatewayRefNo")
+                If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) Then
+                    PaymentReferenceGcash = Session("runEORandPostingPaymentRefNo")
+                    GatewayReferenceGcash = Session("runEORandPostingGatewayRefNo")
+                Else
+                    PaymentReferenceGcash = _PaymentReferenceGcash.Value
+                    GatewayReferenceGcash = _GatewayReferenceGcash.Value
+                End If
+                'Response.Write("<script>setTimeout(function() {document.getElementsByClassName('loader-title')[0].textContent = 'Please wait while processing...'; loader.show();}, 1000);</script>")
+                cEventLog._pSubEventLog("runEORAndPostingGcash")
+                runEORAndPostingGcash(GatewayStatusGcash, PaymentReferenceGcash, GatewayReferenceGcash)
             Else
-                PaymentReferenceGcash = _PaymentReferenceGcash.Value
-                GatewayReferenceGcash = _GatewayReferenceGcash.Value
+                cEventLog._pSubEventLog("EOR AND POSTING IS DISABLED")
+                Response.Write("<script>alert('EOR AND POSTING IS DISABLED');</script>")
             End If
-            'Response.Write("<script>setTimeout(function() {document.getElementsByClassName('loader-title')[0].textContent = 'Please wait while processing...'; loader.show();}, 1000);</script>")
-            runEORAndPostingGcash(GatewayStatusGcash, PaymentReferenceGcash, GatewayReferenceGcash)
-        Else
-            Response.Write("<script>alert('EOR AND POSTING IS DISABLED');</script>")
-        End If
+        Catch ex As Exception
+            cEventLog._pSubEventLog(ex.Message)
+        End Try
+     
 
     End Sub
 
     'RUN THE EOR AND POSTING AND OTHER LB1
     Private Sub _btnRunEORandPostingLBP1_ServerClick(sender As Object, e As EventArgs) Handles _btnRunEORandPostingLBP1.ServerClick
-        'Check EOR Is Active
-        If _checkEORMOduleIsActive() Then
-            Dim GatewayStatusLBP1 As String = _GatewayStatusLBP1.Value
-            Dim PaymentReferenceLBP1 As String = Nothing
-            Dim GatewayReferenceLBP1 As String = Nothing
-            If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) Then
-                PaymentReferenceLBP1 = Session("runEORandPostingPaymentRefNo")
-                GatewayReferenceLBP1 = Session("runEORandPostingGatewayRefNo")
+        Try
+            'Check EOR Is Active
+            If _checkEORMOduleIsActive() Then
+                Dim GatewayStatusLBP1 As String = _GatewayStatusLBP1.Value
+                Dim PaymentReferenceLBP1 As String = Nothing
+                Dim GatewayReferenceLBP1 As String = Nothing
+                If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) Then
+                    PaymentReferenceLBP1 = Session("runEORandPostingPaymentRefNo")
+                    GatewayReferenceLBP1 = Session("runEORandPostingGatewayRefNo")
+                Else
+                    PaymentReferenceLBP1 = _PaymentReferenceLBP1.Value
+                    GatewayReferenceLBP1 = _GatewayReferenceLBP1.Value
+                End If
+                'Response.Write("<script>setTimeout(function() {document.getElementsByClassName('loader-title')[0].textContent = 'Please wait while processing...'; loader.show();}, 1000);</script>")
+                runEORAndPostingLBP1(GatewayStatusLBP1, PaymentReferenceLBP1, GatewayReferenceLBP1)
             Else
-                PaymentReferenceLBP1 = _PaymentReferenceLBP1.Value
-                GatewayReferenceLBP1 = _GatewayReferenceLBP1.Value
+                Response.Write("<script>alert('EOR AND POSTING IS DISABLED');</script>")
             End If
-            'Response.Write("<script>setTimeout(function() {document.getElementsByClassName('loader-title')[0].textContent = 'Please wait while processing...'; loader.show();}, 1000);</script>")
-            runEORAndPostingLBP1(GatewayStatusLBP1, PaymentReferenceLBP1, GatewayReferenceLBP1)
-        Else
-            Response.Write("<script>alert('EOR AND POSTING IS DISABLED');</script>")
-        End If
 
+        Catch ex As Exception
+            cEventLog._pSubLogError(ex)
+        End Try
+      
     End Sub
 
     'RUN THE EOR AND POSTING AND OTHER LB2
     Private Sub _btnRunEORandPostingLBP2_ServerClick(sender As Object, e As EventArgs) Handles _btnRunEORandPostingLBP2.ServerClick
-        'Check EOR Is Active
-        If _checkEORMOduleIsActive() Then
-            Dim GatewayStatusLBP2 As String = _GatewayStatusLBP2.Value
-            Dim PaymentReferenceLBP2 As String = Nothing
-            Dim GatewayReferenceLBP2 As String = Nothing
-            If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) Then
-                PaymentReferenceLBP2 = Session("runEORandPostingPaymentRefNo")
-                GatewayReferenceLBP2 = Session("runEORandPostingGatewayRefNo")
+        Try
+            'Check EOR Is Active
+            If _checkEORMOduleIsActive() Then
+                Dim GatewayStatusLBP2 As String = _GatewayStatusLBP2.Value
+                Dim PaymentReferenceLBP2 As String = Nothing
+                Dim GatewayReferenceLBP2 As String = Nothing
+                If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) Then
+                    PaymentReferenceLBP2 = Session("runEORandPostingPaymentRefNo")
+                    GatewayReferenceLBP2 = Session("runEORandPostingGatewayRefNo")
+                Else
+                    PaymentReferenceLBP2 = _PaymentReferenceLBP2.Value
+                    GatewayReferenceLBP2 = _GatewayReferenceLBP2.Value
+                End If
+                'Response.Write("<script>setTimeout(function() {document.getElementsByClassName('loader-title')[0].textContent = 'Please wait while processing...'; loader.show();}, 1000);</script>")
+                runEORAndPostingLBP2(GatewayStatusLBP2, PaymentReferenceLBP2, GatewayReferenceLBP2)
             Else
-                PaymentReferenceLBP2 = _PaymentReferenceLBP2.Value
-                GatewayReferenceLBP2 = _GatewayReferenceLBP2.Value
+                Response.Write("<script>alert('EOR AND POSTING IS DISABLED');</script>")
             End If
-            'Response.Write("<script>setTimeout(function() {document.getElementsByClassName('loader-title')[0].textContent = 'Please wait while processing...'; loader.show();}, 1000);</script>")
-            runEORAndPostingLBP2(GatewayStatusLBP2, PaymentReferenceLBP2, GatewayReferenceLBP2)
-        Else
-            Response.Write("<script>alert('EOR AND POSTING IS DISABLED');</script>")
-        End If
+        Catch ex As Exception
+            cEventLog._pSubLogError(ex)
+        End Try
+       
 
     End Sub
 
@@ -124,18 +159,24 @@ Public Class runEORandPosting
 
     'PayMaya FIELD
     Private Sub PayMayaField()
-        If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingPaymentGateway")) Then
-            If Session("runEORandPostingPaymentGateway") = "PAYMAYA" Then
-                _PaymentReferencePaymaya.Value = Session("runEORandPostingPaymentRefNo")
-                _GatewayReferencePaymaya.Value = Session("runEORandPostingGatewayRefNo")
-            Else
-                'Do Nothing
-            End If
+        Try
+            If Not String.IsNullOrEmpty(Session("runEORandPostingPaymentRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingGatewayRefNo")) And Not String.IsNullOrEmpty(Session("runEORandPostingPaymentGateway")) Then
+                If Session("runEORandPostingPaymentGateway") = "PAYMAYA" Then
+                    _PaymentReferencePaymaya.Value = Session("runEORandPostingPaymentRefNo")
+                    _GatewayReferencePaymaya.Value = Session("runEORandPostingGatewayRefNo")
+                Else
+                    'Do Nothing
+                End If
 
-        Else
-            _PaymentReferencePaymaya.Value = ""
-            _GatewayReferencePaymaya.Value = ""
-        End If
+            Else
+                _PaymentReferencePaymaya.Value = ""
+                _GatewayReferencePaymaya.Value = ""
+            End If
+        Catch ex As Exception
+            cEventLog._pSubLogError(ex)
+        End Try
+
+     
     End Sub
 
 
@@ -225,15 +266,20 @@ Public Class runEORandPosting
     'PAYMAYA
     Public Sub _GenerateReport_eORPaymaya(ByVal _send As String, ByVal TAXTYPE_eOR As String, ByVal eORNO As String)
         Try
+            cEventLog._pSubEventLog("_GenerateReport_eORPaymaya")
+
             Dim _nclassEOR As New eOR
 
             Dim _nDataTable0 As New DataTable
+            cEventLog._pSubEventLog("Print_Template")
             _nDataTable0 = _nclassEOR.Print_Template
 
             Dim _nDataTable1 As New DataTable
+            cEventLog._pSubEventLog("Print_Report")
             _nDataTable1 = _nclassEOR.Print_Report(eORNO)
 
             Dim _nDataTable2 As New DataTable
+            cEventLog._pSubEventLog("Print_TOP")
             _nDataTable2 = _nclassEOR.Print_TOP(eORNO)
 
 
@@ -319,13 +365,14 @@ Public Class runEORandPosting
 
                 If String.IsNullOrEmpty(err) = True Then
                     eOR.Update_Sent(_nDataTable1.Rows(0)("eORNO"), err)
-                    ClientScript.RegisterStartupScript(Me.GetType(), "myScript", " loader.hide(); window.alert('E-OR Sent Successfully'); setTimeout(function() { window.location.replace('" & _URL.Replace("/runEORandPosting.aspx", "/LGU_OPL.aspx") & "'); }, 1000); ", True)
+                    ClientScript.RegisterStartupScript(Me.GetType(), "myScript", "window.alert('E-OR Sent Successfully'); setTimeout(function() { window.location.replace('" & _URL.Replace("/runEORandPosting.aspx", "/LGU_OPL.aspx") & "'); }, 1000); ", True)
                     Exit Sub
                 End If
 
             End If
         Catch ex As Exception
             ClientScript.RegisterStartupScript(Me.GetType(), "myScript", "window.alert('" + ex.Message + "');", True)
+            cEventLog._pSubEventLog(ex.Message)
         End Try
     End Sub
 
@@ -359,22 +406,34 @@ Public Class runEORandPosting
             _nclass._pSqlConnection = cGlobalConnections._pSqlCxn_CR
             Dim _nClassPost As New Process
 
+
+            cEventLog._pSubEventLog("isEOR_Exists")
+
             If _nclassEOR.isEOR_Exists(SPIDCREFNO) = False Then
+                cEventLog._pSubEventLog("_nclassEOR.getACCTNO(SPIDCREFNO)")
                 Process.ACCTNO = _nclassEOR.getACCTNO(SPIDCREFNO)
+
+
                 '-----New Addedd 11-03-2023 JAY SITJAR-----
+                cEventLog._pSubEventLog("_nclassEOR.getTDN1(Process.ACCTNO)")
                 cSessionLoader._pTDN = _nclassEOR.getTDN1(Process.ACCTNO)
                 If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
                     cSessionLoader._pTDN = _nclassEOR.getTDNHist1(Process.ACCTNO)
+                    cEventLog._pSubEventLog("_nclassEOR.getTDNHist1(Process.ACCTNO)")
                     If Not (cSessionLoader._pTDN Is Nothing) Then
                         'Move RPT AssessmentFrom History To Current
+                        cEventLog._pSubEventLog("_nclassEOR.moveRPTAssessmentFromHistToCurrent1(Process.ACCTNO)")
                         _nclassEOR.moveRPTAssessmentFromHistToCurrent1(Process.ACCTNO)
                     Else
                         'Do Nothing
                     End If
                 End If
 
+                cEventLog._pSubEventLog(" _nclassEOR.getTDN(Process.ACCTNO)")
                 cSessionLoader._pTDN = _nclassEOR.getTDN(Process.ACCTNO)
                 If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
+
+                    cEventLog._pSubEventLog(" _nclassEOR.getTDNHist(Process.ACCTNO)")
                     cSessionLoader._pTDN = _nclassEOR.getTDNHist(Process.ACCTNO)
                     If Not (cSessionLoader._pTDN Is Nothing) Then
                         'Move RPT AssessmentFrom History To Current
@@ -384,8 +443,12 @@ Public Class runEORandPosting
                     End If
                 End If
 
+
+
+                cEventLog._pSubEventLog("_nclassEOR.getTDN2(Process.ACCTNO)")
                 cSessionLoader._pTDN = _nclassEOR.getTDN2(Process.ACCTNO)
                 If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
+                    cEventLog._pSubEventLog("_nclassEOR.getTDNHist2(Process.ACCTNO)")
                     cSessionLoader._pTDN = _nclassEOR.getTDNHist2(Process.ACCTNO)
                     If Not (cSessionLoader._pTDN Is Nothing) Then
                         'Move RPT AssessmentFrom History To Current
@@ -394,9 +457,10 @@ Public Class runEORandPosting
                         'Do Nothing
                     End If
                 End If
-
+                cEventLog._pSubEventLog("_nclassEOR.getTDN3(Process.ACCTNO)")
                 cSessionLoader._pTDN = _nclassEOR.getTDN3(Process.ACCTNO)
                 If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
+                    cEventLog._pSubEventLog(" _nclassEOR.getTDNHist3(Process.ACCTNO)")
                     cSessionLoader._pTDN = _nclassEOR.getTDNHist3(Process.ACCTNO)
                     If Not (cSessionLoader._pTDN Is Nothing) Then
                         'Move RPT AssessmentFrom History To Current
@@ -414,15 +478,23 @@ Public Class runEORandPosting
                 Process.Gateway_Selected = "GCASH"
                 Process.GatewayRefNo = gatewayRefNo
                 eOR.Gateway_RefNo = gatewayRefNo
+
+                cEventLog._pSubEventLog("_nclassEOR.getEMAIL(SPIDCREFNO)")
                 eOR.TaxPayerEmail = _nclassEOR.getEMAIL(SPIDCREFNO)
+                cEventLog._pSubEventLog("_nclassEOR.getTransactionType(SPIDCREFNO)")
                 Process.TransactionType = _nclassEOR.getTransactionType(SPIDCREFNO)
                 eOR.SPIDC_RefNo = SPIDCREFNO
+                cEventLog._pSubEventLog("_nClassPost.START_POSTING()")
                 _nClassPost.START_POSTING(err, eORNO, isTaxpayer, gatewayRefNo)
+                cEventLog._pSubEventLog(err)
+
+                cEventLog._pSubEventLog("_GenerateReport_eORGcash")
                 _GenerateReport_eORGcash(1, Process.TransactionType, eORNO)
             Else
                 Exit Sub
             End If
         Catch ex As Exception
+            cEventLog._pSubLogError(ex)
         End Try
     End Sub
     'GCASH
@@ -520,13 +592,14 @@ Public Class runEORandPosting
                 'End JAY SITJAR
                 If String.IsNullOrEmpty(err) = True Then
                     eOR.Update_Sent(_nDataTable1.Rows(0)("eORNO"), err)
-                    ClientScript.RegisterStartupScript(Me.GetType(), "myScript", " loader.hide(); window.alert('E-OR Sent Successfully'); setTimeout(function() { window.location.replace('" & _URL.Replace("/runEORandPosting.aspx", "/LGU_OPL.aspx") & "'); }, 1000); ", True)
+                    ClientScript.RegisterStartupScript(Me.GetType(), "myScript", "window.alert('E-OR Sent Successfully'); setTimeout(function() { window.location.replace('" & _URL.Replace("/runEORandPosting.aspx", "/LGU_OPL.aspx") & "'); }, 1000); ", True)
                     Exit Sub
                 End If
             End If
 
         Catch ex As Exception
             ClientScript.RegisterStartupScript(Me.GetType(), "myScript", "window.alert('" + ex.Message + "');", True)
+            cEventLog._pSubLogError(ex)
         End Try
 
 
@@ -833,6 +906,7 @@ Public Class runEORandPosting
                 Exit Sub
             End If
         Catch ex As Exception
+            cEventLog._pSubLogError(ex)
         End Try
     End Sub
     'LBP2
@@ -930,13 +1004,14 @@ Public Class runEORandPosting
                 'End JAY SITJAR
                 If String.IsNullOrEmpty(err) = True Then
                     eOR.Update_Sent(_nDataTable1.Rows(0)("eORNO"), err)
-                    ClientScript.RegisterStartupScript(Me.GetType(), "myScript", " loader.hide(); window.alert('E-OR Sent Successfully'); setTimeout(function() { window.location.replace('" & _URL.Replace("/runEORandPosting.aspx", "/LGU_OPL.aspx") & "'); }, 1000); ", True)
+                    ClientScript.RegisterStartupScript(Me.GetType(), "myScript", "window.alert('E-OR Sent Successfully'); setTimeout(function() { window.location.replace('" & _URL.Replace("/runEORandPosting.aspx", "/LGU_OPL.aspx") & "'); }, 1000); ", True)
                     Exit Sub
                 End If
             End If
 
         Catch ex As Exception
             ClientScript.RegisterStartupScript(Me.GetType(), "myScript", "window.alert('" + ex.Message + "');", True)
+            cEventLog._pSubLogError(ex)
         End Try
 
 

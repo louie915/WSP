@@ -525,6 +525,8 @@ Public Class Process
                        "Payor Name=" & FNAME & " " & LNAME & ";" &
                        "E-mail Address=" + cSessionUser._pUserID + ";"
                     End If
+
+
             End Select
 
 
@@ -572,23 +574,28 @@ Public Class Process
         Try
             Dim _nClass2 As New cHardwareInformation
             Dim _nMachineName As String = _nClass2._pMachineName.ToUpper
-
+            Dim LBP_TransType As String = Nothing
             Select Case TransactionType
                 Case "BP"
                     If _nMachineName = "MANOLOWEBSVR" Then
-                        TransactionType = "Business Tax Payment"
+                        'TransactionType = "Business Tax Payment"
+                        LBP_TransType = "Business Tax Payment"
                     Else
-                        TransactionType = "Business Permit"
+                        LBP_TransType = "Business Permit"
+                        'TransactionType = "Business Permit"
                     End If
                 Case "RPT"
-                    TransactionType = "Real Property Tax"
+                    LBP_TransType = "Real Property Tax"
                 Case "CTC"
-                    TransactionType = "Cedula"
+                    LBP_TransType = "Cedula"
                 Case "OBO"
-                    TransactionType = "OBO Permit"
+                    LBP_TransType = "OBO Permit"
                 Case "LCR"
-                    TransactionType = "Registry Certificate"
+                    LBP_TransType = "Registry Certificate"
             End Select
+
+            LBP_TransType = IIf(cPaymentParameters.GetBP_TransactionType(TransactionType) = Nothing, LBP_TransType, cPaymentParameters.GetBP_TransactionType(TransactionType))
+
 
             Dim _nClass As New cDalPayment
             _nClass._pSqlConnection = cGlobalConnections._pSqlCxn_CR
@@ -597,7 +604,7 @@ Public Class Process
             Dim trxnamt As String = FormatNumber(TotalAmount, 2).Replace(",", "")
             Dim merchantcodex As String = cDalPayment.gw_MerchantCode
             Dim bankcode As String = "B000"
-            Dim trxndetails As String = TransactionType
+            Dim trxndetails As String = LBP_TransType
             Dim trandetail1 As String = SpidcRefNo ' Online ID
             Dim trandetail2 As String = FNAME & " " & LNAME 'Payor Name
             Dim trandetail3 As String = ACCTNO ' TDN or BIN
@@ -643,8 +650,8 @@ Public Class Process
 
             If _nLGU.Contains("SAN JOSE DEL MONTE") Then
                 '' trandetail4 is equivalent to  Description
-                cPaymentParameters.LBP(trxnamt, merchantcodex, TransactionType, SpidcRefNo, FNAME & " " & LNAME, ACCTNO,
-                  TransactionType & " Online Payment", Email, BillingValidityDate, trandetail7, trandetail8, trandetail9,
+                cPaymentParameters.LBP(trxnamt, merchantcodex, LBP_TransType, SpidcRefNo, FNAME & " " & LNAME, ACCTNO,
+                  LBP_TransType & " Online Payment", Email, BillingValidityDate, trandetail7, trandetail8, trandetail9,
                   trandetail10, trandetail11, trandetail12, trandetail13, trandetail14, trandetail15,
                   trandetail16, trandetail17, trandetail18, trandetail19, trandetail20)
 
@@ -750,7 +757,7 @@ Public Class Process
                 '  Response.Clear()
                 Response.Write(errdesc)
 
-
+                cDalGetModuleSetup.BP_DisplayTaxbase()
             End If
 
             ' Response.Clear()
@@ -1265,7 +1272,7 @@ jumphere:
             ' Response.Write(";_1PostPayment:" & _err)
             _err += strChecker & ex.Message
             strChecker += ";_1PostPayment ERR:" & ex.Message
-
+            cEventLog._pSubEventLog(ex.Message)
             '_err = _err & ";" & Process.TransactionType & ";" & eOR.SPIDC_RefNo & ";" & qry
         End Try
     End Sub
@@ -1287,6 +1294,7 @@ jumphere:
 
         Catch ex As Exception
             Response.Write(_err)
+            cEventLog._pSubEventLog(ex.Message)
         End Try
     End Sub
     Private Sub _3GenerateEORReport()
@@ -1432,6 +1440,7 @@ jumphere:
         Catch ex As Exception
             xerr += ex.Message
             ClientScript.RegisterStartupScript(Me.GetType(), "myScript", "window.alert('" + ex.Message + "');", True)
+            cEventLog._pSubEventLog(ex.Message)
         End Try
 
 
@@ -1441,14 +1450,18 @@ jumphere:
         Dim rand As New Random() ' Create a new instance of the Random class    
         Task.Delay((rand.Next(1, 10)) * 1000).Wait()
 
+        cEventLog._pSubEventLog("_1PostPayment(err, eORNO, strChecker)")
         _1PostPayment(err, eORNO, strChecker)
+        cEventLog._pSubEventLog(err)
         '    Response.Write(strChecker)
         If String.IsNullOrEmpty(err) = False Then
             Response.Write(";_1PostPayment:" & err)
             Exit Sub
         Else
-            _2GetPostedDetails(err, eORNO, gatewayRefNo)
 
+            cEventLog._pSubEventLog("_2GetPostedDetails(err, eORNO, gatewayRefNo)")
+            _2GetPostedDetails(err, eORNO, gatewayRefNo)
+            cEventLog._pSubEventLog(err)
             If String.IsNullOrEmpty(err) = False Then
                 Response.Write(";_2GetPostedDetails:" & err)
                 Exit Sub

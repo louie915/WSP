@@ -777,10 +777,10 @@ Public Class cDalBPSOS
 
 
             _mSqlCommand.Parameters.Add("@_mStatus", SqlDbType.NVarChar, 50)
-            _mSqlCommand.Parameters.Add("@_mStatusdesc ", SqlDbType.NVarChar, 400)
-
             _mSqlCommand.Parameters("@_mStatus").Direction = ParameterDirection.Output
-            _mSqlCommand.Parameters("@_mStatusdesc ").Direction = ParameterDirection.Output
+
+            _mSqlCommand.Parameters.Add("@_mStatusdesc", SqlDbType.NVarChar, 500)
+            _mSqlCommand.Parameters("@_mStatusdesc").Direction = ParameterDirection.Output
 
 
 
@@ -6572,8 +6572,8 @@ Public Class cDalBPSOS
         Try
             '----------------------------------      
             Dim _nQuery As String = "If exists (select * from " & cGlobalConnections._pSqlCxn_BPLTIMS.Database & ".sys.tables where name = '" & tblName.ToUpper & "')    select '1' as [Exists]	else (select '0' as [Exists])"
-            Dim _nSqlCommand = New SqlCommand(_nQuery, _mSqlCon)
-            _mSqlCon.Open()
+            Dim _nSqlCommand = New SqlCommand(_nQuery, cGlobalConnections._pSqlCxn_BPLTIMS)
+            '_mSqlCon.Open()
             _mSqlDataReader = _nSqlCommand.ExecuteReader
             If _mSqlDataReader.HasRows Then
                 Do Until _mSqlDataReader.Read = False

@@ -112,14 +112,20 @@ Public Class cDalPaymentPosting
                         err += ";Insert_eOR:" & err
                         Exit Sub
                     End If
+                    cEventLog._pSubEventLog("Insert_eOR" & vbNewLine & qry)
+                    eOR.Insert_eOR_EXTN(Process.TransactionType, eORNO, Process.SRS, Process.SEQ, Process.ACCTNO, err, qry)
 
-                    eOR.Insert_eOR_EXTN(Process.TransactionType, eORNO, Process.SRS, Process.SEQ, Process.ACCTNO, err)
                     If String.IsNullOrEmpty(err) = False Then
                         err += ";Insert_eOR_EXTN:" & err
                         Exit Sub
                     End If
 
-                    eOR.Update_eOR(eORNO, err)
+                    cEventLog._pSubEventLog("Insert_eOR_EXTN:" & vbNewLine & qry)
+
+                    eOR.Update_eOR(eORNO, err, qry)
+
+                    cEventLog._pSubEventLog("Update_eOR:" & vbNewLine & qry)
+
                     If String.IsNullOrEmpty(err) = False Then
                         err += ";Update_eOR:" & err
                         Exit Sub

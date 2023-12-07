@@ -64,7 +64,7 @@ Public Class NewBP_Info
                     txt_ZipCode2.Value = .G_ZipCode
                     div_NoB.InnerHtml = .H_Nature
 
-                    Load_Requirements(AppID)
+                    Load_Requirements("NEW", AppID)
                 End If
 
 
@@ -79,19 +79,34 @@ Public Class NewBP_Info
 
     End Sub
 
-    Sub Load_Requirements(ByVal AppID As String)
+    Sub Load_Requirements(ByVal switch As String, ByVal AppID As String)
         Try
             Dim reqCount As Integer
             Dim _nClass As New cDalBPSOS
             _nClass._pSqlConnection = cGlobalConnections._pSqlCxn_BPLTIMS
-            _nClass._pSubGetAttachmentsSubmitted(AppID, reqCount)
-            If reqCount = 0 Then
+            _nClass._pSubSelectRequirements2(Switch, cSessionUser._pUserID, Request.QueryString("AppID"))
+
+
+            Dim _nDataTable As New DataTable
+            _nDataTable = _nClass._pDataTable
+
+            If _nDataTable.Rows.Count = 0 Then
                 div_Requirements.Style.Add("display", "none")
             Else
                 div_Requirements.Style.Add("display", "")
                 _GVRequirements.DataSource = _nClass._mDataTable
                 _GVRequirements.DataBind()
             End If
+
+
+            ' _nClass._pSubGetAttachmentsSubmitted(AppID, reqCount)
+            'If reqCount = 0 Then
+            '    div_Requirements.Style.Add("display", "none")
+            'Else
+            '    div_Requirements.Style.Add("display", "")
+            '    _GVRequirements.DataSource = _nClass._mDataTable
+            '    _GVRequirements.DataBind()
+            'End If
 
         Catch ex As Exception
 

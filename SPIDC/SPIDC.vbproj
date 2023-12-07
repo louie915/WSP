@@ -229,7 +229,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
     <COMReference Include="RPTIMS_DLL">
-      <Guid>{3EBE45F5-3B51-44FC-A7A7-378857F4F6A5}</Guid>
+      <Guid>{CC8FC8CD-87B0-45BF-B813-ACDDBBA0199B}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>

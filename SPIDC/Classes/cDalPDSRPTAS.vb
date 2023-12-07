@@ -2016,14 +2016,22 @@ Public Class cDalPDSRPTAS
 
         End Try
     End Sub
-    Public Sub _pSubGetYear()
+    Public Sub _pSubGetYear(Optional DiableCurYr As Boolean = False)
         Try
 
             '----------------------------------
             Dim _nQuery As String = Nothing
             '----------------------------------
-            _nQuery = _
-                    "with dt as (select year(GETDATE()) as Yr union all select yr+1 from dt where yr < year(GETDATE())+1) select yr,datepart(q,getdate())QTR,year(getdate())CURYR from dt"
+
+            If cDalGetModuleSetup.RPT_DisableCurrentYearDropDown = True Then
+                _nQuery = _
+                   "Select year(GETDATE())+1 Yr,datepart(q,getdate())QTR,year(getdate())+1 CURYR"
+            Else
+                _nQuery = _
+                   "with dt as (select year(GETDATE()) as Yr union all select yr+1 from dt where yr < year(GETDATE())+1) select yr,datepart(q,getdate())QTR,year(getdate())CURYR from dt"
+            End If
+
+           
             '    _mRegion_mProv_mCity_mDistrict
             '----------------------------------
             _mQuery = _nQuery

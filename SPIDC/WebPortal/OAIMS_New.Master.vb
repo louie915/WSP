@@ -133,8 +133,6 @@ Public Class OAIMS_New
                 '
                 '  txtLoginEmail.Value = cSessionUser._pUserID
 
-
-
                 cDBUpdate.Init_DBUpdate()
             Else
                 '  If Request.QueryString("email").Length > 0 Then

@@ -44,8 +44,9 @@
                 color: black;
             }
     </style>
-
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
         function SnackbarGreen() {
             var x = document.getElementById("snackbargreen");
@@ -178,14 +179,11 @@
                     <div class="col-lg-12">
                         Your New Business Application is successfully submitted.<br />
                         We will email you for our response and update your account information.<br />
-                        Stay safe.
-
-                  
-           
+                        Stay safe.           
                     </div>
                     <center>
-                    <a href="Account.aspx" >Return to Home Page</a>
-                </center>
+                        <a href="Account.aspx" >Return to Home Page</a>
+                    </center>
 
                 </div>
             </div>
@@ -1271,6 +1269,12 @@
 
     <script type="text/javascript">   
 
+ 
+        
+         
+       
+
+
         function date_OnFocus(){
             if( document.getElementById('<%= txt_DateEsta.ClientID%>').value == 'mm/dd/yyyy' ||  document.getElementById('<%= txt_DateEsta.ClientID%>').value == '' ){
                 document.getElementById('<%= txt_DateEsta.ClientID%>').setAttribute("type", "date"); 
@@ -1622,6 +1626,8 @@
                   do_Save();                 
               }
           }
+
+
           function do_browse(ID, ReqCode, FS) {
 
               var fileName = document.getElementById(ID).value.toLowerCase();

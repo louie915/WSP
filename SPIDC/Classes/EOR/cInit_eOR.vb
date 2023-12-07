@@ -58,58 +58,59 @@ Public Class cInit_eOR
         If _nclassGetModules._pSubGetAvailableModules("EOR") = True Then
             If _nclasseOR.isEOR_Exists(SPIDCRefNo) = False Then
 
-
-                If _nclasseOR.getTransactionType(SPIDCRefNo) <> "RPT" Then Return False
-
                 Process.ACCTNO = _nclasseOR.getACCTNO(SPIDCRefNo)
-
-                '-----New Addedd 11-03-2023 JAY SITJAR-----
-                cSessionLoader._pTDN = _nclasseOR.getTDN1(Process.ACCTNO)
-                If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
-                    cSessionLoader._pTDN = _nclasseOR.getTDNHist1(Process.ACCTNO)
-                    If Not (cSessionLoader._pTDN Is Nothing) Then
-                        'Move RPT AssessmentFrom History To Current
-                        _nclasseOR.moveRPTAssessmentFromHistToCurrent1(Process.ACCTNO)
-                    Else
-                        'Do Nothing
-                    End If
-                End If
-
-                cSessionLoader._pTDN = _nclasseOR.getTDN(Process.ACCTNO)
-                If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
-                    cSessionLoader._pTDN = _nclasseOR.getTDNHist(Process.ACCTNO)
-                    If Not (cSessionLoader._pTDN Is Nothing) Then
-                        'Move RPT AssessmentFrom History To Current
-                        _nclasseOR.moveRPTAssessmentFromHistToCurrent(Process.ACCTNO)
-                    Else
-                        'Do Nothing
-                    End If
-                End If
-
-                cSessionLoader._pTDN = _nclasseOR.getTDN2(Process.ACCTNO)
-                If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
-                    cSessionLoader._pTDN = _nclasseOR.getTDNHist2(Process.ACCTNO)
-                    If Not (cSessionLoader._pTDN Is Nothing) Then
-                        'Move RPT AssessmentFrom History To Current
-                        _nclasseOR.moveRPTAssessmentFromHistToCurrent2(Process.ACCTNO)
-                    Else
-                        'Do Nothing
-                    End If
-                End If
-
-                cSessionLoader._pTDN = _nclasseOR.getTDN3(Process.ACCTNO)
-                If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
-                    cSessionLoader._pTDN = _nclasseOR.getTDNHist3(Process.ACCTNO)
-                    If Not (cSessionLoader._pTDN Is Nothing) Then
-                        'Move RPT AssessmentFrom History To Current
-                        _nclasseOR.moveRPTAssessmentFromHistToCurrent3(Process.ACCTNO)
-                    Else
-                        'Do Nothing
+                'If _nclasseOR.getTransactionType(SPIDCRefNo) <> "RPT" Then Return False
+                If _nclasseOR.getTransactionType(SPIDCRefNo) = "RPT" Then
+                    '-----New Addedd 11-03-2023 JAY SITJAR-----
+                    cSessionLoader._pTDN = _nclasseOR.getTDN1(Process.ACCTNO)
+                    If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
+                        cSessionLoader._pTDN = _nclasseOR.getTDNHist1(Process.ACCTNO)
+                        If Not (cSessionLoader._pTDN Is Nothing) Then
+                            'Move RPT AssessmentFrom History To Current
+                            _nclasseOR.moveRPTAssessmentFromHistToCurrent1(Process.ACCTNO)
+                        Else
+                            'Do Nothing
+                        End If
                     End If
 
+                    cSessionLoader._pTDN = _nclasseOR.getTDN(Process.ACCTNO)
+                    If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
+                        cSessionLoader._pTDN = _nclasseOR.getTDNHist(Process.ACCTNO)
+                        If Not (cSessionLoader._pTDN Is Nothing) Then
+                            'Move RPT AssessmentFrom History To Current
+                            _nclasseOR.moveRPTAssessmentFromHistToCurrent(Process.ACCTNO)
+                        Else
+                            'Do Nothing
+                        End If
+                    End If
+
+                    cSessionLoader._pTDN = _nclasseOR.getTDN2(Process.ACCTNO)
+                    If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
+                        cSessionLoader._pTDN = _nclasseOR.getTDNHist2(Process.ACCTNO)
+                        If Not (cSessionLoader._pTDN Is Nothing) Then
+                            'Move RPT AssessmentFrom History To Current
+                            _nclasseOR.moveRPTAssessmentFromHistToCurrent2(Process.ACCTNO)
+                        Else
+                            'Do Nothing
+                        End If
+                    End If
+
+                    cSessionLoader._pTDN = _nclasseOR.getTDN3(Process.ACCTNO)
+                    If cSessionLoader._pTDN Is Nothing Or cSessionLoader._pTDN = "" Then
+                        cSessionLoader._pTDN = _nclasseOR.getTDNHist3(Process.ACCTNO)
+                        If Not (cSessionLoader._pTDN Is Nothing) Then
+                            'Move RPT AssessmentFrom History To Current
+                            _nclasseOR.moveRPTAssessmentFromHistToCurrent3(Process.ACCTNO)
+                        Else
+                            'Do Nothing
+                        End If
+
+
+                    End If
+                    '-----End Addedd 11-03-2023 JAY SITJAR-----
+
 
                 End If
-                '-----End Addedd 11-03-2023 JAY SITJAR-----
 
                 Process.Gateway_Selected = SelectedGateway
                 Process.GatewayRefNo = PAYMENT_ID

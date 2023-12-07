@@ -20800,6 +20800,14 @@ _btnRunEORandPostingLBP2 control.
 Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
+</member><member name="F:SPIDC.runEORandPosting._oLiteral">
+	<summary>
+_oLiteral control.
+</summary>
+	<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
 </member><member name="F:SPIDC.runEORandPosting.Report_EOR">
 	<summary>
 Report_EOR control.

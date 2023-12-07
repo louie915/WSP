@@ -1208,9 +1208,6 @@ Public Class cDalNewBP
             '  "SELECT Application_ID,IIF(A_OWNERSHIP='Single',D_Lname + ' ' + D_FName +' ' + D_Mname + ' ' + D_Suffix,E_Lname + ' ' + E_FName +' ' + E_Mname + ' ' + E_Suffix) AS 'OWNER', A_BusName, [Status], (replace(replace(replace(B_HouseNo + ' ' + B_BldgName + ' ' + B_LotNo + ' ' + B_BlockNo + ' ' + B_Street + ' ' + B_Brgy + ' ' + B_Subd + ' ' + B_CityMunicipality + ' ' + B_Province + ' ' + B_ZipCode , ' ','<>'),'><',''),'<>',' ')) as 'BusAdd'" & _
             '  " FROM NEWBP_DRAFT where UserID='" & cSessionUser._pUserID & "' and Status <> 'Approved - For Payment'"
 
-
-
-
             _mSqlCommand = New SqlCommand(_nQuery, _mSqlCon)
             Dim _nSqlDataAdapter As New SqlDataAdapter(_nQuery, _mSqlCon) '_gDBCon
             _mDataTable = New DataTable

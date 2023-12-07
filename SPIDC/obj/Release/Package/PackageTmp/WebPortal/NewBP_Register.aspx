@@ -178,14 +178,11 @@
                     <div class="col-lg-12">
                         Your New Business Application is successfully submitted.<br />
                         We will email you for our response and update your account information.<br />
-                        Stay safe.
-
-                  
-           
+                        Stay safe.           
                     </div>
                     <center>
-                    <a href="Account.aspx" >Return to Home Page</a>
-                </center>
+                        <a href="Account.aspx" >Return to Home Page</a>
+                    </center>
 
                 </div>
             </div>
@@ -1622,6 +1619,8 @@
                   do_Save();                 
               }
           }
+
+
           function do_browse(ID, ReqCode, FS) {
 
               var fileName = document.getElementById(ID).value.toLowerCase();

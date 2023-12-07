@@ -22,7 +22,7 @@
                 End If
                 '-------- END
 
-                If cSessionUser._pOffice = "ASSESSOR" And cSessionUser._pUsertype = "LGU" Then
+                If (cSessionUser._pOffice = "ASSESSOR" Or cSessionUser._pOffice.ToString.Contains("LANDTAX")) And cSessionUser._pUsertype = "LGU" Then
                     _oLabelUserName.Text = "Welcome " & cSessionUser._pFirstName
                     _oLabelEmail.Text = cSessionUser._pUserID
                     Dim tst As String

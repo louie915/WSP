@@ -93,8 +93,8 @@
           </center>
           <center>
             <br /> <br />
-           <div runat="server">
-               <a href="https://dev.business.gov.ph/dashboard">Go to CBP Portal</a>
+           <div runat="server" display="none" >
+               <a href="https://dev.business.gov.ph/dashboard" >Go to CBP Portal</a>
            </div>
               </center>   
             <%--  <button class="button"  runat="server" id="_oButtonPrint_EnvelopeSeal" onclick="_oButton_Click"  UseSubmitBehavior="False" >Print Envelope Seal</button>

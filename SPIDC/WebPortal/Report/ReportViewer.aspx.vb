@@ -3298,7 +3298,9 @@ Public Class ReportViewer
 
                     paramReportHeader.Add(New ReportParameter("Param_PropIDNo", (.Rows(0).Item("H_PIN").ToString)))
 
-                    paramReportHeader.Add(New ReportParameter("Param_TotalCapitalization", (.Rows(0).Item("H_Capital").ToString)))
+                    ' paramReportHeader.Add(New ReportParameter("Param_TotalCapitalization", (.Rows(0).Item("H_Capital").ToString)))
+
+                    paramReportHeader.Add(New ReportParameter("Param_TotalCapitalization", _GetNewBP_Capitalization(_nAcctNo)))
 
 
                     _oRpt_EnvelopeSeal.LocalReport.SetParameters(paramReportHeader)
@@ -3335,6 +3337,35 @@ Public Class ReportViewer
 
 
     End Sub
+
+
+    Private Function _GetNewBP_Capitalization(ByVal _nAcctNo As String) As String
+        _GetNewBP_Capitalization = "0.00"
+        Try
+
+            Dim _nSqlDtr As SqlDataReader
+            Dim _nSqlDataAdpt As SqlDataAdapter
+            Dim _nSqlCommand = New SqlCommand("Select Sum(Isnull(Capital,0))Capital from BUSLINE   where acctno='" & _nAcctNo & "' ", cGlobalConnections._pSqlCxn_BPLTAS)
+
+            _nSqlDataAdpt = New SqlDataAdapter(_nSqlCommand)
+            Dim _nDataTable As New DataTable
+            _nDataTable = New DataTable
+
+            _nSqlDataAdpt.Fill(_nDataTable)
+            _nSqlCommand.Dispose()
+            _nSqlDataAdpt.Dispose()
+            If _nDataTable.Rows.Count <> 0 Then
+                Return _nDataTable.Rows(0).Item("Capital").ToString
+            Else
+                Return "0.00"
+            End If
+
+
+
+        Catch ex As Exception
+            Return "0.00"
+        End Try
+    End Function
 
 
     Public Function _mDtloadTOP(ByVal _nLocalCon As SqlConnection, ByVal _nAcctNo As String) As DataTable ''-------------Additional 20211211 mean

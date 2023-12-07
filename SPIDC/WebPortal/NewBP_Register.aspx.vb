@@ -554,6 +554,14 @@ Public Class NewBP_Register
 
     End Sub
 
+    Private Sub CheckExisitngRecord()
+        Try
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
 
     Private Sub btnNewSubmit_ServerClick(sender As Object, e As EventArgs) Handles btnNewSubmit.ServerClick
         Try
@@ -922,7 +930,9 @@ Public Class NewBP_Register
             cDalNewSendEmail.SendEmail(Emails, "New Business Application", Body, Sent)
 
             snackbar("green", "Application Submitted")
-            ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "popup", "openModalSubmit();", True)
+            Response.Redirect("./NotificationPages/ApplicationSuccess.aspx")
+
+            'ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "popup", "openModalSubmit();", True)
 
         Catch ex As Exception
             snackbar("red", ex.Message)

@@ -167,6 +167,15 @@ Partial Public Class runEORandPosting
     Protected WithEvents _btnRunEORandPostingLBP2 As Global.System.Web.UI.HtmlControls.HtmlButton
 
     '''<summary>
+    '''_oLiteral control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents _oLiteral As Global.System.Web.UI.WebControls.Literal
+
+    '''<summary>
     '''Report_EOR control.
     '''</summary>
     '''<remarks>

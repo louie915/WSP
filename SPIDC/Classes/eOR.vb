@@ -780,10 +780,11 @@ Public Class eOR
             ERR = Nothing
         Catch ex As Exception
             ERR = ex.Message
+            cEventLog._pSubEventLog(ex.Message)
         End Try
     End Sub
 
-    Public Shared Sub Update_eOR(ByVal eORno As String, Optional ByRef err As String = Nothing)
+    Public Shared Sub Update_eOR(ByVal eORno As String, Optional ByRef err As String = Nothing, Optional ByRef qry As String = Nothing)
         Try
             Dim QR_STRING As String = eOR.GET_QRstring(eORno)
             Dim _Query As String = Nothing
@@ -794,11 +795,12 @@ Public Class eOR
                 .AddWithValue("@QR_File", GenerateQRcode(QR_STRING))
             End With
             '----------------------------------
+            qry = _Query
             _SqlCommand.ExecuteNonQuery()
             '----------------------------------
 
         Catch ex As Exception
-
+            err = ex.Message & vbNewLine
         End Try
 
     End Sub
@@ -806,12 +808,17 @@ Public Class eOR
 
 
     Public Shared Sub Update_Sent(ByVal eORno As String, Optional ByRef err As String = Nothing)
-        Dim _Query As String = "UPDATE eOR set sent = 1 , sent_date=getdate() where eORno = '" & eORno & "'"
-        Dim _SqlCommand As New SqlCommand(_Query, cGlobalConnections._pSqlCxn_OAIMS)
-        _SqlCommand.ExecuteNonQuery()
+        Try
+            Dim _Query = "UPDATE eOR set sent = 1 , sent_date=getdate() where eORno = '" & eORno & "'"
+            Dim _SqlCommand As New SqlCommand(_Query, cGlobalConnections._pSqlCxn_OAIMS)
+            _SqlCommand.ExecuteNonQuery()
+        Catch ex As Exception
+            cEventLog._pSubEventLog(ex.Message & vbNewLine & "Update_Sent")
+        End Try
+
     End Sub
 
-    Public Shared Sub Insert_eOR_EXTN(ByVal TAXTYPE As String, ByVal eORno As String, ByVal srs As String, ByVal Seq As String, ByVal TDNBIN As String, Optional ByRef ERR As String = Nothing)
+    Public Shared Sub Insert_eOR_EXTN(ByVal TAXTYPE As String, ByVal eORno As String, ByVal srs As String, ByVal Seq As String, ByVal TDNBIN As String, Optional ByRef ERR As String = Nothing, Optional ByRef qry As String = Nothing)
         Dim _SQLcon As New SqlConnection
         Try
             Dim _Query1 As String = "INSERT INTO [" & cGlobalConnections._pSqlCxn_OAIMS.DataSource & "].[" & cGlobalConnections._pSqlCxn_OAIMS.Database & "].dbo.eOR_EXTN "
@@ -824,25 +831,25 @@ Public Class eOR
             If TAXTYPE = "BUSINESS PERMIT" Then
                 _SQLcon = cGlobalConnections._pSqlCxn_BPLTAS
                 _Query2 = _
-" select '" & eORno & "'eORNO,'" & Seq & "'ORNO,(Acctno)TDNBIN, (SubAcctCode)AccountCode, (SubAcctDesc)NatureOfCollection, sum(convert(money,xAmt_Pd)) as Amount from (" &
-" select Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, " &
-" isnull(xsquencelocal,'1') as xsquencelocal, sum(convert(money,Amt_Pd)) as xAmt_Pd, 0 as xRes1, 0 as xRes2,'DUE' as xPay from BILLINGTEMP where Acctno = '" & TDNBIN & "' and IsRegBill = '1' and MainAcctDesc <> '' and isnull(convert(money,Amt_Pd),0) <> 0 and not right(desc1,16) = '(Excess Payment)' and (not left(Desc1,9) = 'TaxCredit' or left(Desc1,17) = 'TaxCredit (Acctng') " &
-" group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal " &
-" Union " &
-" SELECT Acctno, MainAcctCodePen as MainAcctCode, MainAcctDescPen, SubAcctCodePen as SubAcctCode, SubAcctDescPen, xsquence, " &
-" xsquencepen, isnull(xsquencelocal,'1') as xsquencelocal, sum(convert(money,Amt_Penpd)) as xAmt_Pd, sum(convert(money,RES1)) as xRes1, sum(convert(money,RES2)) as xRes2,'PEN' as xPay from BILLINGTEMP where Acctno = '" & TDNBIN & "' and IsRegBill = '1' and MainAcctDescPen <> '' and isnull(convert(money,Amt_Penpd),0) <> 0 and (not left(Desc1,9) = 'TaxCredit' or left(Desc1,17) = 'TaxCredit (Acctng') " &
-" group by Acctno, MainAcctCodePen, MainAcctDescPen, SubAcctCodePen, SubAcctDescPen, xsquence, xsquencepen, xsquencelocal " &
-" Union " &
-" select Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, " &
-" isnull(xsquencelocal,'1') as xsquencelocal, sum(convert(money,Amt_Pd)) as xAmt_Pd, 0 as xRes1, 0 as xRes2,'XDUE' as xPay from BILLINGTEMP where Acctno = '" & TDNBIN & "' and IsRegBill = '1' and MainAcctDesc <> '' and isnull(convert(money,Amt_Pd),0) <> 0 and right(desc1,16) = '(Excess Payment)' " &
-" group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal " &
-" Union " &
-" select Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal, sum(convert(money,xAmt_Pd)) as xAmt_Pd, xRes1, xRes2, xPay from ( " &
-"       select Acctno, '---' as MainAcctCode, case when left(isnull(Remarks,'             '),13) = 'Tax Incentive' then 'Total Tax Credit/Incentive' else 'Total TaxCredit' end as MainAcctDesc, '---' as subAcctCode, case when left(isnull(Remarks,'             '),13) = 'Tax Incentive' then 'Total Tax Credit/Incentive' else 'Total TaxCredit' end as SubAcctDesc, xsquence, xsquencepen, 'x'  as xsquencelocal, sum(convert(money,Amt_Pd)) + sum(convert(money,Amt_Penpd)) as xAmt_Pd, 0 as xRes1, 0 as xRes2,'XDUEPEN' as xPay, isnull(Remarks,'') as Remark " &
-"       from BILLINGTEMP where Acctno = '" & TDNBIN & "' and IsRegBill = '1' and  MainAcctDesc <> ''  and (isnull(convert(money,Amt_Pd),0) <> 0 or isnull(Amt_Penpd,0) <> 0) and (left(Desc1,9) = 'TaxCredit' and not left(Desc1,17) = 'TaxCredit (Acctng') " &
-"       group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal, Remarks ) as yyy " &
-" group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal, xRes1, xRes2, xPay " &
-" ) as xxx group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen order by MainAcctCode,SubAcctCode"
+                            " select '" & eORno & "'eORNO,'" & Seq & "'ORNO,(Acctno)TDNBIN, (SubAcctCode)AccountCode, (SubAcctDesc)NatureOfCollection, sum(convert(money,xAmt_Pd)) as Amount from (" &
+                            " select Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, " &
+                            " isnull(xsquencelocal,'1') as xsquencelocal, sum(convert(money,Amt_Pd)) as xAmt_Pd, 0 as xRes1, 0 as xRes2,'DUE' as xPay from BILLINGTEMP where Acctno = '" & TDNBIN & "' and IsRegBill = '1' and MainAcctDesc <> '' and isnull(convert(money,Amt_Pd),0) <> 0 and not right(desc1,16) = '(Excess Payment)' and (not left(Desc1,9) = 'TaxCredit' or left(Desc1,17) = 'TaxCredit (Acctng') " &
+                            " group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal " &
+                            " Union " &
+                            " SELECT Acctno, MainAcctCodePen as MainAcctCode, MainAcctDescPen, SubAcctCodePen as SubAcctCode, SubAcctDescPen, xsquence, " &
+                            " xsquencepen, isnull(xsquencelocal,'1') as xsquencelocal, sum(convert(money,Amt_Penpd)) as xAmt_Pd, sum(convert(money,RES1)) as xRes1, sum(convert(money,RES2)) as xRes2,'PEN' as xPay from BILLINGTEMP where Acctno = '" & TDNBIN & "' and IsRegBill = '1' and MainAcctDescPen <> '' and isnull(convert(money,Amt_Penpd),0) <> 0 and (not left(Desc1,9) = 'TaxCredit' or left(Desc1,17) = 'TaxCredit (Acctng') " &
+                            " group by Acctno, MainAcctCodePen, MainAcctDescPen, SubAcctCodePen, SubAcctDescPen, xsquence, xsquencepen, xsquencelocal " &
+                            " Union " &
+                            " select Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, " &
+                            " isnull(xsquencelocal,'1') as xsquencelocal, sum(convert(money,Amt_Pd)) as xAmt_Pd, 0 as xRes1, 0 as xRes2,'XDUE' as xPay from BILLINGTEMP where Acctno = '" & TDNBIN & "' and IsRegBill = '1' and MainAcctDesc <> '' and isnull(convert(money,Amt_Pd),0) <> 0 and right(desc1,16) = '(Excess Payment)' " &
+                            " group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal " &
+                            " Union " &
+                            " select Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal, sum(convert(money,xAmt_Pd)) as xAmt_Pd, xRes1, xRes2, xPay from ( " &
+                            "       select Acctno, '---' as MainAcctCode, case when left(isnull(Remarks,'             '),13) = 'Tax Incentive' then 'Total Tax Credit/Incentive' else 'Total TaxCredit' end as MainAcctDesc, '---' as subAcctCode, case when left(isnull(Remarks,'             '),13) = 'Tax Incentive' then 'Total Tax Credit/Incentive' else 'Total TaxCredit' end as SubAcctDesc, xsquence, xsquencepen, 'x'  as xsquencelocal, sum(convert(money,Amt_Pd)) + sum(convert(money,Amt_Penpd)) as xAmt_Pd, 0 as xRes1, 0 as xRes2,'XDUEPEN' as xPay, isnull(Remarks,'') as Remark " &
+                            "       from BILLINGTEMP where Acctno = '" & TDNBIN & "' and IsRegBill = '1' and  MainAcctDesc <> ''  and (isnull(convert(money,Amt_Pd),0) <> 0 or isnull(Amt_Penpd,0) <> 0) and (left(Desc1,9) = 'TaxCredit' and not left(Desc1,17) = 'TaxCredit (Acctng') " &
+                            "       group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal, Remarks ) as yyy " &
+                            " group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen, xsquencelocal, xRes1, xRes2, xPay " &
+                            " ) as xxx group by Acctno, MainAcctCode, MainAcctDesc, SubAcctCode, SubAcctDesc, xsquence, xsquencepen order by MainAcctCode,SubAcctCode"
 
 
             ElseIf TAXTYPE = "REAL PROPERTY TAX" Then
@@ -854,11 +861,14 @@ Public Class eOR
 
             End If
 
+            qry = _Query1 & _Query2 & ": " & _SQLcon.ConnectionString.ToString
+
             Dim _SqlCommand As New SqlCommand(_Query1 & _Query2, _SQLcon)
             _SqlCommand.ExecuteNonQuery()
 
         Catch ex As Exception
-            ERR = ex.Message
+            ERR = ex.Message & vbNewLine & qry
+            cEventLog._pSubEventLog(ex.Message & vbNewLine & qry)
         End Try
     End Sub
 

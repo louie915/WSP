@@ -1,4 +1,7 @@
-﻿Public Class cPaymentParameters
+﻿Imports System.Data.SqlClient
+
+Public Class cPaymentParameters
+    Private Shared _mSqlCommand As New SqlCommand
 
     Public Shared _ptrxnamt As String
     Public Shared _pmerchantcodex As String
@@ -31,7 +34,7 @@
     Public Shared _pSecretKey As String
     Public Shared _pLBPDomain As String
 
- 
+
     Public Shared Sub LBP(trxnamt As String _
        , merchantcodex As String _
        , trxndetails As String _
@@ -54,7 +57,7 @@
        , trandetail17 As String _
        , trandetail18 As String _
        , trandetail19 As String _
-       , trandetail20 As String )
+       , trandetail20 As String)
 
         _ptrxnamt = trxnamt
         _pmerchantcodex = merchantcodex
@@ -105,7 +108,7 @@
         _ptrandetail17 & _
         _ptrandetail18 & _
         _ptrandetail19 & _
-        _ptrandetail20 
+        _ptrandetail20
 
     End Function
 
@@ -139,5 +142,39 @@
 
 
     End Function
+
+
+
+    Public Shared Function GetBP_TransactionType(ByVal _nCode)
+        GetBP_TransactionType = Nothing
+        Try
+
+            Dim _nQuery As String = Nothing
+            Dim result As Boolean
+            _nQuery = _
+           "select ParameterValue from LBP_TransactionType  where Code='" & _nCode & "' "
+            _mSqlCommand = New SqlCommand(_nQuery, cGlobalConnections._pSqlCxn_CR)
+            '----------------------------------
+            Using _nSqlDataReader As SqlDataReader = _mSqlCommand.ExecuteReader
+                With _nSqlDataReader
+                    .Read()
+                    Dim ParameterValue As Integer = .GetOrdinal("ParameterValue")
+                    If .HasRows Then
+                        Return _nSqlDataReader(ParameterValue).ToString()
+                    End If
+
+                    .Close()
+                End With
+
+            End Using
+            _mSqlCommand.Dispose()
+            Return result
+        Catch ex As Exception
+            _mSqlCommand.Dispose()
+        End Try
+
+    End Function
+
+
 
 End Class

@@ -345,6 +345,19 @@ Public Class Account
                     Dim Err As String = Nothing
                     Dim _nclassGetModules As New cDalGetModules
                     _nclassGetModules._pSqlConnection = cGlobalConnections._pSqlCxn_CR
+
+                    If cDalGetModuleSetup.RPT_DisableCurrentYearDropDown = True Then
+
+                        Dim HasCurrentYearToPay As New cDalSOSRPTAS
+                        HasCurrentYearToPay._pSqlConnection = cGlobalConnections._pSqlCxn_RPTAS
+                        If HasCurrentYearToPay.HasPendingCurrentYearToPay(cSessionLoader._pTDN, Err) = True Then
+                            snackbar("red", "Please be advised that ONLY advance payment will be accommodated.")
+                            Exit Sub
+                        End If
+
+                    End If
+
+
                     If _nclassGetModules._pSubGetAvailableModules("RPT_Payment_Delinquent") = False Then
                         Dim _nClassDelinquent As New cDalSOSRPTAS
                         _nClassDelinquent._pSqlConnection = cGlobalConnections._pSqlCxn_RPTAS
@@ -407,7 +420,7 @@ Public Class Account
 
                     Dim _nClass As New cDalPayment
                     _nClass._pSqlConnection = cGlobalConnections._pSqlCxn_OAIMS
-                 
+
                     'If _nClass.PaymentAttemptFound(_tdn, _webassessno, _txnrefno, _amount) Then
                     '    cDalPayment._WebAssessNo = _webassessno
                     '    cDalPayment._TXNREFNO = _txnrefno

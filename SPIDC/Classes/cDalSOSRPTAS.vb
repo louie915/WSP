@@ -172,6 +172,7 @@ Public Class cDalSOSRPTAS
             _mEmail = value
         End Set
     End Property
+
 #End Region
 
 #Region "Routine Command"
@@ -219,6 +220,7 @@ Public Class cDalSOSRPTAS
 
         'End Try
     End Sub
+
     Public Sub _pSubInsert()
         'Try
         '    '----------------------------------
@@ -283,6 +285,7 @@ Public Class cDalSOSRPTAS
 
         'End Try
     End Sub
+
     Public Sub _pSubUpdate()
         'Try
         '    '----------------------------------
@@ -365,6 +368,7 @@ Public Class cDalSOSRPTAS
 
         'End Try
     End Sub
+
     Public Sub _pSubDelete()
         'Try
         '    '----------------------------------
@@ -424,6 +428,7 @@ Public Class cDalSOSRPTAS
 
         'End Try
     End Sub
+
     Public Sub _pSubGetServerDate()
 
         'Try
@@ -474,7 +479,6 @@ Public Class cDalSOSRPTAS
 
     End Sub
 
-
     Public Sub _pValidateTdn(Optional ByRef Err As String = Nothing, Optional ByRef Qry As String = Nothing)
         Try
             Dim _nQuery As String = Nothing
@@ -518,6 +522,7 @@ Public Class cDalSOSRPTAS
 
 
     End Sub
+
     Public Sub _pSubSelect()
 
         Try
@@ -664,7 +669,6 @@ Public Class cDalSOSRPTAS
         'End Try
     End Sub
 
-
     Public Sub _pSubGetSpecificRecord_getid()
         'Try
         '    '----------------------------------
@@ -758,7 +762,6 @@ Public Class cDalSOSRPTAS
         End Try
     End Sub
 
-
     Public Sub _getNotificationCtr_RPT()
         Try
             Dim _nQuery As String =
@@ -849,6 +852,42 @@ Public Class cDalSOSRPTAS
         End Try
         Return Delinquent
     End Function
+
+    Public Function HasPendingCurrentYearToPay(ByVal TDN As String, ByRef Err As String) As Boolean
+        HasPendingCurrentYearToPay = False
+        Try
+            Dim _nQuery As String = Nothing
+            Dim _nWhere As String = Nothing
+            ' _nQuery = " SELECT top 1 L.TDN,P.ORNO,L.FOR_YEAR,L.LQP FROM LEDGER  L" & _
+            '           " INNER JOIN PAYMENT P ON L.TDN=P.TDN" & _
+            '           " WHERE L.TAX_CODE='BASIC' AND L.FOR_YEAR=YEAR(GETDATE())-1 AND L.LQP='4' AND L.TDN=" & TDN & " order by p.orno desc"
+
+            _nQuery = "" & _
+                           " Select distinct  L1.tdn,  L1.For_year,  L1.Kind , mAX(L2.Lqp)lqp ,  Max(L2.Date_paid)  LastDatePaid from LEDGER L1 " & _
+                           " inner Join                                                                                                        " & _
+                           " LEDGER L2 on L1.TDN = L2.TDN and L1.For_year = L2.For_year AND L1.Kind = L2.Kind                                  " & _
+                           " Where  L1.TDN in (" & TDN & ")          " & _
+                           " and   L1.For_year =  YEAR(GETDATE())                                                                              " & _
+                           " and  L1.Lqp <  DATEPART(QUARTER, GETDATE())                                                                       " & _
+                           " Group by  L1.tdn,  L1.For_year,  L1.Kind, L1.Date_paid                                                            "
+
+            _mSqlCommand = New SqlCommand(_nQuery, _mSqlCon)
+            Using _nSqlDr As SqlDataReader = _mSqlCommand.ExecuteReader
+                If _nSqlDr.HasRows Then
+                    Return True
+                Else
+                    Return False
+                    End If
+                End Using
+            Err = "OK"
+            _mSqlCommand.Dispose()
+        Catch ex As Exception
+            Err = ex.Message
+            Return False
+        End Try
+
+    End Function
+
 
     Public Function hasTaxCredit(ByVal TDN As String, ByRef Err As String) As Boolean
         Dim _hasTaxCredit As Boolean

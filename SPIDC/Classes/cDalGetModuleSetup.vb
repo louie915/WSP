@@ -5,6 +5,11 @@
             Return IIf(GetSetupValue("BP_DisplayTaxbase") = True, False, True)
     End Function
 
+    Public Shared Function RPT_DisableCurrentYearDropDown() As Boolean
+        RPT_DisableCurrentYearDropDown = True
+        Return GetSetupValue("RPT_DisableCurrentYearDropDown")
+    End Function
+
     Private Shared Function GetSetupValue(SubModule As String) As Boolean
         Dim _nClass As New cDalGetModules
         _nClass._pSqlConnection = cGlobalConnections._pSqlCxn_CR
